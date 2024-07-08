@@ -42,7 +42,7 @@ function getUrlByName($name)
 
     $urls = [
         "twitter" => "https://www.x.com/#twitter",
-        "github" => "https://www.github.com/#github",
+        "github" => "https://github.com/brcomb3d",
         "slack" => "https://www.slack.com/#slack",
         "politicacookies" => getPageUrlBySlug('legal/politica-de-cookies'),
         "desenvolvedor" => getPageUrlBySlug('desenvolvedor'),
