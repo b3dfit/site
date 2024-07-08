@@ -1,0 +1,7 @@
+vendor/*
+node_modules/*
+node_modules
+.vscode/
+composer.lock
+.env.php
+package-lock.json

@@ -1,0 +1,168 @@
+/* Importação do Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+figure.wp-block-gallery.has-nested-images .wp-block-image {
+    flex-grow: inherit;
+}
+
+figure.wp-block-gallery.has-nested-images .wp-block-image figure {
+    flex-direction: column;
+}
+
+figure.wp-block-gallery.has-nested-images {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 0;
+    margin-bottom: 30px;
+}
+
+figure.wp-block-gallery.has-nested-images .wp-block-image {
+    padding: 0 2.5% 0 2.5%;
+    width: 50%;
+}
+
+figure figcaption {
+    @apply m-0 text-sm text-center text-zinc-500 dark:text-neutral-500 w-full;
+}
+
+.content a {
+    @apply text-blue-700 border-b-2 border-solid border-b-blue-600 hover:text-blue-500 hover:border-b-blue-600;
+}
+
+.content a.link {
+    @apply bg-zinc-950 block border-2 border-zinc-950 dark:bg-white dark:border-white dark:text-zinc-950 hover:text-zinc-500 lowercase mb-16 ml-auto mr-auto mt-10 px-6 py-2 rounded-md text-base text-center text-white w-1/2;
+}
+
+.content iframe.full {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.wp-block-heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold md:text-2xl dark:text-white text-zinc-950 mt-10 mb-5;
+}
+
+h1 {
+    @apply text-4xl;
+}
+
+h2 {
+    @apply text-3xl;
+}
+
+h3 {
+    @apply text-2xl;
+}
+
+h4 {
+    @apply text-base;
+}
+
+h5 {
+    @apply text-sm;
+}
+
+h6 {
+    @apply text-xs;
+}
+
+.content p {
+    @apply text-lg text-zinc-950 dark:text-white;
+}
+
+#page .content p {
+    @apply text-zinc-950 dark:text-white;
+}
+
+.content figure img,
+.content img {
+    @apply w-full object-cover rounded-xl my-10 mb-2;
+}
+
+
+.content blockquote {
+    @apply text-center p-4 sm:px-7;
+}
+
+.content blockquote p {
+    @apply text-xl font-medium text-zinc-950 md:text-2xl md:leading-normal xl:text-2xl xl:leading-normal dark:text-neutral-200;
+}
+
+.content blockquote p:nth-child(2) {
+    @apply mt-5 text-zinc-950 dark:text-neutral-200 text-sm;
+}
+
+.content div {
+    @apply mx-5;
+}
+
+.wp-block-media-text.has-media-on-the-right {
+    @apply grid items-center;
+}
+
+.wp-block-media-text.has-media-on-the-right img{
+    @apply ml-5;
+}
+
+div.wp-block-media-text {
+    @apply m-0 px-4 text-justify mb-12 grid;
+}
+
+.wp-block-media-text.is-vertically-aligned-bottom {
+    @apply grid items-end;
+}
+
+.wp-block-media-text.is-vertically-aligned-top {
+    @apply grid items-start;
+}
+
+.wp-block-media-text.is-vertically-aligned-center {
+    @apply grid items-center;
+}
+
+.wp-block-media-text .wp-block-media-text__content,
+.wp-block-media-text .wp-block-media-text__content p {
+    @apply mx-5;
+}
+
+/* .wp-block-media-text .wp-block-media-text__media img {
+    @apply m-0;
+} */
+
+
+.content ul,
+.content ol {
+    @apply text-lg text-zinc-950 dark:text-white list-inside list-disc my-4;
+}
+
+.content li {
+    @apply ps-2;
+}
+
+.content .table-content {
+    @apply list-decimal m-0 mb-32 p-0;
+}
+
+.content .table-content .index-anchor {
+    @apply mt-32;
+}

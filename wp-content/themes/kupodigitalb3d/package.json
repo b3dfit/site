@@ -1,0 +1,25 @@
+{
+  "name": "kupodigitalb3d",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch:css": "postcss assets/src/css/main.css -o dist/css/output.css --watch",
+    "watch:js": "watchify assets/src/js/main.js -o dist/js/bundle.js -v"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "postcss": "^8.4.39",
+    "preline": "^2.3.0",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.4",
+    "postcss-cli": "^11.0.0",
+    "postcss-preset-env": "^9.5.15",
+    "watchify": "^4.0.0"
+  }
+}
