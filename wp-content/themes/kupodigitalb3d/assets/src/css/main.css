@@ -120,7 +120,7 @@ h6 {
     @apply grid items-center;
 }
 
-.wp-block-media-text.has-media-on-the-right img{
+.wp-block-media-text.has-media-on-the-right img {
     @apply ml-5;
 }
 
@@ -143,6 +143,10 @@ div.wp-block-media-text {
 .wp-block-media-text .wp-block-media-text__content,
 .wp-block-media-text .wp-block-media-text__content p {
     @apply mx-5;
+}
+
+.wp-element-caption {
+    @apply text-xs text-zinc-600 mb-4;
 }
 
 /* .wp-block-media-text .wp-block-media-text__media img {

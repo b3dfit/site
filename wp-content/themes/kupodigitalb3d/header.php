@@ -30,9 +30,11 @@
   <!-- Title -->
   <title><?php the_title(); ?></title>
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="https://preline.co/favicon.ico">
-  <!-- Font -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/files/dist/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/dist/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/dist/images/favicon-16x16.png">
+<link rel="manifest" href="/files/dist/images/site.webmanifest">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- CSS HS -->
   <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css">

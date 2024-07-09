@@ -7,8 +7,8 @@
         <div class="flex items-center justify-between">
             <!-- Logo -->
             <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
-                href="/" aria-label="Preline">
-                <img src="<?php echo (get_template_directory_uri()); ?>/assets/image/b3d-middle.svg" width="90px"
+                href="/" aria-label="Logo">
+                <img src="/files/dist/images/b3d-lime.svg" width="50px"class="mb-2"
                     alt="Logo">
             </a>
             <!-- End Logo -->

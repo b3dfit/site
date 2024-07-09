@@ -6,9 +6,9 @@
   <main id="content">
     <!-- Hero -->
     <div class="dark:bg-zinc-950">
-      <div class="max-w-5xl mx-auto px-4 xl:px-0 pt-24 lg:pt-32 pb-24">
+      <div class="max-w-5xl mx-auto px-4 xl:px-0 pt-24 lg:pt-24 pb-24">
         <h1 class="font-semibold dark:text-white text-5xl md:text-6xl">
-          <span class="dark:text-zinc-50">Building³ Discipline</span>: o primeiro passo rumo ao seu novo eu!
+          <span class="text-white bg-zinc-950 dark:text-zinc-950 dark:bg-white rounded-lg ">&nbsp;Building<span class="text-lime-400 dark:text-lime-500 ">³</span> Discipline </span>: o primeiro passo rumo ao seu novo eu!
         </h1>
         <div class="max-w-4xl">
           <p class="mt-5 dark:text-neutral-400 text-lg">
