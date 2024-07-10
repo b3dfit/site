@@ -1,6 +1,0 @@
-[09-Jul-2024 20:57:46 UTC] PHP Deprecated:  Implicit conversion from float-string "8.4" to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 77
-[09-Jul-2024 20:59:56 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
-[09-Jul-2024 20:59:57 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
-[09-Jul-2024 21:00:44 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
-[09-Jul-2024 21:02:04 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
-[09-Jul-2024 21:18:40 UTC] PHP Parse error:  syntax error, unexpected token ";" in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/single-loja.php on line 5

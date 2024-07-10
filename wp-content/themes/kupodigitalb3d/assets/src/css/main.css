@@ -174,3 +174,7 @@ div.wp-block-media-text {
 .content .table-content .index-anchor {
     @apply mt-32;
 }
+
+.svg-store svg {
+    @apply fill-lime-500 dark:fill-white w-full h-fit;
+}

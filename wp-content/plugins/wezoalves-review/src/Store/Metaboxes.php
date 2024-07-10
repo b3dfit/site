@@ -22,6 +22,7 @@ function review_cpt_callback($post)
 
 
     $logo = get_post_meta($post->ID, $store_key . '_logo', true);
+    $logosvg = get_post_meta($post->ID, $store_key . '_logosvg', true);
     $description = get_post_meta($post->ID, $store_key . '_description', true);
     $domain = get_post_meta($post->ID, $store_key . '_domain', true);
     $url = get_post_meta($post->ID, $store_key . '_url', true);
@@ -45,6 +46,10 @@ function review_cpt_callback($post)
                     <?php endif; ?>
                 </div>
             </td>
+        </tr>
+        <tr>
+            <th><label for="logosvg">SVG Logo</label></th>
+            <td><textarea id="logosvg" name="<?php echo ($store_key . '_logosvg'); ?>" rows="5" cols="50"><?php echo esc_textarea($logosvg); ?></textarea></td>
         </tr>
         <tr>
             <th><label for="description">Descrição da Loja</label></th>

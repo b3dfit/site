@@ -1,0 +1,32 @@
+[
+    {
+        "stats": "Nike Air Zoom Pegasus, Adidas Ultraboost, Asics Gel-Kayano",
+        "title": "Modelos Populares de Tênis",
+        "description": "Entre os usuários do Strava, os modelos mais populares incluem Nike Air Zoom Pegasus, Adidas Ultraboost, e Asics Gel-Kayano."
+    },
+    {
+        "stats": "600-800 km",
+        "title": "Troca de Tênis",
+        "description": "Corredores trocam seus tênis de corrida, em média, a cada 600-800 km."
+    },
+    {
+        "stats": "R$ 1.000 - R$ 2.000",
+        "title": "Investimento Anual em Tênis",
+        "description": "Os corredores gastam, em média, R$ 1.000 a R$ 2.000 por ano em tênis de corrida."
+    },
+    {
+        "stats": "5K e 10K",
+        "title": "Corridas Mais Populares",
+        "description": "As corridas de 5K e 10K são as mais populares entre os corredores do Strava."
+    },
+    {
+        "stats": "1 em cada 3",
+        "title": "Desafios Concluídos",
+        "description": "1 em cada 3 usuários participa de desafios mensais no Strava, como correr 100 km em um mês."
+    },
+    {
+        "stats": "10 pares",
+        "title": "Total de Tênis Usados",
+        "description": "Se um corredor médio trocar seus tênis a cada 700 km, ele usará cerca de 10 pares de tênis ao longo de 7.000 km."
+    }
+]

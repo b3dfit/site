@@ -1,0 +1,32 @@
+[
+    {
+        "stats": "50 minutos",
+        "title": "Tempo Médio de Corrida",
+        "description": "A duração média de uma corrida é de aproximadamente 50 minutos."
+    },
+    {
+        "stats": "8 km",
+        "title": "Distância Média por Corrida",
+        "description": "A distância média percorrida por corrida é de cerca de 8 km."
+    },
+    {
+        "stats": "25%",
+        "title": "Melhorias na Performance",
+        "description": "25% dos corredores no Strava registram uma melhoria na performance (tempo de corrida) em um ano."
+    },
+    {
+        "stats": "20%",
+        "title": "PRs (Personal Records)",
+        "description": "Corredores estabelecem um novo PR em 20% das suas corridas anuais."
+    },
+    {
+        "stats": "80%",
+        "title": "Uso de GPS e Wearables",
+        "description": "80% dos corredores usam dispositivos GPS ou smartwatches para registrar suas corridas."
+    },
+    {
+        "stats": "65%",
+        "title": "Compartilhamento em Redes Sociais",
+        "description": "65% dos usuários do Strava compartilham suas atividades de corrida nas redes sociais."
+    }
+]

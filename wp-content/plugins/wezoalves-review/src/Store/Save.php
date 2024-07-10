@@ -21,6 +21,7 @@ function cpt_lojas_save_details($post_id)
     }
 
     $logo = sanitize_text_field($_POST[$store_key . '_logo']);
+    $logosvg = $_POST[$store_key . '_logosvg'];
     $description = sanitize_textarea_field($_POST[$store_key . '_description']);
     $domain = sanitize_text_field($_POST[$store_key . '_domain']);
     $url = esc_url_raw($_POST[$store_key . '_url']);
@@ -38,6 +39,7 @@ function cpt_lojas_save_details($post_id)
     }, $_POST[$store_key . '_affiliate']) : null;
 
     update_post_meta($post_id, $store_key . '_logo', $logo);
+    update_post_meta($post_id, $store_key . '_logosvg', $logosvg);
     update_post_meta($post_id, $store_key . '_description', $description);
     update_post_meta($post_id, $store_key . '_domain', $domain);
     update_post_meta($post_id, $store_key . '_url', $url);

@@ -31,9 +31,9 @@
   <title><?php the_title(); ?></title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/files/dist/images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/files/dist/images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/files/dist/images/favicon-16x16.png">
-<link rel="manifest" href="/files/dist/images/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="/files/dist/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/files/dist/images/favicon-16x16.png">
+  <link rel="manifest" href="/files/dist/images/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- CSS HS -->
@@ -46,5 +46,5 @@
 <body class="dark:bg-zinc-950">
 
   <!-- ========== HEADER ========== -->
-   <?php get_template_part('parts/header'); ?>
+  <?php get_template_part('parts/header'); ?>
   <!-- ========== END HEADER ========== -->
