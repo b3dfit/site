@@ -160,14 +160,14 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
 
             <!-- Content -->
             <div class="space-y-5 md:space-y-8 content">
-                <div class="space-y-2">
+                <div class="space-y-2 w-full">
                     <h1 class="text-4xl font-bold md:text-4xl dark:text-white"><?php the_title(); ?></h1>
                     <p class="text-lg "><?php the_excerpt(); ?></p>
                 </div>
 
                 <?php if ($post_image) : ?>
                     <img class="-left-0  h-auto rounded-none size-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                        src="<?php echo $post_image; ?>" alt="<?php echo get_the_title(); ?>">
+                        src="<?php echo $post_image; ?>" alt="<?php echo get_the_title(); ?>" />
                 <?php endif; ?>
 
                 <div class="text-lg --space-y-3 mt-80">
