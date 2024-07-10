@@ -168,7 +168,7 @@ div.wp-block-media-text {
 }
 
 .content .table-content {
-    @apply list-decimal m-0 mb-32 p-0;
+    @apply list-decimal m-0 mb-5 p-0;
 }
 
 .content .table-content .index-anchor {
