@@ -9,7 +9,7 @@
 
 
     <!-- Card Blog -->
-    <div class="max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto text-zinc-950 dark:text-white">
         <!-- Grid -->
         <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
 
@@ -48,28 +48,27 @@
                     $description = get_the_excerpt($post->ID);
                     $html = <<<HTML
                     <!-- Card -->
-                    <a class="group rounded-xl overflow-hidden" href="{$link}">
+                    <a class="group rounded-xl overflow-hidden shadow-md px-5" href="{$link}">
                         <div class="flex">
                             <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
-                            <div class="flex group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl fill-black bg-white dark:bg-zinc-950  items-center svg-page-stores">
-                            {$svg}
-                            </div>
                             
-                            <!--img class="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
-                                    src="{$image}"
-                                    
-                                    alt="Image Description"-->
+                                <div class="flex group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl fill-black bg-white dark:bg-zinc-950  items-center svg-page-stores">
+                                    {$svg}
+                                </div>
+                                
+                                <!--img class="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
+                                        src="{$image}"
+                                        
+                                        alt="Image Description"-->
 
-
-                                    
                             </div>
 
-                            <div class="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
+                            <div class="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0 mb-2">
                                 <h3
-                                    class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white">
+                                    class="text-xl font-semibold  group-hover:text-gray-600  dark:group-hover:text-white">
                                     {$name}
                                 </h3>
-                                <p class="mt-3 text-gray-600 dark:text-neutral-400">
+                                <p class="mt-3 ">
                                     {$description}
                                 </p>
                                 <p
