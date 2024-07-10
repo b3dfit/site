@@ -2437,6 +2437,7 @@ div.wp-block-media-text {
 .svg-store svg {
   height: -moz-fit-content;
   height: fit-content;
+  min-height: 18rem;
   width: 100%;
   fill: #84cc16;
 }
