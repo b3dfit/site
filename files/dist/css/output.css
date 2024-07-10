@@ -866,6 +866,14 @@ select {
   top: 100%;
 }
 
+.-bottom-0 {
+  bottom: -0px;
+}
+
+.-bottom-1 {
+  bottom: -0.25rem;
+}
+
 .-z-\[1\] {
   z-index: -1;
 }
