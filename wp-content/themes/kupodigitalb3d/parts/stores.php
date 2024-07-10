@@ -1,5 +1,5 @@
-<div class="relative overflow-hidden pt-4 dark:bg-zinc-950">
-    <svg class="absolute -bottom-20 start-1/2 w-[1900px] transform -translate-x-1/2" width="2745" height="488"
+<div class="w-full relative overflow-hidden pt-4 dark:bg-zinc-950">
+    <svg class="absolute -bottom-20 start-1/2 w-full transform -translate-x-1/2" height="488"
         viewBox="0 0 2745 488" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M0.5 330.864C232.505 403.801 853.749 527.683 1482.69 439.719C2111.63 351.756 2585.54 434.588 2743.87 487"
@@ -60,7 +60,7 @@
                 <?php
                 $args = array(
                     'post_type' => 'loja',
-                    'posts_per_page' => 10,
+                    'posts_per_page' => 8,
                     'orderby' => 'rand',
                     'meta_query' => array(
                         array(
