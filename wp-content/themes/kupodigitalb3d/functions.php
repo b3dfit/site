@@ -2,7 +2,7 @@
 
 function theme_enqueue_styles()
 {
-    wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '1.0.1', 'all');
+    wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '1.0.1.'.rand(0,999), 'all');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 

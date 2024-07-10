@@ -18,7 +18,7 @@
     content="Discover the difference that a professionally crafted website can make for your business.">
   <meta name="twitter:image" content="https://preline.co/assets/img/og-image.png">
 
-  <meta property="og:url" content="https://preline.co/">
+  <meta property="og:url" content="https://www.b3d.com.br/">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="<?php the_title(); ?>">
