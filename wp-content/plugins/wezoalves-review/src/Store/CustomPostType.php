@@ -29,7 +29,7 @@ function cpt_lojas_init() {
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-store',
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor'),
         'show_in_rest' => true
     );
 

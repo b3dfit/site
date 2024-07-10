@@ -21,25 +21,34 @@ function cpt_lojas_save_details($post_id)
     }
 
     $logo = sanitize_text_field($_POST[$store_key . '_logo']);
-    $descricao = sanitize_textarea_field($_POST[$store_key . '_description']);
-    $site = esc_url_raw($_POST[$store_key . '_domain']);
+    $description = sanitize_textarea_field($_POST[$store_key . '_description']);
+    $domain = sanitize_text_field($_POST[$store_key . '_domain']);
     $url = esc_url_raw($_POST[$store_key . '_url']);
     $comissao = floatval($_POST[$store_key . '_comission']);
     $email = sanitize_email($_POST[$store_key . '_email']);
-    $programas = array_map(function ($programa) {
+    $ra_shortname = sanitize_text_field($_POST[$store_key . '_ra_shortname']);
+    $ra_storeid = sanitize_text_field($_POST[$store_key . '_ra_storeid']);
+    $ra_score = sanitize_text_field($_POST[$store_key . '_ra_score']);
+    $programas = isset($_POST[$store_key . '_affiliate']) ? array_map(function ($programa) {
         return array(
             'plataforma' => sanitize_text_field($programa['plataforma']),
             'id_advertiser' => sanitize_text_field($programa['id_advertiser']),
             'id_publisher' => sanitize_text_field($programa['id_publisher']),
         );
-    }, $_POST[$store_key . '_affiliate']);
+    }, $_POST[$store_key . '_affiliate']) : null;
 
     update_post_meta($post_id, $store_key . '_logo', $logo);
-    update_post_meta($post_id, $store_key . '_description', $descricao);
-    update_post_meta($post_id, $store_key . '_domain', $site);
+    update_post_meta($post_id, $store_key . '_description', $description);
+    update_post_meta($post_id, $store_key . '_domain', $domain);
     update_post_meta($post_id, $store_key . '_url', $url);
     update_post_meta($post_id, $store_key . '_comission', $comissao);
     update_post_meta($post_id, $store_key . '_email', $email);
     update_post_meta($post_id, $store_key . '_affiliate', $programas);
+    update_post_meta($post_id, $store_key . '_ra_shortname', $ra_shortname);
+    update_post_meta($post_id, $store_key . '_ra_storeid', $ra_storeid);
+    update_post_meta($post_id, $store_key . '_ra_score', $ra_score);
+
+
+
 }
 add_action('save_post', 'cpt_lojas_save_details');

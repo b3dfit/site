@@ -1,48 +1,6 @@
-[09-Jul-2024 01:19:26 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/TenisMetaboxes.php:34
-Stack trace:
-#0 /mnt/FILES/REPOSITORIES/b3d/www/wp-admin/includes/template.php(1456): cpt_tenis_details_callback()
-#1 /mnt/FILES/REPOSITORIES/b3d/www/wp-admin/includes/post.php(2382): do_meta_boxes()
-#2 /mnt/FILES/REPOSITORIES/b3d/www/wp-admin/edit-form-blocks.php(316): the_block_editor_meta_boxes()
-#3 /mnt/FILES/REPOSITORIES/b3d/www/wp-admin/post-new.php(72): require('...')
-#4 {main}
-  thrown in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/TenisMetaboxes.php on line 34
-[09-Jul-2024 02:59:39 UTC] PHP Deprecated:  Implicit conversion from float 163.20000000000002 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/class-wp-image-editor-imagick.php on line 623
-[09-Jul-2024 02:59:42 UTC] PHP Deprecated:  Implicit conversion from float 163.20000000000002 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/class-wp-image-editor-imagick.php on line 623
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Undefined variable $post in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 13
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Attempt to read property "ID" on null in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 13
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Undefined variable $post in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 14
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Attempt to read property "ID" on null in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 14
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Undefined variable $post in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 15
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Attempt to read property "ID" on null in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 15
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Undefined variable $post in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 16
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Attempt to read property "ID" on null in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 16
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Undefined variable $post in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 17
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Attempt to read property "ID" on null in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 17
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Undefined variable $post in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 18
-[09-Jul-2024 03:48:25 UTC] PHP Warning:  Attempt to read property "ID" on null in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/review.php on line 18
-[09-Jul-2024 04:10:19 UTC] PHP Warning:  Undefined array key "programas" in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Save.php on line 28
-[09-Jul-2024 04:10:19 UTC] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Save.php:22
-Stack trace:
-#0 /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Save.php(22): array_map()
-#1 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/class-wp-hook.php(326): cpt_lojas_save_details()
-#2 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
-#3 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/plugin.php(517): WP_Hook->do_action()
-#4 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/post.php(4828): do_action()
-#5 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/post.php(4930): wp_insert_post()
-#6 /mnt/FILES/REPOSITORIES/b3d/www/wp-admin/includes/post.php(453): wp_update_post()
-#7 /mnt/FILES/REPOSITORIES/b3d/www/wp-admin/post.php(227): edit_post()
-#8 {main}
-  thrown in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Save.php on line 22
-[09-Jul-2024 04:11:07 UTC] PHP Notice:  A função map_meta_cap foi chamada incorretamente. O tipo de post lojas não foi cadastrado, portanto, pode não ser confiável verificar a capacidade edit_post em um post desse tipo. Leia como <a>Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.4.0.) in /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/functions.php on line 6078
-[09-Jul-2024 04:11:49 UTC] PHP Notice:  A função map_meta_cap foi chamada incorretamente. O tipo de post lojas não foi cadastrado, portanto, pode não ser confiável verificar a capacidade edit_post em um post desse tipo. Leia como <a>Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.4.0.) in /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/functions.php on line 6078
-[09-Jul-2024 04:32:06 UTC] PHP Parse error:  syntax error, unexpected token "function" in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 6
-[09-Jul-2024 04:33:21 UTC] PHP Parse error:  syntax error, unexpected token "function" in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 6
-[09-Jul-2024 04:33:23 UTC] PHP Parse error:  syntax error, unexpected token "function" in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 6
-[09-Jul-2024 04:33:23 UTC] PHP Notice:  A função is_embed foi chamada incorretamente. Tags Condicionais não funcionam antes da consulta rodar. Antes disso, elas sempre retornam falsas. Leia como <a>Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 3.1.0.) in /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/functions.php on line 6078
-[09-Jul-2024 04:33:23 UTC] PHP Notice:  A função is_search foi chamada incorretamente. Tags Condicionais não funcionam antes da consulta rodar. Antes disso, elas sempre retornam falsas. Leia como <a>Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 3.1.0.) in /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/functions.php on line 6078
-[09-Jul-2024 04:33:35 UTC] PHP Warning:  Undefined variable $store_key in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 18
-[09-Jul-2024 04:33:35 UTC] PHP Warning:  Undefined variable $store_key in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 19
-[09-Jul-2024 04:33:35 UTC] PHP Warning:  Undefined variable $store_key in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 20
-[09-Jul-2024 04:33:35 UTC] PHP Warning:  Undefined variable $store_key in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 21
-[09-Jul-2024 04:33:35 UTC] PHP Warning:  Undefined variable $store_key in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 22
-[09-Jul-2024 04:33:35 UTC] PHP Warning:  Undefined variable $store_key in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/plugins/wezoalves-review/src/Store/Metaboxes.php on line 23
+[09-Jul-2024 20:57:46 UTC] PHP Deprecated:  Implicit conversion from float-string "8.4" to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 77
+[09-Jul-2024 20:59:56 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
+[09-Jul-2024 20:59:57 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
+[09-Jul-2024 21:00:44 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
+[09-Jul-2024 21:02:04 UTC] PHP Deprecated:  Implicit conversion from float 8.4 to int loses precision in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/functions.php on line 80
+[09-Jul-2024 21:18:40 UTC] PHP Parse error:  syntax error, unexpected token ";" in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/single-loja.php on line 5
