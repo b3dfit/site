@@ -90,6 +90,10 @@ h6 {
     @apply text-lg text-zinc-950 dark:text-white inline-block;
 }
 
+.content p>strong {
+    @apply mt-5;
+}
+
 #page .content p {
     @apply text-zinc-950 dark:text-white;
 }
