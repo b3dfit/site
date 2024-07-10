@@ -2263,8 +2263,9 @@ h6 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.content p > strong {
+.content p>strong {
   margin-top: 1.25rem;
+  display: inline-block;
 }
 
 #page .content p {

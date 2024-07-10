@@ -91,7 +91,7 @@ h6 {
 }
 
 .content p>strong {
-    @apply mt-5;
+    @apply mt-5 inline-block;
 }
 
 #page .content p {
