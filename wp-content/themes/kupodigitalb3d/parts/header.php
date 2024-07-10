@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="mx-2">
-                    <a class="group inline-flex items-center gap-x-2 py-2 px-3   bg-zinc-800 font-medium text-sm text-zinc-50 rounded-full focus:outline-none"
+                    <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-zinc-800 font-medium text-sm text-zinc-50 rounded-md focus:outline-none"
                         href="<?php echo (getUrlByName('contato')); ?>">
                         Fale Conosco
                     </a>
