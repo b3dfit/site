@@ -2,6 +2,7 @@
 
 <?php
 global $post;
+$post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
 ?>
 <main id="content">
     <!-- Blog Article -->
@@ -161,15 +162,13 @@ global $post;
             <div class="space-y-5 md:space-y-8 content">
                 <div class="space-y-2">
                     <h1 class="text-4xl font-bold md:text-4xl dark:text-white"><?php the_title(); ?></h1>
-
                     <p class="text-lg "><?php the_excerpt(); ?></p>
-
-
                 </div>
 
-                <img class="-left-0  h-auto rounded-none size-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                    src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
-                    alt="<?php echo get_the_title(); ?>">
+                <?php if ($post_image) : ?>
+                    <img class="-left-0  h-auto rounded-none size-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                        src="<?php echo $post_image; ?>" alt="<?php echo get_the_title(); ?>">
+                <?php endif; ?>
 
                 <div class="text-lg --space-y-3 mt-80">
                     <?php the_content(); ?>
@@ -213,15 +212,15 @@ global $post;
 <button type="button"
 class="hs-tooltip-toggle flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-white">
 <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round">
-    <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
 </svg>
 16
 <span
-    class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-zinc-950 text-xs font-medium text-white rounded shadow-sm dark:bg-black"
-    role="tooltip">
-    Comment
+class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-zinc-950 text-xs font-medium text-white rounded shadow-sm dark:bg-black"
+role="tooltip">
+Comment
 </span>
 </button>
 </div>
