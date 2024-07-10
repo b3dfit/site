@@ -87,7 +87,7 @@ h6 {
 }
 
 .content p {
-    @apply text-lg text-zinc-950 dark:text-white;
+    @apply text-lg text-zinc-950 dark:text-white inline-block;
 }
 
 #page .content p {
