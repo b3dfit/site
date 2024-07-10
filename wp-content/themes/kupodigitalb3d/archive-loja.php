@@ -39,17 +39,17 @@
                     'posts_per_page' => 50,
                     'orderby' => 'title',
                     'order' => 'ASC',
-                    // 'meta_query' => array(
-                    //     array(
-                    //         'key' => 'store_logosvg',
-                    //         'compare' => 'EXISTS'
-                    //     ),
-                    //     array(
-                    //         'key' => 'store_logosvg',
-                    //         'value' => '',
-                    //         'compare' => '!='
-                    //     )
-                    // )
+                    'meta_query' => array(
+                        array(
+                            'key' => 'store_logosvg',
+                            'compare' => 'EXISTS'
+                        ),
+                        array(
+                            'key' => 'store_logosvg',
+                            'value' => '',
+                            'compare' => '!='
+                        )
+                    )
                 );
 
                 $loja_query = new WP_Query($args);
@@ -64,7 +64,7 @@
                         $description = get_the_excerpt($post->ID);
                         $html = <<<HTML
                     <!-- Card -->
-                    <a class="group rounded-xl overflow-hidden shadow-md px-5" href="{$link}">
+                    <a class="group rounded-xl overflow-hidden shadow-md px-1" href="{$link}">
                         <div class="flex">
                             <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
                                 <div class="flex group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl fill-black bg-white dark:bg-zinc-950  items-center svg-page-stores">
