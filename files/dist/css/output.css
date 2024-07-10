@@ -2442,7 +2442,7 @@ div.wp-block-media-text {
 }
 
 .svg-store svg:is(.dark *) {
-  fill: #fff;
+  fill: #000;
 }
 
 .placeholder\:text-transparent::-moz-placeholder {

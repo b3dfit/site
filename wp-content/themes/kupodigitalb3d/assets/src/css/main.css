@@ -176,5 +176,5 @@ div.wp-block-media-text {
 }
 
 .svg-store svg {
-    @apply fill-lime-500 dark:fill-white w-full h-fit;
+    @apply fill-lime-500 dark:fill-black w-full h-fit;
 }
