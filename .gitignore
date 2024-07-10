@@ -6,3 +6,4 @@ node_modules/*
 package-lock.json
 vendor
 vendor/*
+files/2024
