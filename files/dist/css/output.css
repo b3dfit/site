@@ -3280,6 +3280,11 @@ div.wp-block-media-text {
   color: rgb(9 9 11 / var(--tw-text-opacity));
 }
 
+.dark\:text-black:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .dark\:before\:bg-neutral-600:is(.dark *)::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
