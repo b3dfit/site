@@ -88,8 +88,6 @@
                     wp_reset_postdata();
                 endif;
                 ?>
-
-
             </div>
         </div>
     </div>
