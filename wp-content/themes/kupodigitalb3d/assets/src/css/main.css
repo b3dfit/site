@@ -175,6 +175,7 @@ div.wp-block-media-text {
     @apply mt-32;
 }
 
-.svg-store svg {
+.svg-store svg,
+.svg-store path {
     @apply fill-lime-500 dark:fill-black w-full h-fit min-h-72;
 }
