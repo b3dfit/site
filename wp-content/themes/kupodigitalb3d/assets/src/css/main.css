@@ -87,7 +87,7 @@ h6 {
 }
 
 .content p {
-    @apply text-lg text-zinc-950 dark:text-white inline-block;
+    @apply text-lg text-zinc-950 dark:text-white block w-full py-2;
 }
 
 .content p>strong {

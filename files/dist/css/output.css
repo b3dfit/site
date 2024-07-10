@@ -2251,7 +2251,10 @@ h6 {
 }
 
 .content p {
-  display: inline-block;
+  display: block;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
   --tw-text-opacity: 1;
