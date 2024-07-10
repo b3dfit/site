@@ -874,6 +874,22 @@ select {
   bottom: -0.25rem;
 }
 
+.-start-1 {
+  inset-inline-start: -0.25rem;
+}
+
+.start-2 {
+  inset-inline-start: 0.5rem;
+}
+
+.right-1 {
+  right: 0.25rem;
+}
+
+.-right-1 {
+  right: -0.25rem;
+}
+
 .-z-\[1\] {
   z-index: -1;
 }
@@ -3179,6 +3195,12 @@ div.wp-block-media-text {
 .dark\:from-neutral-800:is(.dark *) {
   --tw-gradient-from: #262626 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(38 38 38 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.dark\:from-zinc-950:is(.dark *) {
+  --tw-gradient-from: #09090b var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(9 9 11 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
