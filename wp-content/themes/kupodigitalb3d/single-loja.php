@@ -32,11 +32,11 @@ $store_logosvg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
                         </svg>
                     </a>
                     <?php /* 
-     <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-zinc-950 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
-         href="#">
-         Cupons
-     </a>
-     */ ?>
+<a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-zinc-950 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
+href="#">
+Cupons
+</a>
+*/ ?>
                 </div>
                 <!-- End Buttons -->
 
@@ -85,15 +85,15 @@ $store_logosvg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
 
             <div class="relative bg-black dark:bg-white">
 
-                <?php if($store_logosvg):?>
-                <div class="svg-store p-20">
-                    <?php echo ($store_logosvg); ?>
-                </div>
+                <?php if ($store_logosvg) : ?>
+                    <div class="svg-store p-20">
+                        <?php echo ($store_logosvg); ?>
+                    </div>
                 <?php endif; ?>
 
-                <?php if(!$store_logosvg):?>
-                <img class="w-full min-w-96 rounded-md"
-                    src="<?php echo (getValueCustomPostTypeReview($post->ID, 'logo', 'store')); ?>" alt="Logo" />
+                <?php if (! $store_logosvg) : ?>
+                    <img class="w-full min-w-96 rounded-md"
+                        src="<?php echo (getValueCustomPostTypeReview($post->ID, 'logo', 'store')); ?>" alt="Logo" />
                 <?php endif; ?>
                 <div
                     class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-zinc-950 dark:via-neutral-900/0 dark:to-neutral-900/0">
@@ -145,6 +145,10 @@ $store_logosvg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
     </div>
 
     <!-- End Hero -->
+
+    <?php get_template_part('parts/slider-motivacional'); ?>
+
+
 
 </main>
 
