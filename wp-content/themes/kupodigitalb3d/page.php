@@ -3,9 +3,8 @@
 <main id="content">
     <div class="max-w-5xl mx-auto flex" id="page">
         <!-- Content -->
-        <div class="w-3/4 left-0 px-4 pt-6 pb-12 ">
+        <article class="w-3/4 left-0 px-4 pt-6 pb-12 ">
             <h1 class="text-base font-bold md:text-3xl "><?php the_title(); ?></h1>
-
             <div class="flex justify-between w-full mb-5 text-zinc-600 text-sm">
                 <p class="pr-4 py-2 rounded-full">
                     Institucional
@@ -18,8 +17,7 @@
             <div class="content">
                 <?php the_content(); ?>
             </div>
-
-        </div>
+        </article>
         <!-- End Content -->
 
         <!-- Sidebar -->
