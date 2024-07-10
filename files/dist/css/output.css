@@ -1172,6 +1172,10 @@ select {
   width: 100%;
 }
 
+.w-1 {
+  width: 0.25rem;
+}
+
 .min-w-96 {
   min-width: 24rem;
 }
@@ -1655,6 +1659,14 @@ select {
 
 .fill-neutral-400 {
   fill: #a3a3a3;
+}
+
+.fill-zinc-950 {
+  fill: #09090b;
+}
+
+.fill-white {
+  fill: #fff;
 }
 
 .stroke-neutral-700\/50 {
@@ -3192,6 +3204,10 @@ div.wp-block-media-text {
 
 .dark\:fill-neutral-200:is(.dark *) {
   fill: #e5e5e5;
+}
+
+.dark\:fill-white:is(.dark *) {
+  fill: #fff;
 }
 
 .dark\:stroke-neutral-200:is(.dark *) {
