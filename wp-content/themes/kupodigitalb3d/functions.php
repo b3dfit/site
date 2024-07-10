@@ -2,7 +2,7 @@
 
 function theme_enqueue_styles()
 {
-    wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '1.0.1.'.rand(0,999), 'all');
+    wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '1.0.1.' . rand(0, 999), 'all');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -53,6 +53,7 @@ function getUrlByName($name)
         "termosuso" => getPageUrlBySlug('legal/termos-de-uso'),
         "sobre" => getPageUrlBySlug('sobre-nos'),
         "suporte" => getPageUrlBySlug('suporte-e-ajuda'),
+        "loja" => getCustomTypeSlug('loja'),
         "contato" => '#',
     ];
 
@@ -64,7 +65,15 @@ function getPageUrlBySlug($slug)
     $page = get_page_by_path($slug);
     return $page ? get_permalink($page->ID) : null;
 }
-
+function getCustomTypeSlug($customPostType)
+{
+    $post_type_object = get_post_type_object($customPostType);
+    $url = null;
+    if ($post_type_object && ! empty($post_type_object->rewrite['slug'])) {
+        $url = trailingslashit(get_site_url()) . $post_type_object->rewrite['slug'];
+    }
+    return $url;
+}
 function getStarRating($score)
 {
     // Definir os SVGs para estrela cheia, meia estrela e estrela vazia
