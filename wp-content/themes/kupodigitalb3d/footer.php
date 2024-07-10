@@ -300,9 +300,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
       <div class="flex justify-between items-center">
         <div class="mt-3 sm:hidden">
           <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand">Marca</a>
-          <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?> b³d -
-            todos
-            os direitos reservados.</p>
+          <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?> b³d - todos os direitos reservados.</p>
         </div>
 
         <!-- Social Brands -->
@@ -472,7 +470,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 
       <div class="aspect-w-16 aspect-h-7">
         <img class="w-full object-cover rounded-t-xl"
-          src="https://images.unsplash.com/photo-1556705634-7754fc9519f9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=970&q=80"
+          src="<?php echo (get_template_directory_uri()); ?>/assets/image/photo-1556705634-7754fc9519f9.jpeg"
           alt="Image Description">
       </div>
 
@@ -497,10 +495,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 </div>
 <!-- ========== END MODAL SUCCESS ========== -->
 
-<script src="<?php echo (get_template_directory_uri()); ?>/node_modules/preline/dist/preline.js"></script>
+<script src="<?php echo (get_template_directory_uri()); ?>/assets/js/preline.js"></script>
 <script src="<?php echo (get_template_directory_uri()); ?>/assets/js/theme.js"></script>
 <script src="<?php echo (get_template_directory_uri()); ?>/assets/js/utils.js"></script>
 
 </body>
-
 </html>
