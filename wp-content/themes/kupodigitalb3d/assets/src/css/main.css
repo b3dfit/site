@@ -184,3 +184,7 @@ div.wp-block-media-text {
 .home-stores path{
     @apply py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 dark:fill-zinc-400 fill-zinc-400;
 }
+
+.svg-page-stores svg{
+    @apply scale-50 fill-black dark:fill-lime-500 ;
+}
