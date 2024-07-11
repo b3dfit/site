@@ -18,4 +18,3 @@ if ($data) {
 } else {
     echo 'Nenhum dado recebido';
 }
-?>
