@@ -18,17 +18,35 @@
             <button id="startBtn" class="bg-green-500 text-white px-4 py-2 rounded">Iniciar Corrida</button>
             <button id="stopBtn" class="bg-red-500 text-white px-4 py-2 rounded hidden">Parar Corrida</button>
         </div>
+        <div id="cronometro" class="text-xl font-mono mb-4">00:00:00</div>
         <div id="status" class="text-gray-700"></div>
+        <div id="lastRequest" class="text-sm text-gray-500 mt-2"></div>
     </div>
 
     <script>
-        let cronometro;
-        let intervalID;
+        let cronometroInterval;
+        let pingInterval;
+        let startTime;
         const userID = '12345'; // Exemplo de ID do usuário
 
+        function formatTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function updateCronometro() {
+            const now = Date.now();
+            const elapsedTime = now - startTime;
+            document.getElementById('cronometro').textContent = formatTime(elapsedTime);
+        }
+
         function startCronometro() {
-            cronometro = Date.now();
-            intervalID = setInterval(sendPing, 10000); // Envia dados a cada 10 segundos
+            startTime = Date.now();
+            cronometroInterval = setInterval(updateCronometro, 1000);
+            pingInterval = setInterval(sendPing, 10000); // Envia dados a cada 10 segundos
             document.getElementById('startBtn').classList.add('hidden');
             document.getElementById('stopBtn').classList.remove('hidden');
             document.getElementById('status').textContent = 'Corrida em andamento...';
@@ -54,15 +72,16 @@
                         clima: clima
                     })
                 }).then(response => response.text()).then(data => {
-                    console.log('Ping enviado:', data);
+                    document.getElementById('lastRequest').textContent = `Última requisição: ${new Date().toLocaleTimeString()} - ${data}`;
                 }).catch(error => {
-                    console.error('Erro ao enviar ping:', error);
+                    document.getElementById('lastRequest').textContent = `Erro ao enviar ping: ${error}`;
                 });
             });
         }
 
         function stopCronometro() {
-            clearInterval(intervalID);
+            clearInterval(cronometroInterval);
+            clearInterval(pingInterval);
             document.getElementById('startBtn').classList.remove('hidden');
             document.getElementById('stopBtn').classList.add('hidden');
             document.getElementById('status').textContent = 'Corrida finalizada.';
