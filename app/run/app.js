@@ -29,6 +29,7 @@ function startCronometro() {
         document.getElementById('startBtn').classList.add('hidden');
         document.getElementById('stopBtn').classList.remove('hidden');
         document.getElementById('status').innerHTML = 'Treino em andamento...';
+audio.volume = 0.2;
         audio.play(); // Toca o áudio quando a treino começa
         sendPing(); // Envia o primeiro ping imediatamente
     }, function (error) {
