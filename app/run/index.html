@@ -44,12 +44,17 @@
         }
 
         function startCronometro() {
-            startTime = Date.now();
-            cronometroInterval = setInterval(updateCronometro, 1000);
-            pingInterval = setInterval(sendPing, 10000); // Envia dados a cada 10 segundos
-            document.getElementById('startBtn').classList.add('hidden');
-            document.getElementById('stopBtn').classList.remove('hidden');
-            document.getElementById('status').textContent = 'Corrida em andamento...';
+            navigator.geolocation.getCurrentPosition(function(position) {
+                startTime = Date.now();
+                cronometroInterval = setInterval(updateCronometro, 1000);
+                pingInterval = setInterval(sendPing, 10000); // Envia dados a cada 10 segundos
+                document.getElementById('startBtn').classList.add('hidden');
+                document.getElementById('stopBtn').classList.remove('hidden');
+                document.getElementById('status').textContent = 'Corrida em andamento...';
+                sendPing(); // Envia o primeiro ping imediatamente
+            }, function(error) {
+                document.getElementById('status').textContent = 'Permissão de geolocalização negada. Não é possível iniciar a corrida.';
+            });
         }
 
         function sendPing() {
