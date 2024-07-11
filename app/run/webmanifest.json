@@ -3,7 +3,7 @@
   "dir": "ltr",
   "display": "fullscreen",
   "name": "B³D",
-  "orientation": "any",
+  "orientation": "portrait",
   "scope": "/",
   "short_name": "B³D",
   "start_url": "https://b3d.com.br/app/run/",
@@ -14,5 +14,16 @@
   "categories": [
     "fitness",
     "lifestyle"
-  ]
+  ],
+  "edge_side_panel": {
+    "preferred_width": 320
+  },
+  "shortcuts": [
+    {
+      "name": "B³D",
+      "url": "https://www.b3d.com.br/app/run/",
+      "description": "Building³ Discipline"
+    }
+  ],
+  "prefer_related_applications": true
 }
