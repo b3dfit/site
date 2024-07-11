@@ -3,7 +3,8 @@ module.exports = {
   content: [
     './node_modules/preline/dist/*.js',
     './*.{php,html}',
-    './parts/*.{php,html}'
+    './parts/*.{php,html}',
+    './../../../app/run/*.{php,html,js}',
   ],
   darkMode: 'class',
   theme: {
