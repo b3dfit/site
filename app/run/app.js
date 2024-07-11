@@ -69,7 +69,7 @@ function sendNotification() {
         navigator.serviceWorker.ready.then(function(registration) {
             registration.showNotification('Continua firme!', {
                 body: 'Você está indo bem. Continue assim!',
-                icon: '/path/to/icon.png' // Caminho para o ícone da notificação
+                icon: 'notification.png' // Caminho para o ícone da notificação
             });
         });
     }
