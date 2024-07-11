@@ -7,3 +7,4 @@ package-lock.json
 vendor
 vendor/*
 files/2024
+app/run/*.json
