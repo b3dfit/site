@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Corrida</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4">Monitoramento de Corrida</h1>
+        <div class="mb-4">
+            <button id="startBtn" class="bg-green-500 text-white px-4 py-2 rounded">Iniciar Corrida</button>
+            <button id="stopBtn" class="bg-red-500 text-white px-4 py-2 rounded hidden">Parar Corrida</button>
+        </div>
+        <div id="status" class="text-gray-700"></div>
+    </div>
+
+    <script>
+        let cronometro;
+        let intervalID;
+        const userID = '12345'; // Exemplo de ID do usuário
+
+        function startCronometro() {
+            cronometro = Date.now();
+            intervalID = setInterval(sendPing, 10000); // Envia dados a cada 10 segundos
+            document.getElementById('startBtn').classList.add('hidden');
+            document.getElementById('stopBtn').classList.remove('hidden');
+            document.getElementById('status').textContent = 'Corrida em andamento...';
+        }
+
+        function sendPing() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                const timestamp = Date.now();
+                const clima = '25'; // Exemplo de clima (em graus Celsius)
+
+                fetch('https://www.b3d.com.br/app/run/ping.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userID: userID,
+                        latitude: lat,
+                        longitude: lon,
+                        timestamp: timestamp,
+                        clima: clima
+                    })
+                }).then(response => response.text()).then(data => {
+                    console.log('Ping enviado:', data);
+                }).catch(error => {
+                    console.error('Erro ao enviar ping:', error);
+                });
+            });
+        }
+
+        function stopCronometro() {
+            clearInterval(intervalID);
+            document.getElementById('startBtn').classList.remove('hidden');
+            document.getElementById('stopBtn').classList.add('hidden');
+            document.getElementById('status').textContent = 'Corrida finalizada.';
+        }
+
+        document.getElementById('startBtn').addEventListener('click', startCronometro);
+        document.getElementById('stopBtn').addEventListener('click', stopCronometro);
+    </script>
+
+</body>
+</html>
