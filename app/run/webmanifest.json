@@ -1,0 +1,18 @@
+{
+  "background_color": "#09090b",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "B³D",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "B³D",
+  "start_url": "https://b3d.com.br/app/run/",
+  "theme_color": "#09090b",
+  "id": "https://b3d.com.br/app/run/",
+  "description": "Monitoramento de Exercícios da Plataforma B³D",
+  "lang": "pt",
+  "categories": [
+    "fitness",
+    "lifestyle"
+  ]
+}
