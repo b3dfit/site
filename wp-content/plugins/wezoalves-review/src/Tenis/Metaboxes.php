@@ -1,17 +1,19 @@
 <?php
-// Adiciona os Metaboxes Personalizados
+
+$store_key = 'tenis';
+
 function cpt_tenis_add_metaboxes()
 {
     add_meta_box('cpt_tenis_details', 'Detalhes do Tênis', 'cpt_tenis_details_callback', 'tenis', 'normal', 'high');
 }
 add_action('add_meta_boxes', 'cpt_tenis_add_metaboxes');
 
-// Callback dos Metaboxes
+
 function cpt_tenis_details_callback($post)
 {
     wp_nonce_field('cpt_tenis_save_details', 'cpt_tenis_details_nonce');
 
-    // Campos do Produto
+    
     $descricao = get_post_meta($post->ID, '_cpt_tenis_descricao', true);
     $classificacao = get_post_meta($post->ID, '_cpt_tenis_classificacao', true);
     $caracteristicas = get_post_meta($post->ID, '_cpt_tenis_caracteristicas', true);

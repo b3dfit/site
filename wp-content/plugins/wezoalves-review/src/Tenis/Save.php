@@ -1,5 +1,7 @@
 <?php
-// Salva os dados dos Metaboxes
+
+$store_key = 'tenis';
+
 function cpt_tenis_save_details($post_id)
 {
     if (! isset($_POST['cpt_tenis_details_nonce']) || ! wp_verify_nonce($_POST['cpt_tenis_details_nonce'], 'cpt_tenis_save_details')) {
