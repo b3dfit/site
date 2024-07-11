@@ -59,42 +59,4 @@
 
         function sendPing() {
             navigator.geolocation.getCurrentPosition(function(position) {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-                const timestamp = Date.now();
-                const clima = '25'; // Exemplo de clima (em graus Celsius)
-
-                fetch('https://www.b3d.com.br/app/run/ping.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        userID: userID,
-                        latitude: lat,
-                        longitude: lon,
-                        timestamp: timestamp,
-                        clima: clima
-                    })
-                }).then(response => response.text()).then(data => {
-                    document.getElementById('lastRequest').textContent = `Última requisição: ${new Date().toLocaleTimeString()} - ${data}`;
-                }).catch(error => {
-                    document.getElementById('lastRequest').textContent = `Erro ao enviar ping: ${error}`;
-                });
-            });
-        }
-
-        function stopCronometro() {
-            clearInterval(cronometroInterval);
-            clearInterval(pingInterval);
-            document.getElementById('startBtn').classList.remove('hidden');
-            document.getElementById('stopBtn').classList.add('hidden');
-            document.getElementById('status').textContent = 'Corrida finalizada.';
-        }
-
-        document.getElementById('startBtn').addEventListener('click', startCronometro);
-        document.getElementById('stopBtn').addEventListener('click', stopCronometro);
-    </script>
-
-</body>
-</html>
+                const lat = position.coords.latitude
