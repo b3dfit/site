@@ -28,11 +28,11 @@ function startCronometro() {
         notificationInterval = setInterval(sendNotification, 60000); // Envia notificação a cada 1 minuto
         document.getElementById('startBtn').classList.add('hidden');
         document.getElementById('stopBtn').classList.remove('hidden');
-        document.getElementById('status').innerHTML = 'Corrida em andamento...';
-        audio.play(); // Toca o áudio quando a corrida começa
+        document.getElementById('status').innerHTML = 'Treino em andamento...';
+        audio.play(); // Toca o áudio quando a treino começa
         sendPing(); // Envia o primeiro ping imediatamente
     }, function (error) {
-        document.getElementById('status').textContent = 'Permissão de geolocalização negada. Não é possível iniciar a corrida.';
+        document.getElementById('status').textContent = 'Permissão de geolocalização negada. Não é possível iniciar a treino.';
     });
 }
 
@@ -81,8 +81,8 @@ function stopCronometro() {
     clearInterval(notificationInterval);
     document.getElementById('startBtn').classList.remove('hidden');
     document.getElementById('stopBtn').classList.add('hidden');
-    document.getElementById('status').textContent = 'Corrida finalizada.';
-    audio.pause(); // Para o áudio quando a corrida termina
+    document.getElementById('status').textContent = 'treino finalizada.';
+    audio.pause(); // Para o áudio quando a treino termina
     audio.currentTime = 0; // Reseta o tempo do áudio
 }
 
