@@ -185,11 +185,11 @@ viewBox="0 0 512 512">
 <g fill-rule="evenodd">
 <g stroke-width="1pt">
 <path fill="#bd3d44"
-  d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
-  transform="scale(3.9385)" />
+d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+transform="scale(3.9385)" />
 <path fill="#fff"
-  d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
-  transform="scale(3.9385)" />
+d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+transform="scale(3.9385)" />
 </g>
 <path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)" />
 <path fill="#fff"
@@ -300,7 +300,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
       <div class="flex justify-between items-center">
         <div class="mt-3 sm:hidden">
           <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand">Marca</a>
-          <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?> b³d - todos os direitos reservados.</p>
+          <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?> b³d -
+            todos os direitos reservados.</p>
         </div>
 
         <!-- Social Brands -->
@@ -471,7 +472,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
       <div class="aspect-w-16 aspect-h-7">
         <img class="w-full object-cover rounded-t-xl"
           src="<?php echo (get_template_directory_uri()); ?>/assets/image/photo-1556705634-7754fc9519f9.jpeg"
-          alt="Image Description">
+          alt="Message">
       </div>
 
       <div class="p-4 sm:p-10 text-center overflow-y-auto">
@@ -495,9 +496,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 </div>
 <!-- ========== END MODAL SUCCESS ========== -->
 
-<script src="<?php echo (get_template_directory_uri()); ?>/assets/js/preline.js"></script>
-<script src="<?php echo (get_template_directory_uri()); ?>/assets/js/theme.js"></script>
-<script src="<?php echo (get_template_directory_uri()); ?>/assets/js/utils.js"></script>
-
+<?php wp_footer(); ?>
 </body>
+
 </html>

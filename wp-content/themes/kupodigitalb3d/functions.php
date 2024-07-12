@@ -3,6 +3,19 @@
 function theme_enqueue_styles()
 {
     wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '1.0.1.' . rand(0, 999), 'all');
+
+    wp_enqueue_script('preline', get_template_directory_uri() . '/assets/js/preline.js', [], null, true);
+    wp_enqueue_script('theme', get_template_directory_uri() . '/assets/js/theme.js', [], null, true);
+    wp_enqueue_script('utilstheme', get_template_directory_uri() . '/assets/js/utils.js', [], null, true);
+
+    if (is_custom_page('login')) :
+        wp_enqueue_script('page-login', get_template_directory_uri() . '/assets/js/page-login.js', [], null, true);
+    endif;
+
+    if (is_custom_page('cadastro')) :
+        wp_enqueue_script('page-login', get_template_directory_uri() . '/assets/js/page-singup.js', [], null, true);
+    endif;
+
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -55,6 +68,9 @@ function getUrlByName($name)
         "suporte" => getPageUrlBySlug('suporte-e-ajuda'),
         "loja" => getCustomTypeSlug('loja'),
         "contato" => '#',
+        'dashboard' => '#dashboard',
+        "login" => getPageUrlBySlug('login'),
+        "cadastro" => getPageUrlBySlug('cadastro'),
     ];
 
     return isset($urls[$name]) ? $urls[$name] : '#not-found';
@@ -104,6 +120,79 @@ function getStarRating($score)
 
     return $starRatingHtml;
 }
+
+
+/* Verifica se está sendo chamada a pagina de login */
+function is_custom_page($page)
+{
+    global $post;
+    $login_page = get_page_by_path($page);
+    if ($login_page && is_page($login_page->ID)) {
+        return true;
+    }
+    return false;
+}
+
+
+/* Verifica Sessão */
+function platform_login_scripts()
+{
+    wp_enqueue_script('session_check', get_template_directory_uri() . '/assets/js/session.js', array("jquery"), null, true);
+
+    wp_localize_script('session_check', 'sessionData', array(
+        'login_url' => getUrlByName('login'),
+        'profile_url' => getUrlByName('dashboard'),
+        'auth_url' => site_url('/wp-json/jwt-auth/v1/token'),
+        'loginsuccess_url' => site_url('/#sucesso')
+    ));
+}
+add_action('wp_enqueue_scripts', 'platform_login_scripts');
+
+
+function ajax_check_login_status()
+{
+    wp_send_json_success(array('is_user_logged_in' => is_user_logged_in()));
+}
+add_action('wp_ajax_check_login_status', 'ajax_check_login_status');
+add_action('wp_ajax_nopriv_check_login_status', 'ajax_check_login_status');
+
+
+
+/* Autenticação */
+function custom_register_user()
+{
+    register_rest_route('wp/v2', '/users/register', array(
+        'methods' => 'POST',
+        'callback' => 'custom_register_user_callback',
+        'permission_callback' => '__return_true',
+    ));
+}
+add_action('rest_api_init', 'custom_register_user');
+
+function custom_register_user_callback($request)
+{
+    $username = $request['username'];
+    $email = $request['email'];
+    $password = $request['password'];
+
+    if (username_exists($username) || email_exists($email)) {
+        return new WP_Error('user_exists', 'Nome de usuário ou email já existe.', array('status' => 400));
+    }
+
+    $user_id = wp_create_user($username, $password, $email);
+
+    if (is_wp_error($user_id)) {
+        return new WP_Error('registration_failed', 'Falha no cadastro do usuário.', array('status' => 400));
+    }
+
+    wp_update_user(array(
+        'ID' => $user_id,
+        'role' => 'subscriber',
+    ));
+
+    return new WP_REST_Response(array('id' => $user_id), 200);
+}
+
 
 /* remove emoji */
 remove_action('wp_head', 'print_emoji_detection_script', 7);
