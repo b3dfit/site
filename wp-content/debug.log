@@ -1,0 +1,11 @@
+[12-Jul-2024 18:23:13 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array * int in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/stats-platform.php:56
+Stack trace:
+#0 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/template.php(812): require()
+#1 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/template.php(745): load_template()
+#2 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/general-template.php(206): locate_template()
+#3 /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/index.php(35): get_template_part()
+#4 /mnt/FILES/REPOSITORIES/b3d/www/wp-includes/template-loader.php(106): include('...')
+#5 /mnt/FILES/REPOSITORIES/b3d/www/wp-blog-header.php(19): require_once('...')
+#6 /mnt/FILES/REPOSITORIES/b3d/www/index.php(17): require('...')
+#7 {main}
+  thrown in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/stats-platform.php on line 56
