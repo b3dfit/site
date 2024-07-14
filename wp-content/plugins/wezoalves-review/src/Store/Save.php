@@ -35,7 +35,8 @@ function cpt_lojas_save_details($post_id)
         return array(
             'plataforma' => sanitize_text_field($programa['plataforma']),
             'id_advertiser' => sanitize_text_field($programa['id_advertiser']),
-            'id_publisher' => sanitize_text_field($programa['id_publisher']),
+            'id_publisher' => floatval($programa['id_publisher']),
+            'comission' => sanitize_text_field($programa['comission']),
         );
     }, $_POST[$cpt_store_key . '_affiliate']) : null;
 

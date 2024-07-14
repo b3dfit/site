@@ -97,15 +97,22 @@ function review_cpt_callback($post)
                     <?php if (! empty($programas)) : ?>
                         <?php foreach ($programas as $index => $programa) : ?>
                             <div class="programa">
+
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]"
                                     value="<?php echo esc_attr($programa['plataforma']); ?>" placeholder="Plataforma" />
+
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_advertiser]"
                                     value="<?php echo esc_attr($programa['id_advertiser']); ?>" placeholder="ID Advertiser" />
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_publisher]"
                                     value="<?php echo esc_attr($programa['id_publisher']); ?>" placeholder="ID Publisher" />
+
+                                <input type="text"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][comission]"
+                                    value="<?php echo esc_attr($programa['comission']); ?>" placeholder="Comissão" />
+
                                 <button class="remove-programa button">Remover</button>
                             </div>
                         <?php endforeach; ?>
@@ -157,6 +164,7 @@ function review_cpt_callback($post)
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][plataforma]" placeholder="Plataforma" />' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_advertiser]" placeholder="ID Advertiser" />' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_publisher]" placeholder="ID Publisher" />' +
+                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][comission]" placeholder="Comissão" />' +
                     '<button class="remove-programa button">Remover</button>' +
                     '</div>';
                 $('#programas-wrapper').append(programaHTML);
