@@ -16,7 +16,22 @@ include ('src/Tenis/Save.php');
 
 
 
-function getValueCustomPostTypeReview($postId, $key, $type)
+function getValueCPTReview($postId, $key, $type)
 {
-    return get_post_meta($postId, $type.'_'.$key, true);
+    return get_post_meta($postId, $type . '_' . $key, true);
 }
+
+/**
+ * Add custom style to cpt review options
+ * @param mixed $hook
+ * @return void
+ */
+function cpt_review_admin_css($hook)
+{
+    global $typenow;
+
+    if ($typenow == 'loja' || $typenow == 'tenis') {
+        wp_enqueue_style('custom_admin_css', plugin_dir_url(__FILE__) . '/assets/css/cpt.css');
+    }
+}
+add_action('admin_enqueue_scripts', 'cpt_review_admin_css');

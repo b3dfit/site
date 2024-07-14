@@ -2,8 +2,8 @@
 
 <?php
 global $post;
-$store_rascore = getValueCustomPostTypeReview($post->ID, 'ra_score', 'store');
-$store_logosvg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
+$store_rascore = getValueCPTReview($post->ID, 'ra_score', 'store');
+$store_logosvg = getValueCPTReview($post->ID, 'logosvg', 'store');
 ?>
 <main id="content">
 
@@ -23,7 +23,7 @@ $store_logosvg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
                 <div class="mt-7 grid gap-3 w-full sm:inline-flex">
                     <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-zinc-950 dark:bg-white dark:text-zinc-950 text-white hover:bg-zinc-900 disabled:opacity-50 disabled:pointer-events-none"
                         rel="nofollow" target="_blank"
-                        href="<?php echo (getValueCustomPostTypeReview($post->ID, 'url', 'store')); ?>">
+                        href="<?php echo (getValueCPTReview($post->ID, 'url', 'store')); ?>">
                         Acessar agora
                         <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -93,7 +93,7 @@ Cupons
 
                 <?php if (! $store_logosvg) : ?>
                     <img class="w-full min-w-96 rounded-md"
-                        src="<?php echo (getValueCustomPostTypeReview($post->ID, 'logo', 'store')); ?>" alt="Logo" />
+                        src="<?php echo (getValueCPTReview($post->ID, 'logo', 'store')); ?>" alt="Logo" />
                 <?php endif; ?>
                 <div
                     class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-zinc-950 dark:via-neutral-900/0 dark:to-neutral-900/0">
@@ -137,7 +137,7 @@ Cupons
             <div class="max-w-4xl text-left mx-auto">
                 <div class="mt-5 p-10">
                     <p class="text-lg text-zinc-950 dark:text-white">
-                        <?php echo (nl2br(getValueCustomPostTypeReview($post->ID, 'description', 'store'))); ?>
+                        <?php echo (nl2br(getValueCPTReview($post->ID, 'description', 'store'))); ?>
                     </p>
                 </div>
             </div>

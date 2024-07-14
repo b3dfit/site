@@ -57,10 +57,10 @@
                     while ($loja_query->have_posts()) :
                         $loja_query->the_post();
                         $link = get_permalink($post->ID);
-                        $svg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
+                        $svg = getValueCPTReview($post->ID, 'logosvg', 'store');
                         $name = get_the_title($post->ID);
-                        $image = getValueCustomPostTypeReview($post->ID, 'logo', 'store');
-                        $svg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
+                        $image = getValueCPTReview($post->ID, 'logo', 'store');
+                        $svg = getValueCPTReview($post->ID, 'logosvg', 'store');
                         $description = get_the_excerpt($post->ID);
                         $html = <<<HTML
                     <!-- Card -->

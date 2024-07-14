@@ -1,6 +1,7 @@
 <?php
-// Registra o Custom Post Type "Tênis"
-function cpt_tenis_init() {
+
+function cpt_tenis_init()
+{
     $labels = array(
         'name' => 'Tênis',
         'singular_name' => 'Tênis',

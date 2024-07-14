@@ -81,7 +81,7 @@
                     while ($loja_query->have_posts()) :
                         $loja_query->the_post();
                         $link = get_permalink($post->ID);
-                        $svg = getValueCustomPostTypeReview($post->ID, 'logosvg', 'store');
+                        $svg = getValueCPTReview($post->ID, 'logosvg', 'store');
                         echo "<a class='inline ' href='{$link}'>{$svg}</a>";
 
                     endwhile;

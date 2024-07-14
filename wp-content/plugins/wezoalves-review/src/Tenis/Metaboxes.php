@@ -1,6 +1,6 @@
 <?php
 
-$store_key = 'tenis';
+$cpt_tenis_key = 'tenis';
 
 function cpt_tenis_add_metaboxes()
 {
@@ -11,6 +11,9 @@ add_action('add_meta_boxes', 'cpt_tenis_add_metaboxes');
 
 function cpt_tenis_details_callback($post)
 {
+
+    global $cpt_tenis_key;
+
     wp_nonce_field('cpt_tenis_save_details', 'cpt_tenis_details_nonce');
 
     /**
@@ -19,6 +22,7 @@ function cpt_tenis_details_callback($post)
 
 
     $stores = [];
+    $brands = [];
     $loja_query = new WP_Query(array(
         'post_type' => 'loja',
         'posts_per_page' => 50,
@@ -43,44 +47,96 @@ function cpt_tenis_details_callback($post)
             $stores[] = [
                 "id" => $storeId,
                 "link" => get_permalink($storeId),
-                "name" => get_the_title($storeId) .' - '.getValueCustomPostTypeReview($storeId, 'domain', 'store'),
-                "image" => getValueCustomPostTypeReview($storeId, 'logo', 'store'),
-                "svg" => getValueCustomPostTypeReview($storeId, 'logosvg', 'store'),
+                "name" => get_the_title($storeId) . ' - ' . getValueCPTReview($storeId, 'domain', 'store'),
+                "image" => getValueCPTReview($storeId, 'logo', 'store'),
+                "svg" => getValueCPTReview($storeId, 'logosvg', 'store'),
                 "description" => get_the_excerpt($storeId),
             ];
+            if (getValueCPTReview($storeId, 'type', 'store') == "BRAND") :
+                $brands[] = [
+                    "id" => $storeId,
+                    "name" => get_the_title($storeId) . ' - ' . getValueCPTReview($storeId, 'domain', 'store'),
+                ];
+            endif;
         endwhile;
         wp_reset_postdata();
     endif;
 
-    $descricao = get_post_meta($post->ID, '_cpt_tenis_descricao', true);
-    $classificacao = get_post_meta($post->ID, '_cpt_tenis_classificacao', true);
-    $caracteristicas = get_post_meta($post->ID, '_cpt_tenis_caracteristicas', true);
-    $beneficios = get_post_meta($post->ID, '_cpt_tenis_beneficios', true);
-    $ofertas = get_post_meta($post->ID, '_cpt_tenis_ofertas', true);
-    $imagens = get_post_meta($post->ID, '_cpt_tenis_imagens', true);
+    $types = [
+        ["name" => "Performance - Corrida (Running)", "id" => "PERFORMANCE_RUNNING"],
+        ["name" => "Performance - Treino (Training)", "id" => "PERFORMANCE_TRAINING"],
+        ["name" => "Performance - Basquete", "id" => "PERFORMANCE_BASKETBALL"],
+        ["name" => "Performance - Futebol (Society e Futsal)", "id" => "PERFORMANCE_FOOTBALL"],
+        ["name" => "Performance - Tennis e Squash", "id" => "PERFORMANCE_TENNIS_SQUASH"],
+        ["name" => "Casual - Estilo de Vida (Lifestyle)", "id" => "CASUAL_LIFESTYLE"],
+        ["name" => "Casual - Skate", "id" => "CASUAL_SKATE"],
+        ["name" => "Outdoor - Trilha (Trail)", "id" => "OUTDOOR_TRAIL"],
+        ["name" => "Outdoor - Caminhada (Hiking)", "id" => "OUTDOOR_HIKING"],
+        ["name" => "Especiais - Minimalistas", "id" => "SPECIAL_MINIMALIST"],
+        ["name" => "Especiais - Para Esportes Específicos", "id" => "SPECIAL_SPORTS_SPECIFIC"],
+        ["name" => "Infantis", "id" => "KIDS"]
+    ];
+    sort($types);
+
+    $brand = get_post_meta($post->ID, $cpt_tenis_key . '_brand', true);
+    $type = get_post_meta($post->ID, $cpt_tenis_key . '_type', true);
+    $description = get_post_meta($post->ID, $cpt_tenis_key . '_description', true);
+    $classification = get_post_meta($post->ID, $cpt_tenis_key . '_classification', true);
+    $characteristics = get_post_meta($post->ID, $cpt_tenis_key . '_characteristics', true);
+    $benefits = get_post_meta($post->ID, $cpt_tenis_key . '_benefits', true);
+    $offers = get_post_meta($post->ID, $cpt_tenis_key . '_offers', true);
+    $imagens = get_post_meta($post->ID, $cpt_tenis_key . '_images', true);
     ?>
     <table class="form-table">
+
         <tr>
-            <th><label for="descricao">Descrição</label></th>
-            <td><textarea id="descricao" name="descricao" rows="5"
-                    cols="50"><?php echo esc_textarea($descricao); ?></textarea></td>
+            <th><label for="descricao">Marca</label></th>
+            <td>
+                <select name="<?php echo ($cpt_tenis_key); ?>_brand" class="cpttenis-field cpttenis-field-store">
+                    <?php foreach ($brands as $brandOption) : ?>
+                        <option value="<?php echo ($brandOption['id']); ?>" <?php selected($brand, $brandOption['id']); ?>>
+                            <?php echo ($brandOption['name']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
         </tr>
         <tr>
-            <th><label for="classificacao">Classificação</label></th>
+            <th><label for="descricao">Tipo</label></th>
+            <td>
+                <select name="<?php echo ($cpt_tenis_key); ?>_type" class="cpttenis-field cpttenis-field-store">
+                    <?php foreach ($types as $typeOption) : ?>
+                        <option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>>
+                            <?php echo ($typeOption['name']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="description">Descrição</label></th>
+            <td><textarea id="description" name="<?php echo ($cpt_tenis_key); ?>_description" rows="5"
+                    cols="50"><?php echo esc_textarea($description); ?></textarea></td>
+        </tr>
+        <tr>
+            <th><label for="classification">Classificação</label></th>
             <td>
 
-                <?php foreach (["conforto","durabilidade","estabilidade","peso","amortecimento","tracao","respirabilidade","design"] as $fieldScore) : ?>
+                <?php foreach (["conforto", "durabilidade", "estabilidade", "peso", "amortecimento", "tracao", "respirabilidade", "design"] as $fieldScore) : ?>
                     <fieldset>
-                        <legend class="cpttenis-field-legend"><?php echo($fieldScore);?></legend>
-                        <input type="range" class="cpttenis-field cpttenis-field-range" min="0" max="10" id="classificacao_<?php echo($fieldScore);?>" name="classificacao[<?php echo($fieldScore);?>]"
-                            value="<?php echo esc_attr($classificacao[$fieldScore] ?? ''); ?>" placeholder="<?php echo($fieldScore);?> (0-10)" />
-                        <p>Nota: <output id="classificacao_<?php echo($fieldScore);?>_score"></output></p>
+                        <legend class="cpttenis-field-legend"><?php echo ($fieldScore); ?></legend>
+                        <input type="range" class="cpttenis-field cpttenis-field-range" min="0" max="10"
+                            id="classification_<?php echo ($fieldScore); ?>"
+                            name="<?php echo ($cpt_tenis_key); ?>_classification[<?php echo ($fieldScore); ?>]"
+                            value="<?php echo esc_attr($classification[$fieldScore] ?? ''); ?>"
+                            placeholder="<?php echo ($fieldScore); ?> (0-10)" />
+                        <p>Nota: <output id="classification_<?php echo ($fieldScore); ?>_score"></output></p>
                         <script>
-                            const input_<?php echo($fieldScore);?> = document.querySelector("#classificacao_<?php echo($fieldScore);?>");
-                            const value_<?php echo($fieldScore);?> = document.querySelector("#classificacao_<?php echo($fieldScore);?>_score");
-                            value_<?php echo($fieldScore);?>.textContent = input_<?php echo($fieldScore);?>.value;
-                            input_<?php echo($fieldScore);?>.addEventListener("input", (event) => {
-                                value_<?php echo($fieldScore);?>.textContent = event.target.value;
+                            const input_<?php echo ($fieldScore); ?> = document.querySelector("#classification_<?php echo ($fieldScore); ?>");
+                            const value_<?php echo ($fieldScore); ?> = document.querySelector("#classification_<?php echo ($fieldScore); ?>_score");
+                            value_<?php echo ($fieldScore); ?>.textContent = input_<?php echo ($fieldScore); ?>.value;
+                            input_<?php echo ($fieldScore); ?>.addEventListener("input", (event) => {
+                                value_<?php echo ($fieldScore); ?>.textContent = event.target.value;
                             });
                         </script>
                     </fieldset>
@@ -91,25 +147,26 @@ function cpt_tenis_details_callback($post)
             </td>
         </tr>
         <tr>
-            <th><label for="caracteristicas">Características Técnicas</label></th>
-            <td><textarea id="caracteristicas" name="caracteristicas" rows="5"
-                    cols="50"><?php echo esc_textarea($caracteristicas); ?></textarea></td>
+            <th><label for="characteristics">Características Técnicas</label></th>
+            <td><textarea id="characteristics" name="<?php echo ($cpt_tenis_key); ?>_characteristics" rows="5"
+                    cols="50"><?php echo esc_textarea($characteristics); ?></textarea></td>
         </tr>
         <tr>
-            <th><label for="beneficios">Benefícios</label></th>
-            <td><textarea id="beneficios" name="beneficios" rows="5"
-                    cols="50"><?php echo esc_textarea($beneficios); ?></textarea></td>
+            <th><label for="benefits">Benefícios</label></th>
+            <td><textarea id="benefits" name="<?php echo ($cpt_tenis_key); ?>_benefits" rows="5"
+                    cols="50"><?php echo esc_textarea($benefits); ?></textarea></td>
         </tr>
         <tr>
             <th><label for="ofertas">Ofertas</label></th>
             <td>
                 <div id="ofertas-wrapper">
-                    <?php if (! empty($ofertas)) : ?>
-                        <?php foreach ($ofertas as $index => $oferta) : ?>
+                    <?php if (! empty($offers)) : ?>
+                        <?php foreach ($offers as $index => $oferta) : ?>
                             <div class="oferta">
 
 
-                                <select name="ofertas[<?php echo $index; ?>][loja]" class="cpttenis-field cpttenis-field-store">
+                                <select name="<?php echo ($cpt_tenis_key); ?>_offers[<?php echo $index; ?>][loja]"
+                                    class="cpttenis-field cpttenis-field-store">
                                     <?php foreach ($stores as $store) : ?>
                                         <option value="<?php echo ($store['id']); ?>" <?php selected($oferta['loja'], $store['id']); ?>>
                                             <?php echo ($store['name']); ?>
@@ -118,13 +175,13 @@ function cpt_tenis_details_callback($post)
                                 </select>
 
                                 <input type="number" class="cpttenis-field cpttenis-field-price"
-                                    name="ofertas[<?php echo $index; ?>][preco]" value="<?php echo esc_attr($oferta['preco']); ?>"
-                                    placeholder="Preço" />
+                                    name="<?php echo ($cpt_tenis_key); ?>_offers[<?php echo $index; ?>][preco]"
+                                    value="<?php echo esc_attr($oferta['preco']); ?>" placeholder="Preço" />
                                 <br>
 
                                 <input type="url" class="cpttenis-field cpttenis-field-url"
-                                    name="ofertas[<?php echo $index; ?>][url]" value="<?php echo esc_url($oferta['url']); ?>"
-                                    placeholder="URL" />
+                                    name="<?php echo ($cpt_tenis_key); ?>_offers[<?php echo $index; ?>][url]"
+                                    value="<?php echo esc_url($oferta['url']); ?>" placeholder="URL" />
                                 <br>
 
                                 <button class="remove-oferta button">Remover</button>
@@ -140,7 +197,8 @@ function cpt_tenis_details_callback($post)
         <tr>
             <th><label for="imagens">Imagens do Produto</label></th>
             <td>
-                <input type="hidden" id="imagens" name="imagens" value="<?php echo esc_attr($imagens); ?>" />
+                <input type="hidden" id="imagens" name="<?php echo ($cpt_tenis_key); ?>_images"
+                    value="<?php echo esc_attr($imagens); ?>" />
                 <button id="upload-imagens" class="button">Adicionar Imagens</button>
                 <div id="imagens-preview"></div>
             </td>
@@ -153,13 +211,13 @@ function cpt_tenis_details_callback($post)
             $('#add-oferta').on('click', function (e) {
                 e.preventDefault();
                 var ofertaHTML = '<div class="oferta">' +
-                    '<select name="ofertas[' + ofertaIndex + '][loja]" class="cpttenis-field cpttenis-field-store">' +
+                    '<select name="<?php echo ($cpt_tenis_key); ?>_offers[' + ofertaIndex + '][loja]" class="cpttenis-field cpttenis-field-store">' +
                     <?php foreach ($stores as $store) : ?>
                     '<option value="<?php echo ($store['id']); ?>"><?php echo ($store['name']); ?></option>' +
                     <?php endforeach; ?>
                 '</select>' +
-                    '<input type="number" class="cpttenis-field cpttenis-field-price" name="ofertas[' + ofertaIndex + '][preco]" placeholder="Preço" />' +
-                    '<input type="url" class="cpttenis-field cpttenis-field-url" name="ofertas[' + ofertaIndex + '][url]" placeholder="URL" /><br>' +
+                    '<input type="number" class="cpttenis-field cpttenis-field-price" name="<?php echo ($cpt_tenis_key); ?>_offers[' + ofertaIndex + '][preco]" placeholder="Preço" />' +
+                    '<input type="url" class="cpttenis-field cpttenis-field-url" name="<?php echo ($cpt_tenis_key); ?>_offers[' + ofertaIndex + '][url]" placeholder="URL" /><br>' +
                     '<button class="remove-oferta button">Remover</button><br>' +
                     '</div><hr class="cpttenis-field-separator" />';
                 $('#ofertas-wrapper').append(ofertaHTML);
@@ -200,38 +258,6 @@ function cpt_tenis_details_callback($post)
             });
         });
     </script>
-    <style>
-        .cpttenis-field {
-            margin: 5px 15px 5px 0;
-        }
-
-        .cpttenis-field-store {
-            width: 45%;
-        }
-
-        .cpttenis-field-price {
-            width: 45%;
-        }
-
-        .cpttenis-field-url {
-            width: 94%;
-        }
-
-        .cpttenis-field-range {
-            width: 94%;
-        }
-        
-        .cpttenis-field-separator {
-            width: 100%;
-            border: 0;
-            border-bottom: 1px solid #6eb0e0;
-            margin: 30px 0;
-        }
-        .cpttenis-field-legend {
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-    </style>
     <?php
 }
 ?>

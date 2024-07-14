@@ -1,13 +1,7 @@
 <?php
-/*
-Plugin Name: Custom Post Type Lojas
-Description: Plugin para adicionar o Custom Post Type Lojas com campos personalizados para informações básicas.
-Version: 1.0
-Author: Seu Nome
-*/
 
-// Registra o Custom Post Type "Lojas"
-function cpt_lojas_init() {
+function cpt_store_init()
+{
     $labels = array(
         'name' => 'Lojas',
         'singular_name' => 'Loja',
@@ -35,4 +29,4 @@ function cpt_lojas_init() {
 
     register_post_type('loja', $args);
 }
-add_action('init', 'cpt_lojas_init');
+add_action('init', 'cpt_store_init');

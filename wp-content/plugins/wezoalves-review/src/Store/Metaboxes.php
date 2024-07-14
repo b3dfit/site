@@ -1,7 +1,6 @@
 <?php
 
-$store_key = 'store';
-
+$cpt_store_key = 'store';
 
 function review_cpt_metaboxes()
 {
@@ -13,7 +12,7 @@ add_action('add_meta_boxes', 'review_cpt_metaboxes');
 function review_cpt_callback($post)
 {
 
-    global $store_key;
+    global $cpt_store_key;
     if (! $post) {
         return;
     }
@@ -21,23 +20,36 @@ function review_cpt_callback($post)
     wp_nonce_field('cpt_lojas_save_details', 'cpt_lojas_details_nonce');
 
 
-    $logo = get_post_meta($post->ID, $store_key . '_logo', true);
-    $logosvg = get_post_meta($post->ID, $store_key . '_logosvg', true);
-    $description = get_post_meta($post->ID, $store_key . '_description', true);
-    $domain = get_post_meta($post->ID, $store_key . '_domain', true);
-    $url = get_post_meta($post->ID, $store_key . '_url', true);
-    $comissao = get_post_meta($post->ID, $store_key . '_comission', true);
-    $email = get_post_meta($post->ID, $store_key . '_email', true);
-    $ra_shortname = get_post_meta($post->ID, $store_key . '_ra_shortname', true);
-    $ra_storeid = get_post_meta($post->ID, $store_key . '_ra_storeid', true);
-    $ra_score = get_post_meta($post->ID, $store_key . '_ra_score', true);
-    $programas = get_post_meta($post->ID, $store_key . '_affiliate', true);
+    $type = get_post_meta($post->ID, $cpt_store_key . '_type', true);
+    $logo = get_post_meta($post->ID, $cpt_store_key . '_logo', true);
+    $logosvg = get_post_meta($post->ID, $cpt_store_key . '_logosvg', true);
+    $description = get_post_meta($post->ID, $cpt_store_key . '_description', true);
+    $domain = get_post_meta($post->ID, $cpt_store_key . '_domain', true);
+    $url = get_post_meta($post->ID, $cpt_store_key . '_url', true);
+    $comissao = get_post_meta($post->ID, $cpt_store_key . '_comission', true);
+    $email = get_post_meta($post->ID, $cpt_store_key . '_email', true);
+    $ra_shortname = get_post_meta($post->ID, $cpt_store_key . '_ra_shortname', true);
+    $ra_storeid = get_post_meta($post->ID, $cpt_store_key . '_ra_storeid', true);
+    $ra_score = get_post_meta($post->ID, $cpt_store_key . '_ra_score', true);
+    $programas = get_post_meta($post->ID, $cpt_store_key . '_affiliate', true);
     ?>
     <table class="form-table">
         <tr>
+            <th><label for="type">Tipo</label></th>
+            <td>
+                <select name="<?php echo ($cpt_store_key); ?>_type" class="cptstore-field cptstore-field-type">
+                    <?php foreach ([["name" => "Brand", "id" => "BRAND"], ["name" => "Multi Brand", "id" => "MULTIBRAND"]] as $typeOption) : ?>
+                        <option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>>
+                            <?php echo ($typeOption['name']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th><label for="logo">Imagem do Logo</label></th>
             <td>
-                <input type="hidden" id="logo" name="<?php echo ($store_key . '_logo'); ?>"
+                <input type="hidden" id="logo" name="<?php echo ($cpt_store_key . '_logo'); ?>"
                     value="<?php echo esc_attr($logo); ?>" />
                 <button id="upload-logo" class="button">Adicionar Logo</button>
                 <div id="logo-preview" style="margin-top: 10px;">
@@ -49,32 +61,33 @@ function review_cpt_callback($post)
         </tr>
         <tr>
             <th><label for="logosvg">SVG Logo</label></th>
-            <td><textarea id="logosvg" name="<?php echo ($store_key . '_logosvg'); ?>" rows="5" cols="50"><?php echo esc_textarea($logosvg); ?></textarea></td>
+            <td><textarea id="logosvg" name="<?php echo ($cpt_store_key . '_logosvg'); ?>" rows="5"
+                    cols="50"><?php echo esc_textarea($logosvg); ?></textarea></td>
         </tr>
         <tr>
             <th><label for="description">Descrição da Loja</label></th>
-            <td><textarea id="description" name="<?php echo ($store_key . '_description'); ?>" rows="5"
+            <td><textarea id="description" name="<?php echo ($cpt_store_key . '_description'); ?>" rows="5"
                     cols="50"><?php echo esc_textarea($description); ?></textarea></td>
         </tr>
         <tr>
             <th><label for="domain">Domínio</label></th>
-            <td><input type="text" id="domain" name="<?php echo ($store_key . '_domain'); ?>"
-                    value="<?php echo($domain); ?>" placeholder="example.com" /></td>
+            <td><input type="text" id="domain" name="<?php echo ($cpt_store_key . '_domain'); ?>"
+                    value="<?php echo ($domain); ?>" placeholder="example.com" /></td>
         </tr>
         <tr>
             <th><label for="url">Url</label></th>
-            <td><input type="url" id="url" name="<?php echo ($store_key . '_url'); ?>" value="<?php echo esc_url($url); ?>"
-                    placeholder="https://www.example.com" /></td>
+            <td><input type="url" id="url" name="<?php echo ($cpt_store_key . '_url'); ?>"
+                    value="<?php echo esc_url($url); ?>" placeholder="https://www.example.com" /></td>
         </tr>
         <tr>
             <th><label for="comissao">Comissão (%)</label></th>
-            <td><input type="number" id="comissao" name="<?php echo ($store_key . '_comission'); ?>"
+            <td><input type="number" id="comissao" name="<?php echo ($cpt_store_key . '_comission'); ?>"
                     value="<?php echo esc_attr($comissao); ?>" step="0.01" />
             </td>
         </tr>
         <tr>
             <th><label for="email">Email de Contato</label></th>
-            <td><input type="email" id="email" name="<?php echo ($store_key . '_email'); ?>"
+            <td><input type="email" id="email" name="<?php echo ($cpt_store_key . '_email'); ?>"
                     value="<?php echo esc_attr($email); ?>" /></td>
         </tr>
         <tr>
@@ -84,13 +97,14 @@ function review_cpt_callback($post)
                     <?php if (! empty($programas)) : ?>
                         <?php foreach ($programas as $index => $programa) : ?>
                             <div class="programa">
-                                <input type="text" name="<?php echo $store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]"
+                                <input type="text"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]"
                                     value="<?php echo esc_attr($programa['plataforma']); ?>" placeholder="Plataforma" />
                                 <input type="text"
-                                    name="<?php echo $store_key . '_affiliate' ?>[<?php echo $index; ?>][id_advertiser]"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_advertiser]"
                                     value="<?php echo esc_attr($programa['id_advertiser']); ?>" placeholder="ID Advertiser" />
                                 <input type="text"
-                                    name="<?php echo $store_key . '_affiliate' ?>[<?php echo $index; ?>][id_publisher]"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_publisher]"
                                     value="<?php echo esc_attr($programa['id_publisher']); ?>" placeholder="ID Publisher" />
                                 <button class="remove-programa button">Remover</button>
                             </div>
@@ -102,18 +116,33 @@ function review_cpt_callback($post)
         </tr>
         <tr>
             <th><label for="ra_shortname">RA Store Shortname</label></th>
-            <td><input type="text" id="ra_shortname" name="<?php echo ($store_key . '_ra_shortname'); ?>"
+            <td><input type="text" id="ra_shortname" name="<?php echo ($cpt_store_key . '_ra_shortname'); ?>"
                     value="<?php echo esc_attr($ra_shortname); ?>" /></td>
         </tr>
         <tr>
             <th><label for="ra_storeid">RA Store ID</label></th>
-            <td><input type="text" id="ra_storeid" name="<?php echo ($store_key . '_ra_storeid'); ?>"
+            <td><input type="text" id="ra_storeid" name="<?php echo ($cpt_store_key . '_ra_storeid'); ?>"
                     value="<?php echo esc_attr($ra_storeid); ?>" /></td>
         </tr>
         <tr>
             <th><label for="ra_score">RA Store Score</label></th>
-            <td><input type="text" id="ra_score" name="<?php echo ($store_key . '_ra_score'); ?>"
-                    value="<?php echo esc_attr($ra_score); ?>" /></td>
+            <td>
+                <fieldset>
+                    <legend class="cptstore-field-legend"> </legend>
+                    <input type="range" class="cptstore-field cptstore-field-range" min="0" max="10" step="0.1"
+                        id="ra_score" name="<?php echo ($cpt_store_key . '_ra_score'); ?>"
+                        value="<?php echo esc_attr($ra_score); ?>" />
+                    <p>Nota: <output id="ra_score_output"></output></p>
+                    <script>
+                        const input_score = document.querySelector("#ra_score");
+                        const value_score = document.querySelector("#ra_score_output");
+                        value_score.textContent = input_score.value;
+                        input_score.addEventListener("input", (event) => {
+                            value_score.textContent = event.target.value;
+                        });
+                    </script>
+                </fieldset>
+            </td>
         </tr>
     </table>
 
@@ -125,9 +154,9 @@ function review_cpt_callback($post)
                 e.preventDefault();
 
                 var programaHTML = '<div class="programa">' +
-                    '<input type="text" name="<?php echo ($store_key . '_affiliate'); ?>[' + programaIndex + '][plataforma]" placeholder="Plataforma" />' +
-                    '<input type="text" name="<?php echo ($store_key . '_affiliate'); ?>[' + programaIndex + '][id_advertiser]" placeholder="ID Advertiser" />' +
-                    '<input type="text" name="<?php echo ($store_key . '_affiliate'); ?>[' + programaIndex + '][id_publisher]" placeholder="ID Publisher" />' +
+                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][plataforma]" placeholder="Plataforma" />' +
+                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_advertiser]" placeholder="ID Advertiser" />' +
+                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_publisher]" placeholder="ID Publisher" />' +
                     '<button class="remove-programa button">Remover</button>' +
                     '</div>';
                 $('#programas-wrapper').append(programaHTML);
