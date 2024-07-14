@@ -58,7 +58,7 @@ function review_cpt_callback($post)
                 </div>
             </td>
         </tr>
-        
+
         <tr>
             <th><label for="description">Descrição da Loja</label></th>
             <td><textarea id="description" name="<?php echo ($cpt_store_key . '_description'); ?>" rows="5"
@@ -87,14 +87,22 @@ function review_cpt_callback($post)
                         <?php foreach ($programas as $index => $programa) : ?>
                             <div class="programa">
 
-                                <input type="text"
+                                <!--input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]"
-                                    value="<?php echo esc_attr($programa['plataforma']); ?>" placeholder="Plataforma" />
+                                    value="<?php echo esc_attr($programa['plataforma']); ?>" placeholder="Plataforma" /-->
+                                <select name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]">
+                                    <?php foreach ([["name" => "Rakuten", "id" => "RAKUTEN"], ["name" => "Amazon", "id" => "AMAZON"], ["name" => "Awin", "id" => "AWIN"]] as $typeOption) : ?>
+                                        <option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>>
+                                            <?php echo ($typeOption['name']); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+
 
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_advertiser]"
                                     value="<?php echo esc_attr($programa['id_advertiser']); ?>" placeholder="ID Advertiser" />
-                                
+
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_publisher]"
                                     value="<?php echo esc_attr($programa['id_publisher']); ?>" placeholder="ID Publisher" />
@@ -155,8 +163,19 @@ function review_cpt_callback($post)
             $('#add-programa').on('click', function (e) {
                 e.preventDefault();
 
+
+
+
+
+
+
                 var programaHTML = '<div class="programa">' +
-                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][plataforma]" placeholder="Plataforma" />' +
+                
+                    '<select name="<?php echo $cpt_store_key . '_affiliate' ?>[' + programaIndex + '][plataforma]">'+
+                        <?php foreach ([["name" => "Rakuten", "id" => "RAKUTEN"], ["name" => "Amazon", "id" => "AMAZON"], ["name" => "Awin", "id" => "AWIN"]] as $typeOption) : ?>
+                            '<option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>><?php echo ($typeOption['name']); ?></option>'+
+                        <?php endforeach; ?>
+                    '</select>'+
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_advertiser]" placeholder="ID Advertiser" />' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_publisher]" placeholder="ID Publisher" />' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][comission]" placeholder="Comissão" />' +
