@@ -87,13 +87,11 @@ function review_cpt_callback($post)
                         <?php foreach ($programas as $index => $programa) : ?>
                             <div class="programa">
 
-                                <!--input type="text"
-                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]"
-                                    value="<?php echo esc_attr($programa['plataforma']); ?>" placeholder="Plataforma" /-->
+                                
                                 <select name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]">
-                                    <?php foreach ([["name" => "Rakuten", "id" => "RAKUTEN"], ["name" => "Amazon", "id" => "AMAZON"], ["name" => "Awin", "id" => "AWIN"]] as $typeOption) : ?>
-                                        <option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>>
-                                            <?php echo ($typeOption['name']); ?>
+                                    <?php foreach ([["name" => "Rakuten", "id" => "RAKUTEN"], ["name" => "Amazon", "id" => "AMAZON"], ["name" => "Awin", "id" => "AWIN"]] as $platformOption) : ?>
+                                        <option value="<?php echo ($platformOption['id']); ?>" <?php selected($programa['plataforma'], $platformOption['id']); ?>>
+                                            <?php echo ($platformOption['name']); ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
