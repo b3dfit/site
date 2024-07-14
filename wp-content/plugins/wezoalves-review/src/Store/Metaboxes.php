@@ -58,11 +58,7 @@ function review_cpt_callback($post)
                 </div>
             </td>
         </tr>
-        <tr>
-            <th><label for="logosvg">SVG Logo</label></th>
-            <td><textarea id="logosvg" name="<?php echo ($cpt_store_key . '_logosvg'); ?>" rows="5"
-                    cols="50"><?php echo esc_textarea($logosvg); ?></textarea></td>
-        </tr>
+        
         <tr>
             <th><label for="description">Descrição da Loja</label></th>
             <td><textarea id="description" name="<?php echo ($cpt_store_key . '_description'); ?>" rows="5"
@@ -144,6 +140,11 @@ function review_cpt_callback($post)
                     </script>
                 </fieldset>
             </td>
+        </tr>
+        <tr>
+            <th><label for="logosvg">SVG Logo</label></th>
+            <td><textarea id="logosvg" name="<?php echo ($cpt_store_key . '_logosvg'); ?>" rows="5"
+                    cols="50"><?php echo esc_textarea($logosvg); ?></textarea></td>
         </tr>
     </table>
 
