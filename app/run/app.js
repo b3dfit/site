@@ -24,7 +24,7 @@ function startCronometro() {
     navigator.geolocation.getCurrentPosition(function (position) {
         startTime = Date.now();
         cronometroInterval = setInterval(updateCronometro, 1000);
-        pingInterval = setInterval(sendPing, 10000); // Envia dados a cada 10 segundos
+        pingInterval = setInterval(sendPing, 1000); // Envia dados a cada 1 segundo
         notificationInterval = setInterval(sendNotification, 60000); // Envia notificação a cada 1 minuto
         document.getElementById('startBtn').classList.add('hidden');
         document.getElementById('stopBtn').classList.remove('hidden');
