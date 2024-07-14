@@ -59,7 +59,7 @@ function review_cpt_callback($post)
         <tr>
             <th><label for="domain">Domínio</label></th>
             <td><input type="text" id="domain" name="<?php echo ($store_key . '_domain'); ?>"
-                    value="<?php echo esc_url($domain); ?>" placeholder="example.com" /></td>
+                    value="<?php echo($domain); ?>" placeholder="example.com" /></td>
         </tr>
         <tr>
             <th><label for="url">Url</label></th>
