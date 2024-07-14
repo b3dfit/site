@@ -39,6 +39,8 @@
   <!-- CSS HS -->
   <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css">
 
+  <meta name="lomadee-verification" content="23361002" />
+  
   <?php wp_head(); ?>
 </head>
 
