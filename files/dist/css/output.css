@@ -1069,6 +1069,18 @@ select {
   margin-top: auto;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -3570,6 +3582,11 @@ div.wp-block-media-text {
 .dark\:text-zinc-950:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(9 9 11 / var(--tw-text-opacity));
+}
+
+.dark\:text-lime-400:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(163 230 53 / var(--tw-text-opacity));
 }
 
 .dark\:placeholder-neutral-500:is(.dark *)::-moz-placeholder {
