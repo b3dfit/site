@@ -24,7 +24,7 @@ function cpt_tenis_details_callback($post)
         'posts_per_page' => 50,
         'orderby' => 'title',
         'order' => 'ASC',
-        'meta_query' => array(
+        /*'meta_query' => array(
             array(
                 'key' => 'store_logosvg',
                 'compare' => 'EXISTS'
@@ -34,7 +34,7 @@ function cpt_tenis_details_callback($post)
                 'value' => '',
                 'compare' => '!='
             )
-        )
+        )*/
     ));
     if ($loja_query->have_posts()) :
         while ($loja_query->have_posts()) :
