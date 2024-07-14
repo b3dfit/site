@@ -26,7 +26,6 @@ function cpt_lojas_save_details($post_id)
     $description = sanitize_textarea_field($_POST[$cpt_store_key . '_description']);
     $domain = sanitize_text_field($_POST[$cpt_store_key . '_domain']);
     $url = esc_url_raw($_POST[$cpt_store_key . '_url']);
-    $comissao = floatval($_POST[$cpt_store_key . '_comission']);
     $email = sanitize_email($_POST[$cpt_store_key . '_email']);
     $ra_shortname = sanitize_text_field($_POST[$cpt_store_key . '_ra_shortname']);
     $ra_storeid = sanitize_text_field($_POST[$cpt_store_key . '_ra_storeid']);
@@ -46,7 +45,6 @@ function cpt_lojas_save_details($post_id)
     update_post_meta($post_id, $cpt_store_key . '_description', $description);
     update_post_meta($post_id, $cpt_store_key . '_domain', $domain);
     update_post_meta($post_id, $cpt_store_key . '_url', $url);
-    update_post_meta($post_id, $cpt_store_key . '_comission', $comissao);
     update_post_meta($post_id, $cpt_store_key . '_email', $email);
     update_post_meta($post_id, $cpt_store_key . '_affiliate', $programas);
     update_post_meta($post_id, $cpt_store_key . '_ra_shortname', $ra_shortname);

@@ -26,7 +26,6 @@ function review_cpt_callback($post)
     $description = get_post_meta($post->ID, $cpt_store_key . '_description', true);
     $domain = get_post_meta($post->ID, $cpt_store_key . '_domain', true);
     $url = get_post_meta($post->ID, $cpt_store_key . '_url', true);
-    $comissao = get_post_meta($post->ID, $cpt_store_key . '_comission', true);
     $email = get_post_meta($post->ID, $cpt_store_key . '_email', true);
     $ra_shortname = get_post_meta($post->ID, $cpt_store_key . '_ra_shortname', true);
     $ra_storeid = get_post_meta($post->ID, $cpt_store_key . '_ra_storeid', true);
@@ -80,12 +79,6 @@ function review_cpt_callback($post)
                     value="<?php echo esc_url($url); ?>" placeholder="https://www.example.com" /></td>
         </tr>
         <tr>
-            <th><label for="comissao">Comissão (%)</label></th>
-            <td><input type="number" id="comissao" name="<?php echo ($cpt_store_key . '_comission'); ?>"
-                    value="<?php echo esc_attr($comissao); ?>" step="0.01" />
-            </td>
-        </tr>
-        <tr>
             <th><label for="email">Email de Contato</label></th>
             <td><input type="email" id="email" name="<?php echo ($cpt_store_key . '_email'); ?>"
                     value="<?php echo esc_attr($email); ?>" /></td>
@@ -105,6 +98,7 @@ function review_cpt_callback($post)
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_advertiser]"
                                     value="<?php echo esc_attr($programa['id_advertiser']); ?>" placeholder="ID Advertiser" />
+                                
                                 <input type="text"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_publisher]"
                                     value="<?php echo esc_attr($programa['id_publisher']); ?>" placeholder="ID Publisher" />
