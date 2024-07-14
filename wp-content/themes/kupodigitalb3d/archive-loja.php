@@ -67,7 +67,7 @@
                     <a class="group rounded-xl overflow-hidden shadow-md px-1" href="{$link}">
                         <div class="flex flex-col">
                             <div class="flex-shrink-0 relative rounded-xl w-full h-44">
-                                <div class="flex group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl fill-black bg-white dark:bg-zinc-950 items-center svg-page-stores">
+                                <div class="flex group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl fill-black bg-white dark:bg-lime-400 items-center svg-page-stores">
                                     {$svg}
                                 </div>
                             </div>

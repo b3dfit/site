@@ -3449,6 +3449,11 @@ div.wp-block-media-text {
   background-color: rgb(9 9 11 / var(--tw-bg-opacity));
 }
 
+.dark\:bg-lime-400:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(163 230 53 / var(--tw-bg-opacity));
+}
+
 .dark\:bg-opacity-80:is(.dark *) {
   --tw-bg-opacity: 0.8;
 }
