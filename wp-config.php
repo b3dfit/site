@@ -21,7 +21,7 @@ define('WP_DEBUG', $dotenv['WP_DEBUG']);
 define('WP_HOME', $dotenv['WP_HOME']);
 define('WP_SITEURL', $dotenv['WP_SITEURL']);
 define('YNV_ENV', $dotenv['YNV_ENV']);
-define('JWT_AUTH_SECRET_KEY', '49a632c0692d80e2b6ff2a67118b44b89e69948a');
+define('JWT_AUTH_SECRET_KEY', $dotenv['JWT_AUTH_SECRET_KEY']);
 define('JWT_AUTH_CORS_ENABLE', true);
 
 // PROD - HLG
