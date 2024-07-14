@@ -50,7 +50,5 @@ function cpt_lojas_save_details($post_id)
     update_post_meta($post_id, $store_key . '_ra_storeid', $ra_storeid);
     update_post_meta($post_id, $store_key . '_ra_score', $ra_score);
 
-
-
 }
 add_action('save_post', 'cpt_lojas_save_details');
