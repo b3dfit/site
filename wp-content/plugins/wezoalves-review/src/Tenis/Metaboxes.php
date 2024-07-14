@@ -43,7 +43,7 @@ function cpt_tenis_details_callback($post)
             $stores[] = [
                 "id" => $storeId,
                 "link" => get_permalink($storeId),
-                "name" => get_the_title($storeId),
+                "name" => get_the_title($storeId) .' - '.getValueCustomPostTypeReview($storeId, 'domain', 'store'),
                 "image" => getValueCustomPostTypeReview($storeId, 'logo', 'store'),
                 "svg" => getValueCustomPostTypeReview($storeId, 'logosvg', 'store'),
                 "description" => get_the_excerpt($storeId),
