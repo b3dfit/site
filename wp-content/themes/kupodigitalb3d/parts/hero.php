@@ -9,7 +9,7 @@
             <p class="mt-5 dark:text-white text-lg">
                 <?php
                 the_content();
-                echo 'A plataforma definitiva para entusiastas de corrida e atividades físicas. Aqui você terá acesso a recomendações especializadas de tênis de performance, projetadas para melhorar seu desempenho e conforto durante cada passo!';
+                echo 'A plataforma para entusiastas de atividades físicas. Aqui você terá acesso a recomendações especializadas de tênis de performance, aplicativos e relógios inteligentes, roupas com tecidos especiais e acessórios, projetadas para melhorar seu desempenho e conforto durante cada passo!';
                 ?>
             </p>
         </div>

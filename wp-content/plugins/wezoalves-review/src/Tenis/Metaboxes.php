@@ -19,8 +19,6 @@ function cpt_tenis_details_callback($post)
     /**
      * Get Stores
      */
-
-
     $stores = [];
     $brands = [];
     $loja_query = new WP_Query(array(

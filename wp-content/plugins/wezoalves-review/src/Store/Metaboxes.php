@@ -19,6 +19,15 @@ function review_cpt_callback($post)
 
     wp_nonce_field('cpt_lojas_save_details', 'cpt_lojas_details_nonce');
 
+    $platforms = [
+        ["name" => "Actionpay", "id" => "ACTIONPAY"],
+        ["name" => "Afilio", "id" => "AFILIO"],
+        ["name" => "Amazon", "id" => "AMAZON"],
+        ["name" => "Awin", "id" => "AWIN"],
+        ["name" => "Rakuten", "id" => "RAKUTEN"],
+        ["name" => "Social Soul", "id" => "SOCIALSOUL"],
+    ];
+    sort($platforms);
 
     $type = get_post_meta($post->ID, $cpt_store_key . '_type', true);
     $logo = get_post_meta($post->ID, $cpt_store_key . '_logo', true);
@@ -87,9 +96,9 @@ function review_cpt_callback($post)
                         <?php foreach ($programas as $index => $programa) : ?>
                             <div class="programa">
 
-                                
+
                                 <select name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]">
-                                    <?php foreach ([["name" => "Rakuten", "id" => "RAKUTEN"], ["name" => "Amazon", "id" => "AMAZON"], ["name" => "Awin", "id" => "AWIN"]] as $platformOption) : ?>
+                                    <?php foreach ($platforms as $platformOption) : ?>
                                         <option value="<?php echo ($platformOption['id']); ?>" <?php selected($programa['plataforma'], $platformOption['id']); ?>>
                                             <?php echo ($platformOption['name']); ?>
                                         </option>
@@ -168,12 +177,12 @@ function review_cpt_callback($post)
 
 
                 var programaHTML = '<div class="programa">' +
-                
-                    '<select name="<?php echo $cpt_store_key . '_affiliate' ?>[' + programaIndex + '][plataforma]">'+
-                        <?php foreach ([["name" => "Rakuten", "id" => "RAKUTEN"], ["name" => "Amazon", "id" => "AMAZON"], ["name" => "Awin", "id" => "AWIN"]] as $typeOption) : ?>
-                            '<option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>><?php echo ($typeOption['name']); ?></option>'+
-                        <?php endforeach; ?>
-                    '</select>'+
+
+                    '<select name="<?php echo $cpt_store_key . '_affiliate' ?>[' + programaIndex + '][plataforma]">' +
+                    <?php foreach ($platforms as $typeOption) : ?>
+                    '<option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>><?php echo ($typeOption['name']); ?></option>' +
+                    <?php endforeach; ?>
+                '</select>' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_advertiser]" placeholder="ID Advertiser" />' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_publisher]" placeholder="ID Publisher" />' +
                     '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][comission]" placeholder="Comissão" />' +
