@@ -21,7 +21,7 @@
                         <div class="flex items-center">
                             <div class="md:hidden flex-shrink-0">
                                 <img class="size-12 rounded-full"
-                                    src="https://images.unsplash.com/photo-1671725501928-b7d85698ccd8?q=80&w=320&h=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    src="/files/dist/images/theme/reduce-pexels-koolshooters-8520627.jpg"
                                     alt="Image Description">
                             </div>
                             <div class="ms-4 md:ms-0">
@@ -37,7 +37,7 @@
 
             <div class="hidden md:block mb-24 md:mb-0">
                 <img class="rounded-xl"
-                    src="https://images.unsplash.com/photo-1671725501928-b7d85698ccd8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="/files/dist/images/theme/reduce-pexels-koolshooters-8520627.jpg"
                     alt="Image Description">
             </div>
             <!-- End Col -->

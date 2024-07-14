@@ -3,7 +3,6 @@
 $user_count = count_users();
 $total_users = $user_count['total_users'];
 
-// Contagem de posts
 $post_count = wp_count_posts();
 $total_posts = 0;
 foreach ($post_count as $status => $count) {
@@ -22,19 +21,19 @@ foreach ($post_count as $status => $count) {
                     <div
                         class="relative text-center first:before:hidden before:absolute before:-top-full sm:before:top-1/2 before:start-1/2 sm:before:-start-6 before:w-px before:h-20 before:bg-zinc-800 before:rotate-[60deg] sm:before:rotate-12 before:transform sm:before:-translate-y-1/2 before:-translate-x-1/2 sm:before:-translate-x-0 before:mt-3.5 sm:before:mt-0">
 
-                        <svg class="flex-shrink-0 size-6 sm:size-8 dark:text-zinc-50 mx-auto" viewBox="0 0 48 48"
+                        <svg class="flex-shrink-0 size-6 sm:size-8 dark:text-zinc-50 dark:stroke-white mx-auto" viewBox="0 0 48 48"
                             xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <style>
                                     .a {
-                                        stroke: #000000;
+                                      
                                         stroke-linecap: round;
                                         stroke-linejoin: round;
                                         stroke-width: 4;
                                     }
                                 </style>
                             </defs>
-                            <path class="a"
+                            <path class="a dark:stroke-white"
                                 d="M39.5,15.5h-9a2,2,0,0,1-2-2v-9h-18a2,2,0,0,0-2,2v35a2,2,0,0,0,2,2h27a2,2,0,0,0,2-2Zm-11-11,11,11M15,23H33M15,32H33" />
                         </svg>
                         <div class="mt-3 sm:mt-5">
@@ -87,11 +86,11 @@ foreach ($post_count as $status => $count) {
                                 </style>
                             </defs>
                             <g>
-                                <path class="b"
+                                <path class="b dark:stroke-white"
                                     d="m20.505,4.5h6.67c.5523,0,1,.4477,1,1v3h4.63c1.1046,0,2,.8954,2,2v31c0,1.1046-.8954,2-2,2H15.195c-1.1046,0-2-.8954-2-2V10.5c0-1.1046.8954-2,2-2h4.31v-3c0-.5523.4477-1,1-1Z" />
                                 <line class="b" x1="19.505" y1="8.5" x2="28.175" y2="8.5" />
                             </g>
-                            <polyline class="b" points="25.8683 17.5 20 26 28 26 22.1317 34.5" />
+                            <polyline class="b dark:stroke-white" points="25.8683 17.5 20 26 28 26 22.1317 34.5" />
                         </svg>
                         <div class="mt-3 sm:mt-5">
                             <h3 class="dark:text-lg sm:text-3xl font-semibold dark:text-white">100%</h3>

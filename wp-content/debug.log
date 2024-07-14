@@ -9,3 +9,21 @@ Stack trace:
 #6 /mnt/FILES/REPOSITORIES/b3d/www/index.php(17): require('...')
 #7 {main}
   thrown in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/stats-platform.php on line 56
+[14-Jul-2024 02:05:57 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:05:57 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:05:57 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:05:57 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:05:57 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:05:57 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:06:38 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:06:38 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:06:38 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:06:38 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:06:38 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:06:38 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:06:53 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:06:53 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:06:53 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:06:53 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
+[14-Jul-2024 02:06:53 UTC] PHP Warning:  Attempt to read property "title" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 64
+[14-Jul-2024 02:06:53 UTC] PHP Warning:  Attempt to read property "message" on array in /mnt/FILES/REPOSITORIES/b3d/www/wp-content/themes/kupodigitalb3d/parts/approach.php on line 65
