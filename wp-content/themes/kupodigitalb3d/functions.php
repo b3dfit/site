@@ -126,6 +126,9 @@ function get_custom_breadcrumb()
 {
     global $post;
 
+
+
+
     $breadcrumbs = [
         [
             'label' => 'Home',
@@ -140,7 +143,18 @@ function get_custom_breadcrumb()
             'label' => $category->name,
             'url' => $category_link
         ];
-    } elseif ( get_post_type() != 'post') {
+
+
+    } elseif (get_post_type() != 'post' && ! is_singular()) { // get cpt category
+        $post_type = get_post_type_object(get_post_type());
+        $post_type_link = get_post_type_archive_link(get_post_type());
+        if ($post_type && $post_type_link) {
+            $breadcrumbs[] = [
+                'label' => $post_type->labels->name,
+                'url' => $post_type_link
+            ];
+        }
+    } elseif (get_post_type() != 'post' && is_singular()) { // get cpt page
         $post_type = get_post_type_object(get_post_type());
         $post_type_link = get_post_type_archive_link(get_post_type());
         if ($post_type && $post_type_link) {
