@@ -7,8 +7,8 @@ global $tenis;
     <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 md:pb-14 lg:pb-20 mx-auto">
 
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Classificação Geral do
-                <?php echo ($tenis->title) ?>
+            <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white" itemprop="name">Classificação
+                Geral do <?php echo ($tenis->title) ?>
             </h2>
         </div>
 
@@ -94,13 +94,16 @@ global $tenis;
 
                 <?php foreach ($tenis->classification as $key => $classification) : ?>
                     <!-- List -->
-                    <ul class="grid lg:grid-cols-12 lg:gap-12">
+                    <ul class="grid lg:grid-cols-12 lg:gap-12" itemprop="reviewRating" itemscope
+                        itemtype="https://schema.org/Rating">
+
                         <!-- Item -->
                         <li class="lg:col-span-2 pb-1.5 lg:py-3">
                             <span class="text-sm text-zinc-950 capitalize dark:text-neutral-200">
                                 <?php echo ($key); ?>
                             </span>
                         </li>
+                        <meta itemprop="ratingValue" content="<?php echo ($classification); ?>">
                         <!-- End Item -->
 
 
@@ -111,7 +114,8 @@ global $tenis;
                                 <div class="xs:hidden flex w-full h-8 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700"
                                     role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
                                     <div class="flex flex-col justify-center rounded-full overflow-hidden bg-lime-500 text-xs text-white text-left px-3 whitespace-nowrap dark:bg-lime-500 transition duration-500"
-                                        style="width: <?php echo ($classification * 10); ?>%">
+                                        style="width: <?php echo ($classification * 10); ?>%"
+                                        itemprop="<?php echo ($key); ?>Rating">
                                         <?php echo ($classification); ?>
                                     </div>
                                 </div>
@@ -128,21 +132,6 @@ global $tenis;
             <!-- End Section -->
         </div>
 
-        <!-- View More Button -->
-        <!-- <div class="mt-8 text-center">
-            <button type="button" id="view-all-features"
-                class="hs-collapse-toggle hs-collapse-open:rounded-full hs-collapse-open:px-3 group py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-zinc-950 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:hover:bg-neutral-800"
-                data-hs-collapse="#view-all-features-button">
-                <span class="hs-collapse-open:hidden">View all features</span>
-                <svg class="hidden hs-collapse-open:block group-hover:rotate-180 transition duration-300 flex-shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                </svg>
-            </button>
-        </div> -->
-        <!-- End View More Button -->
     </div>
 </div>
 <!-- End Comparison Table -->
