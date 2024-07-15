@@ -4,18 +4,14 @@ global $tenis;
 
 <!-- Comparison Table -->
 <div class="relative">
-    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 md:py-14 lg:py-20 mx-auto">
+    <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 md:pb-14 lg:pb-20 mx-auto">
 
-
-        <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-            <h2 class="text-2xl font-bold md:text-3xl md:leading-tight dark:text-white">Confira todos os detalhes sobre
-                o <?php echo (get_the_title()); ?> e veja se ele é o que você precisa!</h2>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">Todas as informações dos produtos são dinamicas, tendo
-                como fonte as informações da marca e o feedback da nossa comunidade.</p>
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Classificação Geral do
+                <?php echo ($tenis->title) ?>
+            </h2>
         </div>
 
-        <!-- <div
-            class="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:w-full after:h-48 after:bg-gradient-to-t after:from-white after:via-white/70 dark:after:from-neutral-900 dark:after:via-neutral-900/95"> -->
         <div>
 
             <!-- Section -->
