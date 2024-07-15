@@ -186,6 +186,7 @@ function get_custom_breadcrumb()
 
 
 
+
 /* Verifica se está sendo chamada a pagina de login */
 function is_custom_page($page)
 {
