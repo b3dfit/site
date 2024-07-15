@@ -3,6 +3,7 @@
 namespace Review\Repository;
 
 use Review\Utils\TypeTenis;
+use Review\Utils\RatingTenis;
 use Review\Repository\Store;
 
 final class Tenis
@@ -23,11 +24,31 @@ final class Tenis
         $typeId = get_post_meta($post_id, $cpt_tenis_key . '_type', true);
         $type = TypeTenis::getById($typeId);
 
+
+
+        /**
+         * Classification Explained
+         */
+        $classificationExplained = [];
+        foreach ($classification as $key => $value) :
+            $rating = RatingTenis::getById($key);
+            $classificationExplained[$key] = [
+                "id" => $key,
+                "value" => $value,
+                "description" => $rating['description'],
+                "name" => $rating['name']
+            ];
+        endforeach;
+
+
+
         if ($gallery) :
             $gallery = explode(",", $gallery);
         endif;
 
         $brandData = (new Store())->getById($brand);
+
+
 
         /**
          * Populate List Offers to Tenis
@@ -51,6 +72,8 @@ final class Tenis
             ];
         endforeach;
 
+
+
         /**
          * Populate best price
          */
@@ -69,6 +92,7 @@ final class Tenis
             "gallery" => $gallery,
             "description" => $description,
             "classification" => $classification,
+            "classification_explained" => $classificationExplained,
             "characteristics" => $characteristics,
             "benefits" => $benefits,
             "price_regular" => $priceregular ?? 0,

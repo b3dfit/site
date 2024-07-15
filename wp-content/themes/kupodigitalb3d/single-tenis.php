@@ -2,6 +2,7 @@
 
 <?php
 use Review\Utils\TypeTenis;
+use Review\Utils\RatingTenis;
 use Review\Repository\Store;
 use Review\Repository\Tenis;
 

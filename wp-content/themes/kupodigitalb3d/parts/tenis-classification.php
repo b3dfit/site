@@ -92,18 +92,21 @@ global $tenis;
 
 
 
-                <?php foreach ($tenis->classification as $key => $classification) : ?>
+                <?php foreach ($tenis->classification_explained as $key => $classification) : ?>
                     <!-- List -->
                     <ul class="grid lg:grid-cols-12 lg:gap-12" itemprop="reviewRating" itemscope
                         itemtype="https://schema.org/Rating">
 
                         <!-- Item -->
                         <li class="lg:col-span-2 pb-1.5 lg:py-3">
-                            <span class="text-sm text-zinc-950 capitalize dark:text-neutral-200">
-                                <?php echo ($key); ?>
+                            <span class="text-sm text-zinc-950 capitalize dark:text-neutral-200" itemprop="name">
+                                <?php echo ($classification->name); ?>
                             </span>
                         </li>
-                        <meta itemprop="ratingValue" content="<?php echo ($classification); ?>">
+                        <meta itemprop="ratingValue" content="<?php echo ($classification->value); ?>">
+                        <meta itemprop="bestRating" content="10">
+                        <meta itemprop="description" content="<?php echo ($classification->description); ?>">
+
                         <!-- End Item -->
 
 
@@ -112,11 +115,12 @@ global $tenis;
                             <div class="grid grid-cols-1 lg:block">
                                 <!-- Progress -->
                                 <div class="xs:hidden flex w-full h-8 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700"
-                                    role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
+                                    role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10"
+                                    title="<?php echo ($classification->description); ?>">
                                     <div class="flex flex-col justify-center rounded-full overflow-hidden bg-lime-500 text-xs text-white text-left px-3 whitespace-nowrap dark:bg-lime-500 transition duration-500"
-                                        style="width: <?php echo ($classification * 10); ?>%"
+                                        style="width: <?php echo ($classification->value * 10); ?>%"
                                         itemprop="<?php echo ($key); ?>Rating">
-                                        <?php echo ($classification); ?>
+                                        <?php echo ($classification->value); ?>
                                     </div>
                                 </div>
                                 <!-- End Progress -->
