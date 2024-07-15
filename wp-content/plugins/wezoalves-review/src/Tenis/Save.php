@@ -19,6 +19,7 @@ function cpt_tenis_save_details($post_id)
         return;
     }
 
+    $priceregular = sanitize_text_field($_POST[$cpt_tenis_key . '_priceregular']);
     $brand = sanitize_text_field($_POST[$cpt_tenis_key . '_brand']);
     $type = sanitize_text_field($_POST[$cpt_tenis_key . '_type']);
     $description = sanitize_textarea_field($_POST[$cpt_tenis_key . '_description']);
@@ -36,6 +37,7 @@ function cpt_tenis_save_details($post_id)
 
     $images = sanitize_text_field($_POST[$cpt_tenis_key . '_images']);
 
+    update_post_meta($post_id, $cpt_tenis_key . '_priceregular', $priceregular);
     update_post_meta($post_id, $cpt_tenis_key . '_brand', $brand);
     update_post_meta($post_id, $cpt_tenis_key . '_type', $type);
     update_post_meta($post_id, $cpt_tenis_key . '_description', $description);

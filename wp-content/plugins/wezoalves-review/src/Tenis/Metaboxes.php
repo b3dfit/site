@@ -1,5 +1,7 @@
 <?php
 
+use Review\Utils\TypeTenis;
+
 $cpt_tenis_key = 'tenis';
 
 function cpt_tenis_add_metaboxes()
@@ -25,18 +27,7 @@ function cpt_tenis_details_callback($post)
         'post_type' => 'loja',
         'posts_per_page' => 50,
         'orderby' => 'title',
-        'order' => 'ASC',
-        /*'meta_query' => array(
-            array(
-                'key' => 'store_logosvg',
-                'compare' => 'EXISTS'
-            ),
-            array(
-                'key' => 'store_logosvg',
-                'value' => '',
-                'compare' => '!='
-            )
-        )*/
+        'order' => 'ASC'
     ));
     if ($loja_query->have_posts()) :
         while ($loja_query->have_posts()) :
@@ -60,22 +51,9 @@ function cpt_tenis_details_callback($post)
         wp_reset_postdata();
     endif;
 
-    $types = [
-        ["name" => "Performance - Corrida (Running)", "id" => "PERFORMANCE_RUNNING"],
-        ["name" => "Performance - Treino (Training)", "id" => "PERFORMANCE_TRAINING"],
-        ["name" => "Performance - Basquete", "id" => "PERFORMANCE_BASKETBALL"],
-        ["name" => "Performance - Futebol (Society e Futsal)", "id" => "PERFORMANCE_FOOTBALL"],
-        ["name" => "Performance - Tennis e Squash", "id" => "PERFORMANCE_TENNIS_SQUASH"],
-        ["name" => "Casual - Estilo de Vida (Lifestyle)", "id" => "CASUAL_LIFESTYLE"],
-        ["name" => "Casual - Skate", "id" => "CASUAL_SKATE"],
-        ["name" => "Outdoor - Trilha (Trail)", "id" => "OUTDOOR_TRAIL"],
-        ["name" => "Outdoor - Caminhada (Hiking)", "id" => "OUTDOOR_HIKING"],
-        ["name" => "Especiais - Minimalistas", "id" => "SPECIAL_MINIMALIST"],
-        ["name" => "Especiais - Para Esportes Específicos", "id" => "SPECIAL_SPORTS_SPECIFIC"],
-        ["name" => "Infantis", "id" => "KIDS"]
-    ];
-    sort($types);
+    $types = TypeTenis::getAll();
 
+    $priceregular = get_post_meta($post->ID, $cpt_tenis_key . '_priceregular', true);
     $brand = get_post_meta($post->ID, $cpt_tenis_key . '_brand', true);
     $type = get_post_meta($post->ID, $cpt_tenis_key . '_type', true);
     $description = get_post_meta($post->ID, $cpt_tenis_key . '_description', true);
@@ -111,39 +89,21 @@ function cpt_tenis_details_callback($post)
                 </select>
             </td>
         </tr>
+
+        <tr>
+            <th><label for="priceregular">Preço Regular</label></th>
+            <td>
+                <input type="number" id="priceregular" name="<?php echo ($cpt_tenis_key); ?>_priceregular"
+                    value="<?php echo esc_attr($priceregular); ?>" placeholder="R$ " />
+            </td>
+        </tr>
+
         <tr>
             <th><label for="description">Descrição</label></th>
             <td><textarea id="description" name="<?php echo ($cpt_tenis_key); ?>_description" rows="5"
                     cols="50"><?php echo esc_textarea($description); ?></textarea></td>
         </tr>
-        <tr>
-            <th><label for="classification">Classificação</label></th>
-            <td>
 
-                <?php foreach (["conforto", "durabilidade", "estabilidade", "peso", "amortecimento", "tracao", "respirabilidade", "design"] as $fieldScore) : ?>
-                    <fieldset>
-                        <legend class="cpttenis-field-legend"><?php echo ($fieldScore); ?></legend>
-                        <input type="range" class="cpttenis-field cpttenis-field-range" min="0" max="10"
-                            id="classification_<?php echo ($fieldScore); ?>"
-                            name="<?php echo ($cpt_tenis_key); ?>_classification[<?php echo ($fieldScore); ?>]"
-                            value="<?php echo esc_attr($classification[$fieldScore] ?? ''); ?>"
-                            placeholder="<?php echo ($fieldScore); ?> (0-10)" />
-                        <p>Nota: <output id="classification_<?php echo ($fieldScore); ?>_score"></output></p>
-                        <script>
-                            const input_<?php echo ($fieldScore); ?> = document.querySelector("#classification_<?php echo ($fieldScore); ?>");
-                            const value_<?php echo ($fieldScore); ?> = document.querySelector("#classification_<?php echo ($fieldScore); ?>_score");
-                            value_<?php echo ($fieldScore); ?>.textContent = input_<?php echo ($fieldScore); ?>.value;
-                            input_<?php echo ($fieldScore); ?>.addEventListener("input", (event) => {
-                                value_<?php echo ($fieldScore); ?>.textContent = event.target.value;
-                            });
-                        </script>
-                    </fieldset>
-                    <hr class="cpttenis-field-separator" />
-                <?php endforeach; ?>
-
-
-            </td>
-        </tr>
         <tr>
             <th><label for="characteristics">Características Técnicas</label></th>
             <td><textarea id="characteristics" name="<?php echo ($cpt_tenis_key); ?>_characteristics" rows="5"
@@ -201,6 +161,35 @@ function cpt_tenis_details_callback($post)
                 <div id="imagens-preview"></div>
             </td>
         </tr>
+        <tr>
+            <th><label for="classification">Classificação</label></th>
+            <td>
+
+                <?php foreach (["conforto", "durabilidade", "estabilidade", "peso", "amortecimento", "tracao", "respirabilidade", "design"] as $fieldScore) : ?>
+                    <fieldset>
+                        <legend class="cpttenis-field-legend"><?php echo ($fieldScore); ?></legend>
+                        <input type="range" class="cpttenis-field cpttenis-field-range" min="0" max="10"
+                            id="classification_<?php echo ($fieldScore); ?>"
+                            name="<?php echo ($cpt_tenis_key); ?>_classification[<?php echo ($fieldScore); ?>]"
+                            value="<?php echo esc_attr($classification[$fieldScore] ?? ''); ?>"
+                            placeholder="<?php echo ($fieldScore); ?> (0-10)" />
+                        <p>Nota: <output id="classification_<?php echo ($fieldScore); ?>_score"></output></p>
+                        <script>
+                            const input_<?php echo ($fieldScore); ?> = document.querySelector("#classification_<?php echo ($fieldScore); ?>");
+                            const value_<?php echo ($fieldScore); ?> = document.querySelector("#classification_<?php echo ($fieldScore); ?>_score");
+                            value_<?php echo ($fieldScore); ?>.textContent = input_<?php echo ($fieldScore); ?>.value;
+                            input_<?php echo ($fieldScore); ?>.addEventListener("input", (event) => {
+                                value_<?php echo ($fieldScore); ?>.textContent = event.target.value;
+                            });
+                        </script>
+                    </fieldset>
+                    <hr class="cpttenis-field-separator" />
+                <?php endforeach; ?>
+
+
+            </td>
+        </tr>
+
     </table>
     <script>
         jQuery(document).ready(function ($) {

@@ -6,6 +6,11 @@ Version: 1.0
 Author: Weslley Alves
 */
 
+
+include ('src/Utils/TypeTenis.php');
+include ('src/Repository/Store.php');
+include ('src/Repository/Tenis.php');
+
 include ('src/Store/CustomPostType.php');
 include ('src/Store/Metaboxes.php');
 include ('src/Store/Save.php');
