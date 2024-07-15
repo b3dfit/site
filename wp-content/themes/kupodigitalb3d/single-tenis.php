@@ -43,17 +43,17 @@ $tenis = json_decode($tenisJson);
                         <h1 class="mb-2 leading-tight tracking-tight font-bold text-2xl md:text-3xl" itemprop="name">
                             <?php the_title(); ?>
                         </h1>
-                        <p class=" text-sm">Marca <a href="<?php echo ($tenis->brand->link); ?>"
-                                class=" hover:underline" itemprop="brand">
+                        <p class=" text-sm">Marca <a href="<?php echo ($tenis->brand->link); ?>" class="hover:underline"
+                                itemprop="brand">
                                 <?php echo ($tenis->brand->title); ?>
                             </a></p>
                         <div class="flex items-center space-x-4 my-4" itemprop="offers" itemscope
                             itemtype="https://schema.org/Offer">
                             <div>
                                 <div class="rounded-lg bg-gray-100 dark:text-black flex py-2 px-3">
-                                    <span class=" mr-1 mt-1" itemprop="priceCurrency" content="BRL">R$</span>
-                                    <span class="font-bold text-3xl"
-                                        itemprop="price"><?php echo ($tenis->offer_best->price_formated); ?></span>
+                                    <span class="mr-1 mt-1" itemprop="priceCurrency" content="BRL">R$</span>
+                                    <span
+                                        class="font-bold text-3xl"><?php echo ($tenis->offer_best->price_formated); ?></span>
                                 </div>
                             </div>
                             <div class="flex-1">
@@ -64,7 +64,12 @@ $tenis = json_decode($tenisJson);
                             </div>
                             <meta itemprop="availability" content="https://schema.org/InStock" />
                             <meta itemprop="url" content="<?php echo ($tenis->link); ?>" />
-                            <meta itemprop="validThrough" content="2023-12-31" />
+                            <meta itemprop="validThrough"
+                                content="<?php echo (date('Y-12-31', time() + YEAR_IN_SECONDS)); ?>" />
+                            <meta itemprop="price" content="<?php echo ($tenis->price_regular); ?>" />
+                            <meta itemprop="lowPrice" content="<?php echo ($tenis->offer_best->price); ?>" />
+                            <meta itemprop="highPrice" content="<?php echo ($tenis->price_regular); ?>" />
+
                         </div>
                         <p itemprop="description"><?php the_excerpt(); ?></p>
                         <div class="flex py-4 space-x-4">
