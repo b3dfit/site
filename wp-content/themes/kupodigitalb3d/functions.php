@@ -122,7 +122,8 @@ function getStarRating($score)
 }
 
 /* Breadcrumb */
-function get_custom_breadcrumb() {
+function get_custom_breadcrumb()
+{
     global $post;
 
     $breadcrumbs = [
@@ -158,6 +159,19 @@ function get_custom_breadcrumb() {
                 'url' => $category_link
             ];
         }
+    } elseif (is_page() && $post->post_parent) {
+        $parent_id = $post->post_parent;
+        $parent_pages = [];
+        while ($parent_id) {
+            $page = get_post($parent_id);
+            $parent_pages[] = [
+                'label' => get_the_title($page->ID),
+                'url' => get_permalink($page->ID)
+            ];
+            $parent_id = $page->post_parent;
+        }
+        $parent_pages = array_reverse($parent_pages);
+        $breadcrumbs = array_merge($breadcrumbs, $parent_pages);
     }
 
     if (is_single() || is_page()) {
