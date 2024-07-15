@@ -8,14 +8,14 @@
   <!--link rel="canonical" href="https://preline.co/"-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description"
-    content="Discover the difference that a professionally crafted website can make for your business.">
+    content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
 
-  <meta name="twitter:site" content="@preline">
-  <meta name="twitter:creator" content="@preline">
+  <meta name="twitter:site" content="@wezo">
+  <meta name="twitter:creator" content="@wezo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<?php the_title(); ?>">
   <meta name="twitter:description"
-    content="Discover the difference that a professionally crafted website can make for your business.">
+    content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
   <meta name="twitter:image" content="https://preline.co/assets/img/og-image.png">
 
   <meta property="og:url" content="https://www.b3d.com.br/">
@@ -24,7 +24,7 @@
   <meta property="og:site_name" content="<?php the_title(); ?>">
   <meta property="og:title" content="<?php the_title(); ?>">
   <meta property="og:description"
-    content="Discover the difference that a professionally crafted website can make for your business.">
+    content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
   <meta property="og:image" content="https://preline.co/assets/img/og-image.png">
 
   <!-- Title -->
