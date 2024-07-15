@@ -47,13 +47,13 @@ $tenis = json_decode($tenisJson);
                                 class=" hover:underline" itemprop="brand">
                                 <?php echo ($tenis->brand->title); ?>
                             </a></p>
-                        <div class="flex items-center space-x-4 my-4">
+                        <div class="flex items-center space-x-4 my-4" itemprop="offers" itemscope
+                            itemtype="https://schema.org/Offer">
                             <div>
                                 <div class="rounded-lg bg-gray-100 dark:text-black flex py-2 px-3">
-                                    <span class=" mr-1 mt-1">R$</span>
+                                    <span class=" mr-1 mt-1" itemprop="priceCurrency" content="BRL">R$</span>
                                     <span class="font-bold text-3xl"
                                         itemprop="price"><?php echo ($tenis->offer_best->price_formated); ?></span>
-                                    <meta itemprop="priceCurrency" content="BRL" />
                                 </div>
                             </div>
                             <div class="flex-1">
@@ -62,6 +62,9 @@ $tenis = json_decode($tenisJson);
                                 </p>
                                 <p class="text-gray-400 text-sm">Menor preço.</p>
                             </div>
+                            <meta itemprop="availability" content="https://schema.org/InStock" />
+                            <meta itemprop="url" content="<?php echo ($tenis->link); ?>" />
+                            <meta itemprop="validThrough" content="2023-12-31" />
                         </div>
                         <p itemprop="description"><?php the_excerpt(); ?></p>
                         <div class="flex py-4 space-x-4">
@@ -87,13 +90,11 @@ $tenis = json_decode($tenisJson);
                         como fonte as informações da marca e o feedback da nossa comunidade.</p>
                 </div>
             </div>
-
             <?php get_template_part('parts/tenis-classification'); ?>
 
             <?php get_template_part('parts/tenis-characteristics'); ?>
 
             <?php get_template_part('parts/tenis-benefits'); ?>
-
         </div>
     </article>
 
