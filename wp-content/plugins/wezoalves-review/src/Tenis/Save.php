@@ -36,7 +36,7 @@ function cpt_tenis_save_details($post_id)
 
     $images = sanitize_text_field($_POST[$cpt_tenis_key . '_images']);
 
-    update_post_meta($post_id, $cpt_tenis_key . '_type', $brand);
+    update_post_meta($post_id, $cpt_tenis_key . '_brand', $brand);
     update_post_meta($post_id, $cpt_tenis_key . '_type', $type);
     update_post_meta($post_id, $cpt_tenis_key . '_description', $description);
     update_post_meta($post_id, $cpt_tenis_key . '_classification', $classification);
