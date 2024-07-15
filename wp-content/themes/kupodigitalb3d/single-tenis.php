@@ -14,7 +14,7 @@ $tenis = json_decode($tenisJson);
 ?>
 <main id="content">
 
-    <div class="max-w-5xl flex px-4 xl:px-0 py-24 mx-auto" id="single-tenis">
+    <article class="max-w-5xl flex px-4 xl:px-0 py-24 mx-auto" id="single-tenis">
         <div class="w-full dark:text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
                 <div class="flex flex-col md:flex-row -mx-4">
@@ -78,14 +78,14 @@ $tenis = json_decode($tenisJson);
                 </div>
             </div>
 
-            <?php get_template_part('parts/tenis-characteristics'); ?>
-
             <?php get_template_part('parts/tenis-classification'); ?>
+
+            <?php get_template_part('parts/tenis-characteristics'); ?>
 
             <?php get_template_part('parts/tenis-benefits'); ?>
 
         </div>
-    </div>
+    </article>
 
 
     <!-- Sticky Share -->

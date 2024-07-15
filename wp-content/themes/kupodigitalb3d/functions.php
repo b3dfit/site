@@ -121,6 +121,56 @@ function getStarRating($score)
     return $starRatingHtml;
 }
 
+/* Breadcrumb */
+function get_custom_breadcrumb() {
+    global $post;
+
+    $breadcrumbs = [
+        [
+            'label' => 'Home',
+            'url' => home_url('/')
+        ]
+    ];
+
+    if (is_category()) {
+        $category = get_category(get_query_var('cat'));
+        $category_link = get_category_link($category->term_id);
+        $breadcrumbs[] = [
+            'label' => $category->name,
+            'url' => $category_link
+        ];
+    } elseif (is_singular() && get_post_type() != 'post') {
+        $post_type = get_post_type_object(get_post_type());
+        $post_type_link = get_post_type_archive_link(get_post_type());
+        if ($post_type && $post_type_link) {
+            $breadcrumbs[] = [
+                'label' => $post_type->labels->singular_name,
+                'url' => $post_type_link
+            ];
+        }
+    } elseif (is_single()) {
+        $categories = get_the_category();
+        if ($categories) {
+            $category = $categories[0];
+            $category_link = get_category_link($category->term_id);
+            $breadcrumbs[] = [
+                'label' => $category->name,
+                'url' => $category_link
+            ];
+        }
+    }
+
+    if (is_single() || is_page()) {
+        $breadcrumbs[] = [
+            'label' => get_the_title(),
+            'url' => get_permalink()
+        ];
+    }
+
+    return $breadcrumbs;
+}
+
+
 
 /* Verifica se está sendo chamada a pagina de login */
 function is_custom_page($page)
