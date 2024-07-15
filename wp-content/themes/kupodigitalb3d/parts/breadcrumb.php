@@ -23,4 +23,5 @@ $breadcrumbs = get_custom_breadcrumb();
             </li>
         <?php endforeach; ?>
     </ol>
+    <meta itemprop="name" content="Navegação">
 </nav>
