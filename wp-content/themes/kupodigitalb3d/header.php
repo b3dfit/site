@@ -16,12 +16,15 @@
   <meta name="keywords"
     content="tênis de performance, recomendações de tênis, aplicativos fitness, relógios inteligentes, roupas esportivas, acessórios para esportes">
   <meta name="author" content="Plataforma de Recomendações de Tênis">
-  <meta property="og:title" content="Plataforma de Recomendações de Tênis">
+
   <meta property="og:description"
-    content="A plataforma para entusiastas de atividades físicas. Aqui você terá acesso a recomendações especializadas de tênis de performance, aplicativos e relógios inteligentes, roupas com tecidos especiais e acessórios, projetadas para melhorar seu desempenho e conforto durante cada passo!">
-  <meta property="og:url" content="https://www.b3d.com.br">
+    content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
+  <meta property="og:image" content="https://www.b3d.com.br/files/dist/images/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="<?php the_title(); ?>">
+  <meta property="og:title" content="<?php the_title(); ?>">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.b3d.com.br/files/dist/images/logo.png">
+  <meta property="og:url" content="https://www.b3d.com.br/">
 
   <!-- Meta Tags para Contato e Localização -->
   <meta name="contact:phone_number" content="+55-11-99897-0080">
@@ -40,14 +43,7 @@
     content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
   <meta name="twitter:image" content="https://www.b3d.com.br/files/dist/images/og-image.png">
 
-  <meta property="og:url" content="https://www.b3d.com.br/">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="<?php the_title(); ?>">
-  <meta property="og:title" content="<?php the_title(); ?>">
-  <meta property="og:description"
-    content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
-  <meta property="og:image" content="https://www.b3d.com.br/files/dist/images/og-image.png">
+
 
   <!-- Title -->
   <title><?php the_title(); ?></title>
