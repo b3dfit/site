@@ -1,0 +1,3 @@
+[submodule "wp-content/plugins/wezo-feed"]
+	path = wp-content/plugins/wezo-feed
+	url = https://github.com/wezoalves/wp-feed
