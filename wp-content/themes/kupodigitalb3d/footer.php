@@ -501,14 +501,12 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 <script>
   window.fbAsyncInit = function () {
     FB.init({
-      appId: '{your-app-id}', // 61562854045242 - https://web.facebook.com/profile.php?id=61562854045242
+      appId: '717857133771382', 
       cookie: true,
       xfbml: true,
-      version: '{api-version}'
+      version: 'v10.0'
     });
-
     FB.AppEvents.logPageView();
-
   };
 
   (function (d, s, id) {

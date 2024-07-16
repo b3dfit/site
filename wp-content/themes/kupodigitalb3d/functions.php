@@ -54,9 +54,10 @@ function getUrlByName($name)
 {
 
     $urls = [
-        "twitter" => "https://www.x.com/#twitter",
-        "github" => "https://github.com/brcomb3d",
+        "twitter" => "https://www.x.com/b3dfit",
+        "github" => "https://github.com/b3dfit",
         "slack" => "https://www.slack.com/#slack",
+        "facebook" => "https://www.facebook.com/profile.php?id=61562854045242",
         "politicacookies" => getPageUrlBySlug('legal/politica-de-cookies'),
         "desenvolvedor" => getPageUrlBySlug('desenvolvedor'),
         "legal" => getPageUrlBySlug('legal'),
