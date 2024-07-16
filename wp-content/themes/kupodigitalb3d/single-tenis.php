@@ -74,7 +74,7 @@ $tenis = json_decode($tenisJson);
                         </div>
                         <p itemprop="description"><?php the_excerpt(); ?></p>
                         <div class="flex py-4 space-x-4">
-                            <button type="button"
+                            <button type="button" onclick="window.open('<?php echo ($tenis->offer_best->url); ?>')"
                                 class="h-14 px-6 py-2 m-auto font-semibold rounded-xl bg-zinc-950 text-lime-400 dark:bg-lime-400 dark:text-black">
                                 Ver Ofertas para esse Produto
                             </button>
@@ -96,11 +96,54 @@ $tenis = json_decode($tenisJson);
                         como fonte as informações da marca e o feedback da nossa comunidade.</p>
                 </div>
             </div>
-            <?php get_template_part('parts/tenis-classification'); ?>
 
-            <?php get_template_part('parts/tenis-characteristics'); ?>
 
-            <?php get_template_part('parts/tenis-benefits'); ?>
+            
+
+            <div class="border-b border-gray-200 dark:border-neutral-700 mt-20">
+                <nav class="flex space-x-10" aria-label="Tabs" role="tablist">
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-lime-400 hs-tab-active:text-zinc-800 py-4 px-1 inline-flex items-center gap-x-2 border-b-4 border-transparent text-lg whitespace-nowrap text-gray-500 hover:text-zinc-800 focus:outline-none focus:text-zinc-800 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
+                        id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1"
+                        aria-controls="tabs-with-underline-1" role="tab">
+                        Classificação Geral
+                    </button>
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-lime-400 hs-tab-active:text-zinc-800 py-4 px-1 inline-flex items-center gap-x-2 border-b-4 border-transparent text-lg whitespace-nowrap text-gray-500 hover:text-zinc-800 focus:outline-none focus:text-zinc-800 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-2" data-hs-tab="#tabs-with-underline-2"
+                        aria-controls="tabs-with-underline-2" role="tab">
+                        Características
+                    </button>
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-lime-400 hs-tab-active:text-zinc-800 py-4 px-1 inline-flex items-center gap-x-2 border-b-4 border-transparent text-lg whitespace-nowrap text-gray-500 hover:text-zinc-800 focus:outline-none focus:text-zinc-800 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-3" data-hs-tab="#tabs-with-underline-3"
+                        aria-controls="tabs-with-underline-3" role="tab">
+                        Beneficios
+                    </button>
+                </nav>
+            </div>
+
+            <div class="mt-3">
+                <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
+                    <p class="text-gray-500 dark:text-neutral-400">
+                        <?php get_template_part('parts/tenis-classification'); ?>
+                    </p>
+                </div>
+                <div id="tabs-with-underline-2" class="hidden" role="tabpanel"
+                    aria-labelledby="tabs-with-underline-item-2">
+                    <p class="text-gray-500 dark:text-neutral-400">
+                        <?php get_template_part('parts/tenis-characteristics'); ?>
+                    </p>
+                </div>
+                <div id="tabs-with-underline-3" class="hidden" role="tabpanel"
+                    aria-labelledby="tabs-with-underline-item-3">
+                    <p class="text-gray-500 dark:text-neutral-400">
+                        <?php get_template_part('parts/tenis-benefits'); ?>
+                    </p>
+                </div>
+            </div>
+
+
         </div>
     </article>
 

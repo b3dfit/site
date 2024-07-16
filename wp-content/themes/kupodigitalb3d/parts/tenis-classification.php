@@ -4,12 +4,11 @@ global $tenis;
 
 <!-- Comparison Table -->
 <div class="relative">
-    <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 md:pb-14 lg:pb-20 mx-auto">
+    <div class="w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
 
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white" itemprop="name">Classificação
+        <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+            <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Classificação
                 Geral do <?php echo ($tenis->title) ?>
-            </h2>
         </div>
 
         <div>
@@ -89,8 +88,6 @@ global $tenis;
 
                 </ul>
                 <!-- End List -->
-
-
 
                 <?php foreach ($tenis->classification_explained as $key => $classification) : ?>
                     <!-- List -->
