@@ -497,6 +497,28 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 <!-- ========== END MODAL SUCCESS ========== -->
 
 <?php wp_footer(); ?>
+
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '{your-app-id}', // 61562854045242 - https://web.facebook.com/profile.php?id=61562854045242
+      cookie: true,
+      xfbml: true,
+      version: '{api-version}'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 
 </html>

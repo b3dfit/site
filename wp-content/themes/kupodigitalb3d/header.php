@@ -19,7 +19,7 @@
 
   <meta property="og:description"
     content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
-  <meta property="og:image" content="https://www.b3d.com.br/files/dist/images/og-image.png">
+  <meta property="og:image" content="https://www.b3d.com.br/files/dist/images/og-image-dark.png">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="<?php the_title(); ?>">
   <meta property="og:title" content="<?php the_title(); ?>">
@@ -41,7 +41,7 @@
   <meta name="twitter:title" content="<?php the_title(); ?>">
   <meta name="twitter:description"
     content="Acesse recomendações especializadas de tênis de performance, aplicativos, relógios inteligentes, roupas e acessórios para melhorar seu desempenho e conforto nas atividades físicas.">
-  <meta name="twitter:image" content="https://www.b3d.com.br/files/dist/images/og-image.png">
+  <meta name="twitter:image" content="https://www.b3d.com.br/files/dist/images/og-image-dark.png">
 
 
 
