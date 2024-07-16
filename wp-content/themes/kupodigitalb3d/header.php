@@ -58,7 +58,8 @@
   <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css">
 
   <meta name="lomadee-verification" content="23361002" />
-
+  <meta name="facebook-domain-verification" content="3n6rlvsi2g16v784gpc20f74hf5m17" />
+  
   <?php wp_head(); ?>
 </head>
 
