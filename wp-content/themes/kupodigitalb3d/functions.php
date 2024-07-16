@@ -21,7 +21,7 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 
 add_theme_support('responsive-embeds');
-
+add_theme_support( 'title-tag' );
 
 function estimated_reading_time()
 {
