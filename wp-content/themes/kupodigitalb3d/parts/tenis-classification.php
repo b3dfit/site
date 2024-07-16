@@ -111,12 +111,16 @@ global $tenis;
 
 
                         <!-- Item -->
-                        <li class="col-span-10 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center ">
+                        <li class="col-span-10 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center hs-tooltip inline-block">
                             <div class="grid grid-cols-1 lg:block">
                                 <!-- Progress -->
                                 <div class="xs:hidden flex w-full h-8 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700"
-                                    role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10"
-                                    title="<?php echo ($classification->description); ?>">
+                                    role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
+                                    <span
+                                        class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-2 px-4 bg-zinc-950 text-lime-500 text-xl font-medium rounded shadow-sm dark:bg-neutral-700"
+                                        role="tooltip">
+                                        <?php echo ($classification->description); ?>
+                                    </span>
                                     <div class="flex flex-col justify-center rounded-full overflow-hidden bg-lime-500 text-xs text-white text-left px-3 whitespace-nowrap dark:bg-lime-500 transition duration-500"
                                         style="width: <?php echo ($classification->value * 10); ?>%"
                                         itemprop="<?php echo ($key); ?>Rating">
