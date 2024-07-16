@@ -57,6 +57,7 @@ function getUrlByName($name)
         "twitter" => "https://www.x.com/b3dfit",
         "instagram" => "https://www.instagram.com/b3dfit",
         "github" => "https://github.com/b3dfit",
+        "threads"=>"https://www.threads.net/@b3dfit",
         "slack" => "https://www.slack.com/#slack",
         "facebook" => "https://www.facebook.com/profile.php?id=61562854045242",
         "politicacookies" => getPageUrlBySlug('legal/politica-de-cookies'),
