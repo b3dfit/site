@@ -102,7 +102,7 @@ get_header();
             .then(data => {
                 if (data.id) {
                     alert('Usuário cadastrado com sucesso!');
-                    window.location.href = '<?php echo site_url('/login'); ?>';
+                    window.location.href = '<?php echo site_url('/login?success-singup'); ?>';
                 } else {
                     alert('Erro ao cadastrar usuário: ' + data.message);
                 }

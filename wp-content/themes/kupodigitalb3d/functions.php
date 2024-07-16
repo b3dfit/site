@@ -55,6 +55,7 @@ function getUrlByName($name)
 
     $urls = [
         "twitter" => "https://www.x.com/b3dfit",
+        "instagram" => "https://www.instagram.com/b3dfit",
         "github" => "https://github.com/b3dfit",
         "slack" => "https://www.slack.com/#slack",
         "facebook" => "https://www.facebook.com/profile.php?id=61562854045242",
@@ -218,7 +219,7 @@ function platform_login_scripts()
         'login_url' => getUrlByName('login'),
         'profile_url' => getUrlByName('dashboard'),
         'auth_url' => site_url('/wp-json/jwt-auth/v1/token'),
-        'loginsuccess_url' => site_url('/#sucesso')
+        'loginsuccess_url' => site_url('/?success-login#sucesso')
     ));
 }
 add_action('wp_enqueue_scripts', 'platform_login_scripts');
