@@ -11,16 +11,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($data) {
-    $data['date'] = time();
-    $data['datetime'] = (new \DateTime())->format('Y-m-d H:i:s');
-
     $sessionID = $data['sessionID'];
-    $filename = $sessionID . '.log';
+    $filename = $sessionID . '.geojson';
     $filepath = __DIR__ . '/logs/' . $filename;
 
-    $logData = json_encode($data, JSON_PRETTY_PRINT) . PHP_EOL;
+    $feature = [
+        'type' => 'Feature',
+        'geometry' => [
+            'type' => 'Point',
+            'coordinates' => [(float)$data['longitude'], (float)$data['latitude']]
+        ],
+        'properties' => [
+            'userID' => $data['userID'],
+            'timestamp' => $data['timestamp'],
+            'datetime' => (new \DateTime())->format('Y-m-d H:i:s'),
+            'clima' => $data['clima']
+        ]
+    ];
 
-    if (file_put_contents($filepath, $logData, FILE_APPEND)) {
+    if (file_exists($filepath)) {
+        $geojson = json_decode(file_get_contents($filepath), true);
+        $geojson['features'][] = $feature;
+    } else {
+        $geojson = [
+            'type' => 'FeatureCollection',
+            'features' => [$feature]
+        ];
+    }
+
+    if (file_put_contents($filepath, json_encode($geojson, JSON_PRETTY_PRINT))) {
         echo 'Dados salvos com sucesso';
     } else {
         echo 'Erro ao salvar os dados';
@@ -28,4 +47,3 @@ if ($data) {
 } else {
     echo 'Nenhum dado recebido';
 }
-?>
