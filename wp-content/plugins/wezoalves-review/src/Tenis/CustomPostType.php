@@ -36,9 +36,9 @@ add_action('init', 'cpt_tenis_init');
 // Adiciona uma nova coluna na listagem do CPT "tenis"
 function add_tenis_custom_columns($columns)
 {
-    $columns['thumbnail'] = __('Imagem', 'text_domain');
-    $columns['tenis_priceregular'] = __('Preço Regular', 'text_domain');
     $columns['tenis_brand'] = __('Marca', 'text_domain');
+    $columns['tenis_priceregular'] = __('Preço Regular', 'text_domain');
+    $columns['thumbnail'] = __('Imagem', 'text_domain');
     
     return $columns;
 }
@@ -48,6 +48,12 @@ add_filter('manage_tenis_posts_columns', 'add_tenis_custom_columns');
 function tenis_custom_column_content($column, $post_id)
 {
     $stores = (new Store())->getAll();
+
+    if ($column == 'tenis_brand') {
+        // Exemplo: exibe o valor do campo meta "tenis_brand"
+        $tenis_brand = get_post_meta($post_id, 'tenis_brand', true);
+        echo $stores[$tenis_brand]['title'];
+    }
 
     if ($column == 'thumbnail') {
         // Exibe a imagem de destaque
@@ -64,11 +70,7 @@ function tenis_custom_column_content($column, $post_id)
         echo "R$ ".$tenis_priceregular;
     }
 
-    if ($column == 'tenis_brand') {
-        // Exemplo: exibe o valor do campo meta "tenis_brand"
-        $tenis_brand = get_post_meta($post_id, 'tenis_brand', true);
-        echo $stores[$tenis_brand]['title'];
-    }
+
 }
 add_action('manage_tenis_posts_custom_column', 'tenis_custom_column_content', 10, 2);
 
