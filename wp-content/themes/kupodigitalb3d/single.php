@@ -7,7 +7,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
 <main id="content">
     <!-- Blog Article -->
 
-    <div class="max-w-5xl flex px-4 xl:px-0 py-24 mx-auto" id="single">
+    <div class="max-w-5xl flex px-4 xl:px-0 py-8 mx-auto" id="single">
         <div class="w-full">
             <!-- Avatar Media -->
             <?php
