@@ -39,7 +39,7 @@ function add_tenis_custom_columns($columns)
     $columns['tenis_brand'] = __('Marca', 'text_domain');
     $columns['tenis_priceregular'] = __('Preço Regular', 'text_domain');
     $columns['thumbnail'] = __('Imagem', 'text_domain');
-    
+
     return $columns;
 }
 add_filter('manage_tenis_posts_columns', 'add_tenis_custom_columns');
@@ -67,7 +67,7 @@ function tenis_custom_column_content($column, $post_id)
     if ($column == 'tenis_priceregular') {
         // Exemplo: exibe o valor do campo meta "tenis_priceregular"
         $tenis_priceregular = get_post_meta($post_id, 'tenis_priceregular', true);
-        echo "R$ ".$tenis_priceregular;
+        echo "R$ " . number_format($tenis_priceregular, 2, ',', '.');
     }
 
 
