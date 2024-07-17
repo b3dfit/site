@@ -7,7 +7,7 @@ $breadcrumbs = get_custom_breadcrumb();
         <?php foreach ($breadcrumbs as $index => $breadcrumb): ?>
             <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <?php if ($index !== count($breadcrumbs) - 1): ?>
-                    <a class="flex items-center text-sm text-gray-500 hover:text-zinc-600 focus:outline-none focus:text-zinc-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500" href="<?php echo esc_url($breadcrumb['url']); ?>" itemprop="item">
+                    <a class="flex items-center text-sm text-gray-500 hover:text-zinc-600 focus:outline-none focus:text-zinc-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500 text-wrap" href="<?php echo esc_url($breadcrumb['url']); ?>" itemprop="item">
                         <span itemprop="name"><?php echo esc_html($breadcrumb['label']); ?></span>
                     </a>
                     <meta itemprop="position" content="<?php echo $index + 1; ?>" />
@@ -15,7 +15,7 @@ $breadcrumbs = get_custom_breadcrumb();
                         <path d="m9 18 6-6-6-6"></path>
                     </svg>
                 <?php else: ?>
-                    <span class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200" aria-current="page" itemprop="name">
+                    <span class="text-wrap inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200" aria-current="page" itemprop="name">
                         <?php echo esc_html($breadcrumb['label']); ?>
                     </span>
                     <meta itemprop="position" content="<?php echo $index + 1; ?>" />
