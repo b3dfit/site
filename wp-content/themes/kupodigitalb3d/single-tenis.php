@@ -70,7 +70,6 @@ $tenis = json_decode($tenisJson);
                             <meta itemprop="price" content="<?php echo ($tenis->price_regular); ?>" />
                             <meta itemprop="lowPrice" content="<?php echo ($tenis->offer_best->price); ?>" />
                             <meta itemprop="highPrice" content="<?php echo ($tenis->price_regular); ?>" />
-
                         </div>
                         <p itemprop="description"><?php the_excerpt(); ?></p>
                         <div class="flex py-4 space-x-4">

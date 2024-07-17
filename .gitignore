@@ -10,3 +10,4 @@ files/2024
 app/run/*.json
 app/run/logs/*
 wp-content/debug.log
+start.sh
