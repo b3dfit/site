@@ -12,8 +12,14 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 if ($data) {
     $sessionID = $data['sessionID'];
+    $logDir = __DIR__ . '/logs';
     $filename = $sessionID . '.geojson';
-    $filepath = __DIR__ . '/logs/' . $filename;
+    $filepath = $logDir . '/' . $filename;
+
+    // Cria a pasta de log se não existir
+    if (!is_dir($logDir)) {
+        mkdir($logDir, 0777, true);
+    }
 
     $feature = [
         'type' => 'Feature',
@@ -47,3 +53,4 @@ if ($data) {
 } else {
     echo 'Nenhum dado recebido';
 }
+?>
