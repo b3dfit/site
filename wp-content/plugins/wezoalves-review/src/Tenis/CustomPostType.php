@@ -61,7 +61,7 @@ function tenis_custom_column_content($column, $post_id)
     if ($column == 'tenis_priceregular') {
         // Exemplo: exibe o valor do campo meta "tenis_priceregular"
         $tenis_priceregular = get_post_meta($post_id, 'tenis_priceregular', true);
-        echo $tenis_priceregular;
+        echo "R$ ".$tenis_priceregular;
     }
 
     if ($column == 'tenis_brand') {
