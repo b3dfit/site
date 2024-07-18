@@ -5,7 +5,7 @@ namespace Review\Repository;
 final class Store
 {
 
-    
+
     public function getById($post_id)
     {
         $post = get_post($post_id);
@@ -93,13 +93,15 @@ final class Store
                 $programs = $programs ? $programs : null;
 
                 $programsList = [];
-                foreach ($programs as $program) :
-                    $programsList[] = (new \Review\Model\AffiliateProgram())
-                        ->setAdvertiserId($program['advertiser_id'])
-                        ->setPublisherId($program['publisher_id'])
-                        ->setComission($program['comission'])
-                        ->setPlatform($program['platform']);
-                endforeach;
+                if ($programs) :
+                    foreach ($programs as $program) :
+                        $programsList[] = (new \Review\Model\AffiliateProgram())
+                            ->setAdvertiserId($program['advertiser_id'])
+                            ->setPublisherId($program['publisher_id'])
+                            ->setComission($program['comission'])
+                            ->setPlatform($program['platform']);
+                    endforeach;
+                endif;
 
                 $stores[$post->ID] = [
                     "id" => $post->ID,
