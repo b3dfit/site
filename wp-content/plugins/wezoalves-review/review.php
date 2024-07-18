@@ -10,6 +10,8 @@ Author: Weslley Alves
 include ('src/Utils/TypeTenis.php');
 include ('src/Utils/RatingTenis.php');
 
+include ('src/Affiliate/Awin.php');
+
 include ('src/Repository/Store.php');
 include ('src/Repository/Tenis.php');
 

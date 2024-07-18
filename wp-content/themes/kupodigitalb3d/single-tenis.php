@@ -44,10 +44,13 @@ $tenis = json_decode($tenisJson);
                         <h1 class="mb-2 leading-tight tracking-tight font-bold text-2xl md:text-3xl" itemprop="name">
                             <?php the_title(); ?>
                         </h1>
-                        <p class=" text-sm">Marca <a href="<?php echo ($tenis->brand->link); ?>" class="hover:underline"
-                                itemprop="brand">
+                        <p class=" text-sm">Marca: <a href="<?php echo ($tenis->brand->link); ?>"
+                                class="hover:underline" itemprop="brand">
                                 <?php echo ($tenis->brand->title); ?>
-                            </a></p>
+                            </a>
+                        </p>
+                        <p class=" text-xs mt-2">Tipo: <?php echo ($tenis->type->name); ?>
+                        </p>
                         <div class="flex items-center space-x-4 my-4" itemprop="offers" itemscope
                             itemtype="https://schema.org/Offer">
                             <div>
@@ -57,12 +60,22 @@ $tenis = json_decode($tenisJson);
                                         class="font-bold text-3xl"><?php echo ($tenis->offer_best->price_formated); ?></span>
                                 </div>
                             </div>
+
+
                             <div class="flex-1">
-                                <p class="text-lime-500 text-xl font-semibold">Economize
-                                    <span itemprop="discount"><?php echo ($tenis->offer_best->discount); ?></span>%
-                                </p>
+                                
+                                <!-- TAG MENOR PREÇO -->
+                                <?php if ($tenis->offer_best->discount) : ?>
+                                    <p class="text-lime-500 text-xl font-semibold">
+                                        Economize
+                                        <span itemprop="discount"><?php echo ($tenis->offer_best->discount); ?></span>%
+                                    </p>
+                                <?php endif; ?>
+                                <!-- END TAG MENOR PREÇO -->
+
                                 <p class="text-gray-400 text-sm">Menor preço.</p>
                             </div>
+
                             <meta itemprop="availability" content="https://schema.org/InStock" />
                             <meta itemprop="url" content="<?php echo ($tenis->link); ?>" />
                             <meta itemprop="validThrough"
@@ -97,7 +110,7 @@ $tenis = json_decode($tenisJson);
             </div>
 
 
-            
+
 
             <div class="border-b border-gray-200 dark:border-neutral-700 mt-20">
                 <nav class="flex space-x-10" aria-label="Tabs" role="tablist">
