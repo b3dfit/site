@@ -1,23 +1,25 @@
 <?php
 namespace Review\Utils;
 
+use Review\Model\TenisType as Type;
+
 final class TypeTenis
 {
     private static function data()
     {
         return [
-            ["name" => "Performance - Corrida (Running)", "id" => "PERFORMANCE_RUNNING"],
-            ["name" => "Performance - Treino (Training)", "id" => "PERFORMANCE_TRAINING"],
-            ["name" => "Performance - Basquete", "id" => "PERFORMANCE_BASKETBALL"],
-            ["name" => "Performance - Futebol (Society e Futsal)", "id" => "PERFORMANCE_FOOTBALL"],
-            ["name" => "Performance - Tennis e Squash", "id" => "PERFORMANCE_TENNIS_SQUASH"],
-            ["name" => "Casual - Estilo de Vida (Lifestyle)", "id" => "CASUAL_LIFESTYLE"],
-            ["name" => "Casual - Skate", "id" => "CASUAL_SKATE"],
-            ["name" => "Outdoor - Trilha (Trail)", "id" => "OUTDOOR_TRAIL"],
-            ["name" => "Outdoor - Caminhada (Hiking)", "id" => "OUTDOOR_HIKING"],
-            ["name" => "Especiais - Minimalistas", "id" => "SPECIAL_MINIMALIST"],
-            ["name" => "Especiais - Para Esportes Específicos", "id" => "SPECIAL_SPORTS_SPECIFIC"],
-            ["name" => "Infantis", "id" => "KIDS"]
+            new Type("PERFORMANCE_RUNNING", "Performance - Corrida (Running)"),
+            new Type("PERFORMANCE_TRAINING", "Performance - Treino (Training)"),
+            new Type("PERFORMANCE_BASKETBALL", "Performance - Basquete"),
+            new Type("PERFORMANCE_FOOTBALL", "Performance - Futebol (Society e Futsal)"),
+            new Type("PERFORMANCE_TENNIS_SQUASH", "Performance - Tennis e Squash"),
+            new Type("CASUAL_LIFESTYLE", "Casual - Estilo de Vida (Lifestyle)"),
+            new Type("CASUAL_SKATE", "Casual - Skate"),
+            new Type("OUTDOOR_TRAIL", "Outdoor - Trilha (Trail)"),
+            new Type("OUTDOOR_HIKING", "Outdoor - Caminhada (Hiking)"),
+            new Type("SPECIAL_MINIMALIST", "Especiais - Minimalistas"),
+            new Type("SPECIAL_SPORTS_SPECIFIC", "Especiais - Para Esportes Específicos"),
+            new Type("KIDS", "Infantis"),
         ];
     }
 
@@ -25,12 +27,15 @@ final class TypeTenis
     {
         return self::data();
     }
-    public static function getById($id)
+
+    public static function getById($id) : ?Type
     {
         $types = self::data();
-        $ids = array_column($types, 'id');
-        $index = array_search($id, $ids);
-
-        return ($index !== false) ? $types[$index] : null;
+        foreach ($types as $type) {
+            if ($type->getId() === $id) {
+                return $type;
+            }
+        }
+        return null;
     }
 }

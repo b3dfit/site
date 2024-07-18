@@ -8,7 +8,7 @@ global $tenis;
 
         <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
             <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Classificação
-                Geral do <?php echo ($tenis->title) ?>
+                Geral do <?php echo ($tenis->getTitle()) ?>
         </div>
 
         <div>
@@ -89,7 +89,10 @@ global $tenis;
                 </ul>
                 <!-- End List -->
 
-                <?php foreach ($tenis->classification_explained as $key => $classification) : ?>
+                <?php
+                foreach ($tenis->getClassificationExplained() as $key => $classification) :
+                    $classification = (object) $classification;
+                    ?>
                     <!-- List -->
                     <ul class="grid lg:grid-cols-12 lg:gap-12" itemprop="reviewRating" itemscope
                         itemtype="https://schema.org/Rating">

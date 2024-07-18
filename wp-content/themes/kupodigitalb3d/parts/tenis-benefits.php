@@ -1,6 +1,6 @@
 <?php
 global $tenis;
-$items = explode("\n", $tenis->benefits);
+$items = explode("\n", $tenis->getBenefits());
 $numbersInEnglish = [
     "1" => 'one',
     "2" => 'two',
@@ -30,7 +30,7 @@ $numbersInEnglish = [
     <!-- Title -->
     <div class="max-w-2xl mx-auto text-center">
         <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Beneficios do
-            <?php echo ($tenis->title) ?>
+            <?php echo ($tenis->getTitle()) ?>
         </h2>
     </div>
     <!-- End Title -->

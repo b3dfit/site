@@ -6,12 +6,7 @@ use Review\Utils\RatingTenis;
 use Review\Repository\Store;
 use Review\Repository\Tenis;
 
-$tenisData = (new Tenis())->getById(get_the_ID());
-$tenisJson = json_encode($tenisData);
-$tenis = json_decode($tenisJson);
-
-
-// echo('<pre>');var_dump($tenis->offer_best);die;
+$tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
 ?>
 <main id="content">
 
@@ -26,9 +21,9 @@ $tenis = json_decode($tenisJson);
 
                             <!-- IMAGE -->
                             <div class="h-64 md:h-80 rounded-lg bg-white p-5 mb-4 flex items-center justify-center">
-                                <?php if ($tenis->image) : ?>
+                                <?php if ($tenis->getImage()) : ?>
                                     <img class="h-auto rounded-none size-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                                        src="<?php echo $tenis->image; ?>" alt="<?php echo get_the_title(); ?>"
+                                        src="<?php echo $tenis->getImage(); ?>" alt="<?php echo $tenis->getTitle(); ?>"
                                         itemprop="image" />
                                 <?php endif; ?>
                             </div>
@@ -44,12 +39,12 @@ $tenis = json_decode($tenisJson);
                         <h1 class="mb-2 leading-tight tracking-tight font-bold text-2xl md:text-3xl" itemprop="name">
                             <?php the_title(); ?>
                         </h1>
-                        <p class=" text-sm">Marca: <a href="<?php echo ($tenis->brand->link); ?>"
+                        <p class=" text-sm">Marca: <a href="<?php echo ($tenis->getBrand()['link']); ?>"
                                 class="hover:underline" itemprop="brand">
-                                <?php echo ($tenis->brand->title); ?>
+                                <?php echo ($tenis->getBrand()['title']); ?>
                             </a>
                         </p>
-                        <p class=" text-xs mt-2">Tipo: <?php echo ($tenis->type->name); ?>
+                        <p class=" text-xs mt-2">Tipo: <?php echo ($tenis->getType()->getName()); ?>
                         </p>
                         <div class="flex items-center space-x-4 my-4" itemprop="offers" itemscope
                             itemtype="https://schema.org/Offer">
@@ -57,18 +52,18 @@ $tenis = json_decode($tenisJson);
                                 <div class="rounded-lg bg-gray-100 dark:text-black flex py-2 px-3">
                                     <span class="mr-1 mt-1" itemprop="priceCurrency" content="BRL">R$</span>
                                     <span
-                                        class="font-bold text-3xl"><?php echo ($tenis->offer_best->price_formated); ?></span>
+                                        class="font-bold text-3xl"><?php echo ($tenis->getOfferBest()->getPriceFormated()); ?></span>
                                 </div>
                             </div>
 
 
                             <div class="flex-1">
-                                
+
                                 <!-- TAG MENOR PREÇO -->
-                                <?php if ($tenis->offer_best->discount) : ?>
+                                <?php if ($tenis->getOfferBest()->getDiscount()) : ?>
                                     <p class="text-lime-500 text-xl font-semibold">
                                         Economize
-                                        <span itemprop="discount"><?php echo ($tenis->offer_best->discount); ?></span>%
+                                        <span itemprop="discount"><?php echo ($tenis->getOfferBest()->getDiscount()); ?></span>%
                                     </p>
                                 <?php endif; ?>
                                 <!-- END TAG MENOR PREÇO -->
@@ -77,20 +72,24 @@ $tenis = json_decode($tenisJson);
                             </div>
 
                             <meta itemprop="availability" content="https://schema.org/InStock" />
-                            <meta itemprop="url" content="<?php echo ($tenis->link); ?>" />
+                            <meta itemprop="url" content="<?php echo ($tenis->getLink()); ?>" />
                             <meta itemprop="validThrough"
                                 content="<?php echo (date('Y-12-31', time() + YEAR_IN_SECONDS)); ?>" />
-                            <meta itemprop="price" content="<?php echo ($tenis->price_regular); ?>" />
-                            <meta itemprop="lowPrice" content="<?php echo ($tenis->offer_best->price); ?>" />
-                            <meta itemprop="highPrice" content="<?php echo ($tenis->price_regular); ?>" />
+                            <meta itemprop="price" content="<?php echo ($tenis->getPriceRegular()); ?>" />
+                            <meta itemprop="lowPrice" content="<?php echo ($tenis->getOfferBest()->getPrice()); ?>" />
+                            <meta itemprop="highPrice" content="<?php echo ($tenis->getPriceRegular()); ?>" />
                         </div>
-                        <p itemprop="description"><?php the_excerpt(); ?></p>
+                        <p itemprop="description"><?php $tenis->getResume(); ?></p>
+
+                        <!-- BUTTON OFFER -->
                         <div class="flex py-4 space-x-4">
-                            <button type="button" onclick="window.open('<?php echo ($tenis->offer_best->url); ?>')"
+                            <button type="button" onclick="window.open('<?php echo ($tenis->getOfferBest()->getUrlOffer()); ?>')"
                                 class="h-14 px-6 py-2 m-auto font-semibold rounded-xl bg-zinc-950 text-lime-400 dark:bg-lime-400 dark:text-black">
                                 Ver Ofertas para esse Produto
                             </button>
                         </div>
+                        <!-- END BUTTON OFFER -->
+
                     </div>
                     <!-- END PRODUCT DETAILS -->
 
@@ -102,7 +101,7 @@ $tenis = json_decode($tenisJson);
                     <h2 class="text-2xl font-bold md:text-3xl md:leading-tight dark:text-white">Confira todos os
                         detalhes
                         sobre
-                        o <?php echo (get_the_title()); ?> e veja se ele é o que você precisa!</h2>
+                        o <?php echo ($tenis->getTitle()); ?> e veja se ele é o que você precisa!</h2>
                     <p class="mt-1 text-gray-600 dark:text-neutral-400">Todas as informações dos produtos são dinamicas,
                         tendo
                         como fonte as informações da marca e o feedback da nossa comunidade.</p>
@@ -113,7 +112,7 @@ $tenis = json_decode($tenisJson);
 
 
             <div class="border-b border-gray-200 dark:border-neutral-700 mt-20">
-                <nav class="flex space-x-10" aria-label="Tabs" role="tablist">
+                <nav class="flex space-x-5" aria-label="Tabs" role="tablist">
                     <button type="button"
                         class="hs-tab-active:font-semibold hs-tab-active:border-lime-400 hs-tab-active:text-zinc-800 py-4 px-1 inline-flex items-center gap-x-2 border-b-4 border-transparent text-lg whitespace-nowrap text-gray-500 hover:text-zinc-800 focus:outline-none focus:text-zinc-800 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
                         id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1"

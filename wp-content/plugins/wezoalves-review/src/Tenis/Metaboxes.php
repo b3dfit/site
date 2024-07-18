@@ -82,8 +82,8 @@ function cpt_tenis_details_callback($post)
             <td>
                 <select name="<?php echo ($cpt_tenis_key); ?>_type" class="cpttenis-field cpttenis-field-store">
                     <?php foreach ($types as $typeOption) : ?>
-                        <option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>>
-                            <?php echo ($typeOption['name']); ?>
+                        <option value="<?php echo ($typeOption->getId()); ?>" <?php selected($type, $typeOption->getId()); ?>>
+                            <?php echo ($typeOption->getName()); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

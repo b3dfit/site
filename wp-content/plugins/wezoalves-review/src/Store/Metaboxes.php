@@ -40,6 +40,7 @@ function review_cpt_callback($post)
     $ra_storeid = get_post_meta($post->ID, $cpt_store_key . '_ra_storeid', true);
     $ra_score = get_post_meta($post->ID, $cpt_store_key . '_ra_score', true);
     $programas = get_post_meta($post->ID, $cpt_store_key . '_affiliate', true);
+    $programas = $programas ? $programas : null;
     ?>
     <table class="form-table">
         <tr>
@@ -91,30 +92,36 @@ function review_cpt_callback($post)
         <tr>
             <th><label for="programas">Programas de Afiliados</label></th>
             <td>
+                <!-- PROGRAMS -->
                 <div id="programas-wrapper">
                     <?php if (! empty($programas)) : ?>
-                        <?php foreach ($programas as $index => $programa) : ?>
-                            <div class="programa">
+                        <?php foreach ($programas as $index => $programa) :
+
+                            $platform = isset($programa['platform']) ? $programa['platform'] : null;
+                            $advertiserId = isset($programa['advertiser_id']) ? $programa['advertiser_id'] : null;
+                            $publisherId = isset($programa['publisher_id']) ? $programa['publisher_id'] : null;
+                            ?>
+                            <div class="programa" style="margin: 30px auto">
 
 
-                                <select name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][plataforma]">
+                                <select style="width:200px;margin:auto 10px auto 0"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][platform]">
                                     <?php foreach ($platforms as $platformOption) : ?>
-                                        <option value="<?php echo ($platformOption['id']); ?>" <?php selected($programa['plataforma'], $platformOption['id']); ?>>
+                                        <option value="<?php echo ($platformOption['id']); ?>" <?php selected($platform, $platformOption['id']); ?>>
                                             <?php echo ($platformOption['name']); ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
 
+                                <input style="width:150px;margin:auto 10px" type="text"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][advertiser_id]"
+                                    value="<?php echo esc_attr($advertiserId); ?>" placeholder="ID Advertiser" />
 
-                                <input type="text"
-                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_advertiser]"
-                                    value="<?php echo esc_attr($programa['id_advertiser']); ?>" placeholder="ID Advertiser" />
+                                <input style="width:150px;margin:auto 10px" type="text"
+                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][publisher_id]"
+                                    value="<?php echo esc_attr($publisherId); ?>" placeholder="ID Publisher" />
 
-                                <input type="text"
-                                    name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][id_publisher]"
-                                    value="<?php echo esc_attr($programa['id_publisher']); ?>" placeholder="ID Publisher" />
-
-                                <input type="text"
+                                <input style="width:100px;margin:auto 10px" type="number"
                                     name="<?php echo $cpt_store_key . '_affiliate' ?>[<?php echo $index; ?>][comission]"
                                     value="<?php echo esc_attr($programa['comission']); ?>" placeholder="Comissão" />
 
@@ -124,6 +131,7 @@ function review_cpt_callback($post)
                     <?php endif; ?>
                 </div>
                 <button id="add-programa" class="button">Adicionar Programa</button>
+                <!-- END PROGRAMS -->
             </td>
         </tr>
         <tr>
@@ -165,27 +173,25 @@ function review_cpt_callback($post)
 
     <script>
         jQuery(document).ready(function ($) {
-            var programaIndex = <?php echo ! empty($programas) ? count($programas) : 0; ?>;
+            var programaIndex = <?php echo ! empty($programas) ? count($programas) + 1 : 0; ?>;
 
             $('#add-programa').on('click', function (e) {
                 e.preventDefault();
 
+                var programaHTML = '<div class="programa" style="margin: 30px auto">' +
 
-
-
-
-
-
-                var programaHTML = '<div class="programa">' +
-
-                    '<select name="<?php echo $cpt_store_key . '_affiliate' ?>[' + programaIndex + '][plataforma]">' +
+                    '<select style="width:200px;margin:auto 10px auto 0" name="<?php echo $cpt_store_key . '_affiliate' ?>[' + programaIndex + '][platform]">' +
                     <?php foreach ($platforms as $typeOption) : ?>
                     '<option value="<?php echo ($typeOption['id']); ?>" <?php selected($type, $typeOption['id']); ?>><?php echo ($typeOption['name']); ?></option>' +
                     <?php endforeach; ?>
                 '</select>' +
-                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_advertiser]" placeholder="ID Advertiser" />' +
-                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][id_publisher]" placeholder="ID Publisher" />' +
-                    '<input type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][comission]" placeholder="Comissão" />' +
+                    
+                    '<input style="width:150px;margin:auto 10px" type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][advertiser_id]" placeholder="ID Advertiser" />' +
+                    
+                    '<input style="width:150px;margin:auto 10px" type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][publisher_id]" placeholder="ID Publisher" />' +
+                    
+                    '<input style="width:100px;margin:auto 10px" type="text" name="<?php echo ($cpt_store_key . '_affiliate'); ?>[' + programaIndex + '][comission]" placeholder="Comissão" />' +
+                    
                     '<button class="remove-programa button">Remover</button>' +
                     '</div>';
                 $('#programas-wrapper').append(programaHTML);

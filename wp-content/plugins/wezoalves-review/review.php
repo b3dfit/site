@@ -10,6 +10,14 @@ Author: Weslley Alves
 include ('src/Utils/TypeTenis.php');
 include ('src/Utils/RatingTenis.php');
 
+include ('src/Domain/AffiliateOffer.php');
+include ('src/Domain/BestOffer.php');
+
+include ('src/Model/AffiliateProgram.php');
+include ('src/Model/Tenis.php');
+include ('src/Model/TenisType.php');
+include ('src/Model/Offer.php');
+
 include ('src/Affiliate/Awin.php');
 
 include ('src/Repository/Store.php');

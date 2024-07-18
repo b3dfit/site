@@ -32,10 +32,10 @@ function cpt_lojas_save_details($post_id)
     $ra_score = sanitize_text_field($_POST[$cpt_store_key . '_ra_score']);
     $programas = isset($_POST[$cpt_store_key . '_affiliate']) ? array_map(function ($programa) {
         return array(
-            'plataforma' => sanitize_text_field($programa['plataforma']),
-            'id_advertiser' => sanitize_text_field($programa['id_advertiser']),
-            'id_publisher' => floatval($programa['id_publisher']),
-            'comission' => sanitize_text_field($programa['comission']),
+            'platform' => sanitize_text_field($programa['platform']),
+            'advertiser_id' => sanitize_text_field($programa['advertiser_id']),
+            'publisher_id' => sanitize_text_field($programa['publisher_id']),
+            'comission' => intval($programa['comission']),
         );
     }, $_POST[$cpt_store_key . '_affiliate']) : null;
 

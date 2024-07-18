@@ -2,13 +2,18 @@
 
 namespace Review\Repository;
 
-use Review\Utils\TypeTenis;
-
 final class Store
 {
+
+    
     public function getById($post_id)
     {
         $post = get_post($post_id);
+
+        if (! $post) {
+            return null;
+        }
+
         $cpt_store_key = 'store';
         $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
         $type = get_post_meta($post->ID, $cpt_store_key . '_type', true);
@@ -21,8 +26,17 @@ final class Store
         $ra_shortname = get_post_meta($post->ID, $cpt_store_key . '_ra_shortname', true);
         $ra_storeid = get_post_meta($post->ID, $cpt_store_key . '_ra_storeid', true);
         $ra_score = get_post_meta($post->ID, $cpt_store_key . '_ra_score', true);
-        $programas = get_post_meta($post->ID, $cpt_store_key . '_affiliate', true);
+        $programs = get_post_meta($post->ID, $cpt_store_key . '_affiliate', true);
+        $programs = $programs ? $programs : null;
 
+        $programsList = [];
+        foreach ($programs as $program) :
+            $programsList[] = (new \Review\Model\AffiliateProgram())
+                ->setAdvertiserId($program['advertiser_id'])
+                ->setPublisherId($program['publisher_id'])
+                ->setComission($program['comission'])
+                ->setPlatform($program['platform']);
+        endforeach;
 
         return [
             "id" => $post_id,
@@ -41,7 +55,8 @@ final class Store
             "ra_shortname" => $ra_shortname,
             "ra_storeid" => $ra_storeid,
             "ra_score" => $ra_score,
-            "programas" => $programas,
+            //"programas" => $programs,
+            "affiliatePrograms" => $programsList,
         ];
     }
 
@@ -74,8 +89,17 @@ final class Store
                 $ra_shortname = get_post_meta($post->ID, $cpt_store_key . '_ra_shortname', true);
                 $ra_storeid = get_post_meta($post->ID, $cpt_store_key . '_ra_storeid', true);
                 $ra_score = get_post_meta($post->ID, $cpt_store_key . '_ra_score', true);
-                $programas = get_post_meta($post->ID, $cpt_store_key . '_affiliate', true);
+                $programs = get_post_meta($post->ID, $cpt_store_key . '_affiliate', true);
+                $programs = $programs ? $programs : null;
 
+                $programsList = [];
+                foreach ($programs as $program) :
+                    $programsList[] = (new \Review\Model\AffiliateProgram())
+                        ->setAdvertiserId($program['advertiser_id'])
+                        ->setPublisherId($program['publisher_id'])
+                        ->setComission($program['comission'])
+                        ->setPlatform($program['platform']);
+                endforeach;
 
                 $stores[$post->ID] = [
                     "id" => $post->ID,
@@ -94,7 +118,8 @@ final class Store
                     "ra_shortname" => $ra_shortname,
                     "ra_storeid" => $ra_storeid,
                     "ra_score" => $ra_score,
-                    "programas" => $programas,
+                    //"programas" => $programs,
+                    "affiliatePrograms" => $programsList,
                 ];
 
             }

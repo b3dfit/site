@@ -1,6 +1,6 @@
 <?php
 global $tenis;
-$items = explode("\n", $tenis->characteristics);
+$items = explode("\n", $tenis->getCharacteristics());
 $numbersInEnglish = [
     "1" => 'one',
     "2" => 'two',
@@ -29,7 +29,7 @@ $numbersInEnglish = [
 <div class="w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Title -->
     <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-        <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Características do <?php echo($tenis->title)?></h2>
+        <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">Características do <?php echo($tenis->getTitle())?></h2>
     </div>
     <!-- End Title -->
     <div class="w-full mx-auto">
