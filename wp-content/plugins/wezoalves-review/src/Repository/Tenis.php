@@ -53,7 +53,7 @@ final class Tenis
         }
 
         if (! $gallery) {
-            $gallery = null;
+            $gallery = [];
         }
 
 
