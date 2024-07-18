@@ -52,7 +52,11 @@ final class Tenis
             $gallery = explode(",", $gallery);
         }
 
-        
+        if (! $gallery) {
+            $gallery = null;
+        }
+
+
 
         // Populate List Offers to Tenis
         $offersList = [];
