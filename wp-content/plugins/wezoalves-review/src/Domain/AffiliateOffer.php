@@ -3,6 +3,8 @@
 namespace Review\Domain;
 
 use Review\Repository\Store;
+use Review\Model\AffiliateProgram;
+use Exception;
 
 /**
  * Class AffiliateOffer
@@ -39,8 +41,6 @@ final class AffiliateOffer
         $url = $this->url;
         $storeProgram = (new Store())->getById($this->storeId);
 
-
-
         if (isset($storeProgram['affiliatePrograms'])) {
 
             $bestProgram = $this->getBestProgram($storeProgram['affiliatePrograms']);
@@ -63,12 +63,22 @@ final class AffiliateOffer
      * Selects the best affiliate program based on the highest commission.
      * 
      * @param array $programs The list of affiliate programs.
-     * @return array The best affiliate program.
+     * @return AffiliateProgram The best affiliate program.
+     * @throws Exception If no valid affiliate program is found.
      */
-    private function getBestProgram(array $programs) : \Review\Model\AffiliateProgram
+    private function getBestProgram(array $programs) : AffiliateProgram
     {
-        return array_reduce($programs, function ($carry, $item) {
-            return ($carry === null || intval($item->getComission()) > intval($carry->getComission())) ? $item : $carry;
+        $bestProgram = array_reduce($programs, function ($carry, $item) {
+            if (!$carry || intval($item->getComission()) > intval($carry->getComission())) {
+                return $item;
+            }
+            return $carry;
         });
+
+        if (!$bestProgram) {
+            throw new Exception("No valid affiliate program found.");
+        }
+
+        return $bestProgram;
     }
 }
