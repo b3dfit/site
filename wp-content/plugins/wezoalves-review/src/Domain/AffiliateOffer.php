@@ -41,7 +41,7 @@ final class AffiliateOffer
         $url = $this->url;
         $storeProgram = (new Store())->getById($this->storeId);
 
-        if (isset($storeProgram['affiliatePrograms'])) {
+        if (isset($storeProgram['affiliatePrograms']) && !empty($storeProgram['affiliatePrograms'])) {
 
             $bestProgram = $this->getBestProgram($storeProgram['affiliatePrograms']);
 
@@ -66,7 +66,7 @@ final class AffiliateOffer
      * @return AffiliateProgram The best affiliate program.
      * @throws Exception If no valid affiliate program is found.
      */
-    private function getBestProgram(array $programs) : AffiliateProgram
+    private function getBestProgram(array $programs) : AffiliateProgram|null
     {
         $bestProgram = array_reduce($programs, function ($carry, $item) {
             if (!$carry || intval($item->getComission()) > intval($carry->getComission())) {
@@ -76,7 +76,7 @@ final class AffiliateOffer
         });
 
         if (!$bestProgram) {
-            throw new Exception("No valid affiliate program found.");
+            return null;
         }
 
         return $bestProgram;
