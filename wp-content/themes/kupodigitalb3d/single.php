@@ -170,7 +170,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
                         src="<?php echo $post_image; ?>" alt="<?php echo get_the_title(); ?>" />
                 <?php endif; ?>
 
-                <div class="text-lg --space-y-3 mt-80">
+                <div class="text-lg --space-y-3 mt-80 text-wrap">
                     <?php the_content(); ?>
                 </div>
             </article>
