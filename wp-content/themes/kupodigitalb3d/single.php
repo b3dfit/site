@@ -161,7 +161,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
             <!-- Content -->
             <article class="space-y-5 md:space-y-8 content">
                 <div class="space-y-2 w-full">
-                    <h1 class="text-4xl font-bold md:text-4xl dark:text-white"><?php the_title(); ?></h1>
+                    <h1 class="text-4xl font-bold md:text-4xl dark:text-white text-wrap"><?php the_title(); ?></h1>
                     <p class="text-lg "><?php the_excerpt(); ?></p>
                 </div>
 
