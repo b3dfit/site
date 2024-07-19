@@ -537,5 +537,16 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
     src="https://www.facebook.com/tr?id=1480228689294662&ev=PageView&noscript=1" /></noscript>
 <!-- End Meta Pixel Code -->
 </body>
-
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAows8DYCw:openaccess",
+      clientOptions: { theme: "light", lang: "pt-BR" },
+    });
+  });
+</script>
 </html>
