@@ -1,9 +1,12 @@
 <?php
+
+global $post;
 $args = array(
     'posts_per_page' => 4,
     'post_status' => 'publish',
     'orderby' => 'date',
     'order' => 'DESC',
+    'post__not_in' => [$post->ID],
 );
 
 $latest_posts = new WP_Query($args);
