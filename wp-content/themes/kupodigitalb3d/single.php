@@ -47,7 +47,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
             <div class="flex justify-between items-center mb-6">
                 <div class="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
                     <div class="flex-shrink-0">
-                        <img class="size-12 rounded-full" src="<?php echo (get_avatar_url(get_current_user_id())); ?>"
+                        <img class="size-12 rounded-full" src="<?php echo (get_avatar_url($aut('user_email'))); ?>"
                             alt="<?php echo ($aut('display_name')); ?>">
                     </div>
 
