@@ -21,7 +21,7 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 
 add_theme_support('responsive-embeds');
-add_theme_support( 'title-tag' );
+add_theme_support('title-tag');
 
 function estimated_reading_time()
 {
@@ -57,7 +57,7 @@ function getUrlByName($name)
         "twitter" => "https://www.x.com/b3dfit",
         "instagram" => "https://www.instagram.com/b3dfit",
         "github" => "https://github.com/b3dfit",
-        "threads"=>"https://www.threads.net/@b3dfit",
+        "threads" => "https://www.threads.net/@b3dfit",
         "slack" => "https://www.slack.com/#slack",
         "facebook" => "https://www.facebook.com/profile.php?id=61562854045242",
         "politicacookies" => getPageUrlBySlug('legal/politica-de-cookies'),
@@ -74,6 +74,7 @@ function getUrlByName($name)
         'dashboard' => '#dashboard',
         "login" => getPageUrlBySlug('login'),
         "artigos" => getPageUrlBySlug('artigos'),
+        "tenis" => getCustomTypeSlug('tenis'),
         "cadastro" => getPageUrlBySlug('cadastro'),
     ];
 
