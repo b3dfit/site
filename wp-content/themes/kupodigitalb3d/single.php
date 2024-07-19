@@ -176,7 +176,9 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
             </article>
             <!-- End Content -->
 
-            <?php get_template_part('parts/slider-motivacional'); ?>
+            <?php get_template_part('parts/last-articles'); ?>
+
+            <?php get_template_part('parts/last-tenis'); ?>
 
         </div>
 
