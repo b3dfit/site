@@ -22,9 +22,9 @@ get_header();
     <?php get_template_part('parts/last-articles'); ?>
     <!-- End Last Articles -->
 
-    <!-- Case Stories -->
-    <?php get_template_part('parts/stats'); ?>
-    <!-- End Case Stories -->
+    <!-- Last Tenis -->
+    <?php get_template_part('parts/last-tenis'); ?>
+    <!-- End Last Tenis -->
 
     <!-- Testimonials -->
     <?php get_template_part('parts/testimonials'); ?>

@@ -48,10 +48,6 @@
                 <a class="text-sm dark:text-white text-zinc-50 hover:text-neutral-300 md:py-4 focus:outline-none focus:text-neutral-300"
                     href="/" aria-current="page">Home</a>
 
-
-
-
-
                 <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:py-4">
                     <button type="button"
                         class="flex items-center w-full text-sm dark:text-white text-zinc-50 hover:text-neutral-300 focus:outline-none focus:text-neutral-300">
