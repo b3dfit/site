@@ -18,6 +18,10 @@ get_header();
     <?php get_template_part('parts/stores'); ?>
     <!-- End Clients -->
 
+    <!-- Last Articles -->
+    <?php get_template_part('parts/last-articles'); ?>
+    <!-- End Last Articles -->
+
     <!-- Case Stories -->
     <?php get_template_part('parts/stats'); ?>
     <!-- End Case Stories -->

@@ -68,8 +68,7 @@
                             </a>
                             <!-- End Card -->
                             <?php
-                        } else {
-                            
+                        } 
                             ?>
                             <!-- Card -->
                             <a class="group" href="<?php the_permalink(); ?>">
@@ -99,7 +98,6 @@
                             </a>
                             <!-- End Card -->
                             <?php
-                        }
                     endwhile;
                 endif;
                 ?>

@@ -73,6 +73,7 @@ function getUrlByName($name)
         "contato" => '#',
         'dashboard' => '#dashboard',
         "login" => getPageUrlBySlug('login'),
+        "artigos" => getPageUrlBySlug('artigos'),
         "cadastro" => getPageUrlBySlug('cadastro'),
     ];
 
