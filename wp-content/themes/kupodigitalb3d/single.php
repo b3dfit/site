@@ -104,7 +104,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                                 <div>
                                                     <button type="button"
                                                         onclick="window.open('<?php echo ($aut('user_url')); ?>')"
-                                                        class="py-1.5 px-2.5 inline-flex items-center gap-x-2 text-xs font-semibold rounded-lg border border-transparent bg-lime-400 text-white hover:bg-lime-700 disabled:opacity-50 disabled:pointer-events-none">
+                                                        class="py-1.5 px-2.5 inline-flex items-center gap-x-2 text-xs font-semibold rounded-lg border border-transparent bg-lime-400 text-black hover:bg-lime-700 disabled:opacity-50 disabled:pointer-events-none">
                                                         <svg class="flex-shrink-0 size-3.5"
                                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             fill="currentColor" viewBox="0 0 16 16">
