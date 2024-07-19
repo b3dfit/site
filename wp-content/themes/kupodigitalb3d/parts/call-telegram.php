@@ -1,10 +1,8 @@
 <a class="group relative flex flex-col w-full min-h-60 bg-[url('/files/dist/images/theme/photo-1634017839464-5c339ebe3cb4.jpeg')] bg-center bg-cover rounded-xl hover:shadow-lg transition"
     href="https://t.me/building3discipline" rel="me" target="_blank">
     <div class="flex-auto p-4 md:p-6">
-        <h3 class="text-xl text-white/90 group-hover:text-white"><span class="font-bold">Telegram</span>
-            Participe da nossa comunidade exclusiva no Telegram para receber dicas de especialistas, recomendações
-            personalizadas e se conectar com outros membros. Não perca nenhuma atualização e faça parte dessa rede de
-            apoio e motivação!
+        <h3 class="text-xl text-white/90 group-hover:text-white"><span class="font-bold">Ei!</span>
+            Participe da nossa comunidade exclusiva no Telegram para receber recomendações e se conectar com outros membros.
         </h3>
     </div>
     <div class="pt-0 p-4 md:p-6">
