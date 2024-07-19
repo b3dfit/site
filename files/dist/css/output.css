@@ -1816,6 +1816,10 @@ select {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\'\/files\/dist\/images\/theme\/photo-1634017839464-5c339ebe3cb4\.jpeg\'\)\] {
+  background-image: url('/files/dist/images/theme/photo-1634017839464-5c339ebe3cb4.jpeg');
+}
+
 .from-gray-200 {
   --tw-gradient-from: #e5e7eb var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(229 231 235 / 0) var(--tw-gradient-to-position);

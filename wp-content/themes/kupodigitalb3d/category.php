@@ -48,24 +48,7 @@
                             
                             ?>
                             <!-- Card -->
-                            <a class="group relative flex flex-col w-full min-h-60 bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] bg-center bg-cover rounded-xl hover:shadow-lg transition"
-                                href="#">
-                                <div class="flex-auto p-4 md:p-6">
-                                    <h3 class="text-xl text-white/90 group-hover:text-white"><span class="font-bold">Preline</span>
-                                        Press publishes books about economic and technological advancement.</h3>
-                                </div>
-                                <div class="pt-0 p-4 md:p-6">
-                                    <div
-                                        class="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-                                        Visit the site
-                                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="m9 18 6-6-6-6" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </a>
+                            <?php get_template_part('parts/call-telegram'); ?>
                             <!-- End Card -->
                             <?php
                         } 
