@@ -10,7 +10,7 @@ $latest_posts = new WP_Query($args);
 ?>
 
 <!-- Card Blog -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Title -->
     <div class="max-w-2xl text-center mx-auto mb-10 lg:mb-14">
         <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Descubra as Novidades do Mundo da
