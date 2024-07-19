@@ -3102,6 +3102,11 @@ div.wp-block-media-text {
   background-color: rgb(9 9 11 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-lime-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(77 124 15 / var(--tw-bg-opacity));
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));

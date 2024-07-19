@@ -69,7 +69,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                                 <div class="mb-2 flex w-full sm:items-center gap-x-5 sm:gap-x-3">
                                                     <div class="flex-shrink-0">
                                                         <img class="size-8 rounded-full"
-                                                            src="<?php echo (get_avatar_url(get_current_user_id())); ?>"
+                                                            src="<?php echo (get_avatar_url($aut('user_email'))); ?>"
                                                             alt="<?php echo ($aut('display_name')); ?>">
                                                     </div>
 
@@ -87,7 +87,7 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
 
                                             <!-- Footer -->
                                             <div class="flex justify-between items-center px-4 py-3 sm:px-5">
-                                                <ul class="text-xs space-x-3">
+                                                <!--ul class="text-xs space-x-3">
                                                     <li class="inline-block">
                                                         <span
                                                             class="font-semibold text-gray-200 dark:text-white">56</span>
@@ -99,12 +99,12 @@ $post_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                                         <span
                                                             class="text-gray-400 dark:text-neutral-400">seguidores</span>
                                                     </li>
-                                                </ul>
+                                                </ul-->
 
                                                 <div>
                                                     <button type="button"
                                                         onclick="window.open('<?php echo ($aut('user_url')); ?>')"
-                                                        class="py-1.5 px-2.5 inline-flex items-center gap-x-2 text-xs font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                                                        class="py-1.5 px-2.5 inline-flex items-center gap-x-2 text-xs font-semibold rounded-lg border border-transparent bg-lime-400 text-white hover:bg-lime-700 disabled:opacity-50 disabled:pointer-events-none">
                                                         <svg class="flex-shrink-0 size-3.5"
                                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             fill="currentColor" viewBox="0 0 16 16">
