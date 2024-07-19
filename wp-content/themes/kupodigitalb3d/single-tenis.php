@@ -156,9 +156,13 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
 
 
         </div>
+
+       
+
     </article>
 
-
+    <?php get_template_part('parts/last-tenis'); ?>
+    
     <!-- Sticky Share -->
     <?php get_template_part('parts/share'); ?>
     <!-- End Sticky Share -->
