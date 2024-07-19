@@ -1,5 +1,4 @@
 <?php
-
 global $post;
 $args = array(
     'posts_per_page' => 4,
