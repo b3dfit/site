@@ -23,7 +23,9 @@ get_header();
 
 
                     <!-- Form -->
-                    <form class="w-full grid items-center grid-cols-2" id="login-form" autocomplete="off">
+                    <button swg-standard-button="subscription"
+                    class="group inline-flex items-center gap-x-2 py-2 px-3 bg-lime-400 font-medium text-sm text-black rounded-md focus:outline-none">Cadastrar</button>
+                    <!--form class="w-full grid items-center grid-cols-2" id="login-form" autocomplete="off">
                         <div class="  inline-block mx-3">
                             <label for="username" class="block text-sm font-medium dark:text-white"><span
                                     class="sr-only">Usuário</span></label>
@@ -44,7 +46,7 @@ get_header();
                             <button type="submit"
                                 class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-zinc-800 text-white hover:bg-zinc-700 disabled:opacity-50 disabled:pointer-events-none">Acessar</button>
                         </div>
-                    </form>
+                    </form-->
                     <!-- End Form -->
                 </div>
             </div>
@@ -60,6 +62,16 @@ get_header();
 
     </div>
 </main>
-
+<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAows8DYCw:openaccess",
+      clientOptions: { theme: "light", lang: "pt-BR" },
+    });
+  });
+</script>
 <?php
 get_footer();
