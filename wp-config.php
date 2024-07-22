@@ -23,6 +23,7 @@ define('WP_SITEURL', $dotenv['WP_SITEURL']);
 define('YNV_ENV', $dotenv['YNV_ENV']);
 define('JWT_AUTH_SECRET_KEY', $dotenv['JWT_AUTH_SECRET_KEY']);
 define('JWT_AUTH_CORS_ENABLE', true);
+define('WP_ENVIRONMENT_TYPE', $dotenv['WP_ENVIRONMENT_TYPE']);
 
 // PROD - HLG
 if ($dotenv['YNV_ENV'] !== 'DEV') :

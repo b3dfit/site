@@ -168,4 +168,15 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
     <!-- End Sticky Share -->
 
 </main>
+<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAows8DYCw:openaccess",
+      clientOptions: { theme: "light", lang: "pt-BR" },
+    });
+  });
+</script>
 <?php get_footer(); ?>

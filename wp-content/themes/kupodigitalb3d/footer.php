@@ -522,7 +522,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
   !function (f, b, e, v, n, t, s) {
     if (f.fbq) return; n = f.fbq = function () {
       n.callMethod ?
-      n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
     };
     if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
     n.queue = []; t = b.createElement(e); t.async = !0;
@@ -536,17 +536,10 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1480228689294662&ev=PageView&noscript=1" /></noscript>
 <!-- End Meta Pixel Code -->
+
+
+
+
 </body>
-<script async type="application/javascript"
-        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
-<script>
-  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
-    basicSubscriptions.init({
-      type: "NewsArticle",
-      isPartOfType: ["Product"],
-      isPartOfProductId: "CAows8DYCw:openaccess",
-      clientOptions: { theme: "light", lang: "pt-BR" },
-    });
-  });
-</script>
+
 </html>
