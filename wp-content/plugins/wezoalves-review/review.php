@@ -7,6 +7,10 @@ Author: Weslley Alves
 */
 
 
+/*include ('src/WordPress/CustomPostType/Foods.php');
+include ('src/WordPress/Fields.php');
+include ('src/WordPress/Fields/Foods.php');*/
+
 include ('src/Utils/TypeTenis.php');
 include ('src/Utils/RatingTenis.php');
 
@@ -17,6 +21,7 @@ include ('src/Model/AffiliateProgram.php');
 include ('src/Model/Tenis.php');
 include ('src/Model/TenisType.php');
 include ('src/Model/Offer.php');
+include ('src/Model/Field.php');
 
 include ('src/Affiliate/Awin.php');
 
