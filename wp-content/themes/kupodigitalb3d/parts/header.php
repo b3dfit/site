@@ -174,6 +174,10 @@
                         href="<?php echo (getUrlByName('login')); ?>">Entrar</a>
                     <!-- END O JavaScript vai substituir este conteúdo com base no estado de login -->
                 </div>
+                <div class="mx-2" id="session-action">
+                    <button swg-standard-button="subscription"
+                        class="group inline-flex items-center gap-x-2 py-2 px-3 bg-lime-400 font-medium text-sm text-black rounded-md focus:outline-none"></button>
+                </div>
             </div>
         </div>
         <!-- End Collapse -->
