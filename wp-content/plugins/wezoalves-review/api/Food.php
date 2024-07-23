@@ -2,8 +2,6 @@
 
 namespace Review\Api;
 
-use \Review\Model\Food as FoodModel;
-
 final class Food
 {
     private function makeSlug($stringA = '', $stringB = '', $stringC = '')
@@ -15,8 +13,38 @@ final class Food
         return $slug;
     }
 
+    private function authenticate($request)
+    {
+        $auth_header = $request->get_header('authorization');
+        if (! $auth_header) {
+            return new \WP_Error('authorization_header_missing', 'Authorization header is missing', array('status' => 401));
+        }
+
+        list($type, $credentials) = explode(' ', $auth_header, 2);
+        if (strtolower($type) !== 'basic') {
+            return new \WP_Error('authorization_header_invalid', 'Authorization header is invalid', array('status' => 401));
+        }
+
+        $decoded_credentials = base64_decode($credentials);
+
+        list($username, $password) = explode(':', $decoded_credentials, 2);
+
+        $user = wp_authenticate($username, $password);
+
+        if (is_wp_error($user)) {
+            return new \WP_Error('rest_forbidden', esc_html__('Invalid credentials.'), array('status' => 403));
+        }
+
+        return true;
+    }
+
     function create(\WP_REST_Request $request)
     {
+        $auth_result = $this->authenticate($request);
+        if (is_wp_error($auth_result)) {
+            return $auth_result;
+        }
+
         if ($request->has_param('alimento_id')) :
             return $this->createFood($request);
         endif;
@@ -31,13 +59,12 @@ final class Food
             'meta_compare' => '=',
             'numberposts' => 1,
         );
-
+        $isNewRegister = true;
         $posts = get_posts($args);
 
         if ($posts && count($posts) > 0) {
             $post_id = $posts[0]->ID;
-            $alimento_id = $request->get_param('alimento_id');
-            return rest_ensure_response(["Alimento #{$alimento_id} já está cadastrado!"]);
+            $isNewRegister = false;
         }
 
         $meta_input = [];
@@ -46,8 +73,10 @@ final class Food
             $meta_input[$field->getId()] = $request->get_param($field->getId()) ?? null;
         endforeach;
 
-        $post_title = $request->get_param('name');
+        $post_title = $request->get_param('title');
+        $post_title = strtr($post_title, ['.' => '', '  ' => ' ']);
         $post_excerpt = $request->get_param('description');
+        $post_excerpt = strtr($post_excerpt, ['.' => '', '  ' => ' ']);
 
         $user = get_user_by('login', 'weslley');
         $post_author = $user->ID;
@@ -63,7 +92,14 @@ final class Food
             'ping_status' => 'closed'
         );
 
-        $post_id = wp_insert_post($data);
+        if ($isNewRegister) :
+            $post_id = wp_insert_post($data);
+        endif;
+
+        if (! $isNewRegister) :
+            $data['ID'] = $post_id;
+            $post_id = wp_update_post($data);
+        endif;
 
         foreach ($meta_input as $key => $metaValue) :
             if (is_array($metaValue)) {
@@ -73,21 +109,33 @@ final class Food
         endforeach;
 
         if (! is_wp_error($post_id)) {
-            return rest_ensure_response(["Food #{$post_id} - {$post_title} criada com sucesso!"]);
+            $statusMsg = $isNewRegister ? 'criado' : 'atualizado';
+            return rest_ensure_response(["Food #{$post_id} - {$post_title} {$statusMsg} com sucesso!"]);
         } else {
-            return rest_ensure_response(new \WP_REST_Response('Erro ao criar Food: ' . $post_id->get_error_message(), 500));
+            $statusMsg = $isNewRegister ? 'criar' : 'atualizar';
+            return rest_ensure_response(new \WP_REST_Response('Erro ao {$statusMsg} Food: ' . $post_id->get_error_message(), 500));
         }
     }
 
-    function get($data)
+    function get(\WP_REST_Request $request)
     {
-        $post_id = $data['id'];
+        $auth_result = $this->authenticate($request);
+        if (is_wp_error($auth_result)) {
+            return $auth_result;
+        }
+
+        $post_id = $request->get_param('id');
         $food = (new \Review\Repository\Food())->getById($post_id);
         return rest_ensure_response($food);
     }
 
     function list(\WP_REST_Request $request)
     {
+        $auth_result = $this->authenticate($request);
+        if (is_wp_error($auth_result)) {
+            return $auth_result;
+        }
+
         $page = $request->get_param('page') ? absint($request->get_param('page')) : 1;
         $per_page = $request->get_param('per_page') ? absint($request->get_param('per_page')) : 20;
         $search_term = $request->get_param('search_term') ? sanitize_text_field($request->get_param('search_term')) : '';
@@ -99,11 +147,16 @@ final class Food
         return rest_ensure_response($foods);
     }
 
-    function delete()
+    function delete(\WP_REST_Request $request)
     {
+        $auth_result = $this->authenticate($request);
+        if (is_wp_error($auth_result)) {
+            return $auth_result;
+        }
+
         $args = array(
             'post_type' => \Review\WordPress\CustomPostType\Foods::getKey(),
-            'posts_per_page' => 200,
+            'posts_per_page' => 1,
         );
 
         $posts_query = new \WP_Query($args);
@@ -118,9 +171,9 @@ final class Food
 
             wp_reset_query();
 
-            echo 'Todos os posts foram removidos com sucesso.';
+            return rest_ensure_response('Todos os posts foram removidos com sucesso.');
         } else {
-            echo 'Nenhum post encontrado para remover.';
+            return rest_ensure_response('Nenhum post encontrado para remover.');
         }
     }
 
@@ -131,10 +184,7 @@ final class Food
             '/add',
             array(
                 'methods' => 'POST',
-                'callback' => function (\WP_REST_Request $request) {
-                    $food = new \Review\Api\Food();
-                    return $food->create($request);
-                },
+                'callback' => array($this, 'create'),
                 'permission_callback' => '__return_true',
             )
         );
@@ -144,10 +194,7 @@ final class Food
             '/get/(?P<id>\d+)',
             array(
                 'methods' => 'GET',
-                'callback' => function (\WP_REST_Request $request) {
-                    $api = new \Review\Api\Food();
-                    return $api->get($request);
-                },
+                'callback' => array($this, 'get'),
                 'permission_callback' => '__return_true',
                 'args' => array(
                     'id' => array(
@@ -164,10 +211,7 @@ final class Food
             '/list',
             array(
                 'methods' => 'GET',
-                'callback' => function (\WP_REST_Request $request) {
-                    $api = new \Review\Api\Food();
-                    return $api->list($request);
-                },
+                'callback' => array($this, 'list'),
                 'permission_callback' => '__return_true',
                 'args' => array(
                     'page' => array(
@@ -194,10 +238,7 @@ final class Food
             '/delete',
             array(
                 'methods' => 'GET',
-                'callback' => function () {
-                    $api = new \Review\Api\Food();
-                    return $api->delete();
-                },
+                'callback' => array($this, 'delete'),
                 'permission_callback' => '__return_true',
             )
         );

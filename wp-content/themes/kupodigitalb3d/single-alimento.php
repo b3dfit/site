@@ -97,7 +97,7 @@ foreach ($food->getComposition() as $composition) {
         </div>
 
         <div class="lg:w-3/5 w-full mx-auto text-left mb-10 lg:mb-14">
-            <h3>Abreviações</h3>
+            <h5>Abreviações</h5>
             <ol class="text-xs">
                 <li><strong>g</strong>: grama</li>
                 <li><strong>mg</strong>: miligrama</li>
@@ -108,7 +108,7 @@ foreach ($food->getComposition() as $composition) {
                 <li><strong>Tr</strong>: traço</li>
             </ol>
 
-            <h3>Traço (Tr) Adotado nas seguintes situações</h3>
+            <h5>Traço (Tr) Adotado nas seguintes situações</h5>
             <ol class="text-xs">
                 <li>Valores arredondados entre 0 e 0,5</li>
                 <li>Valores arredondados para números com uma casa decimal entre 0 e 0,05</li>
@@ -116,7 +116,7 @@ foreach ($food->getComposition() as $composition) {
                 <li>Valores abaixo dos limites de quantificação</li>
             </ol>
 
-            <h3>Limites de Quantificação</h3>
+            <h5>Limites de Quantificação</h5>
             <ol class="text-xs">
                 <li>Composição centesimal: 0,1 g/100 g</li>
                 <li>Colesterol: 1 mg/100 g</li>
