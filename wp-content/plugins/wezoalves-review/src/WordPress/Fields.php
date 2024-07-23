@@ -1,6 +1,7 @@
 <?php
 namespace Review\WordPress;
 
+
 class Fields
 {
     public static function show_meta_box($post, $fields = [])
@@ -9,7 +10,7 @@ class Fields
         $meta = get_post_meta($post->ID);
         $html = '<div class="inside"><table style="width:100%;display: flex;justify-content: space-evenly;">';
         foreach ($fields as $field) :
-            $fieldId = $post->post_type . '_' . $field->id;
+            $fieldId = $field->id;
             $value = isset($meta[$fieldId][0]) ? $meta[$fieldId][0] : '';
             $html .= <<<HTML
             <tr>
@@ -43,7 +44,7 @@ class Fields
         }
 
         foreach ($fields as $field) {
-            $fieldId = $post->post_type . '_' . $field->getId();
+            $fieldId = $field->getId();
             if (isset($_POST[$fieldId])) {
                 $postValue = $_POST[$fieldId];
 
@@ -60,17 +61,18 @@ class Fields
         }
     }
 
-    public static function register_custom_fields($fields = [])
+    public static function register_custom_fields($post, $fields = [])
     {
         foreach ($fields as $field) :
-            register_post_meta(
-                'alimento',
-                'alimento_' . $field->getId(),
-                array(
+            register_meta(
+                $post->post_type,
+                $field->getId(),
+                [
                     'single' => true,
-                    'type' => 'number',
+                    'type' => $field->getType(),
                     'show_in_rest' => true,
-                ));
+                ]
+            );
         endforeach;
     }
 }

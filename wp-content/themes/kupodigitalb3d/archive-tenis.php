@@ -2,6 +2,7 @@
 /* Template Name: Artigos */
 
 get_header();
+//https://tailwindcomponents.com/component/sopping-cart
 ?>
 
 <main id="content">

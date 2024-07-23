@@ -8,6 +8,10 @@ final class Foods
 {
     private static string $key = "alimento";
 
+    public static function getKey()
+    {
+        return self::$key;
+    }
     public static function init()
     {
         $labels = array(
@@ -31,7 +35,7 @@ final class Foods
             'public' => true,
             'has_archive' => true,
             'menu_icon' => 'dashicons-carrot',
-            'supports' => array('title', 'editor', 'thumbnail'),
+            'supports' => array('title', 'editor', 'thumbnail','custom-fields'),
             'show_in_rest' => true
         );
 
@@ -39,7 +43,8 @@ final class Foods
 
         add_action('add_meta_boxes', [self::class, 'add_meta_boxes']);
         add_action('save_post', [FoodsFields::class, 'saveMeta']);
-        add_action('rest_api_init', [FoodsFields::class, 'registerCustomFields']);
+        //add_action('rest_api_init', [FoodsFields::class, 'registerCustomFields']);
+        add_action('rest_api_init', [new \Review\Api\Food(), 'RestFoodApiInit']);
     }
 
     public static function add_meta_boxes()

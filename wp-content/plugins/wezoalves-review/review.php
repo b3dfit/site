@@ -7,26 +7,24 @@ Author: Weslley Alves
 */
 
 
-/*include ('src/WordPress/CustomPostType/Foods.php');
-include ('src/WordPress/Fields.php');
-include ('src/WordPress/Fields/Foods.php');*/
+include ('src/Affiliate/Awin.php');
 
-include ('src/Utils/TypeTenis.php');
-include ('src/Utils/RatingTenis.php');
+include ('api/Food.php');
 
 include ('src/Domain/AffiliateOffer.php');
 include ('src/Domain/BestOffer.php');
 
 include ('src/Model/AffiliateProgram.php');
+include ('src/Model/Field.php');
+include ('src/Model/Food.php');
+include ('src/Model/Offer.php');
 include ('src/Model/Tenis.php');
 include ('src/Model/TenisType.php');
-include ('src/Model/Offer.php');
-include ('src/Model/Field.php');
-
-include ('src/Affiliate/Awin.php');
+include ('src/Model/ObjectType.php');
 
 include ('src/Repository/Store.php');
 include ('src/Repository/Tenis.php');
+include ('src/Repository/Food.php');
 
 include ('src/Store/CustomPostType.php');
 include ('src/Store/Metaboxes.php');
@@ -35,6 +33,14 @@ include ('src/Store/Save.php');
 include ('src/Tenis/CustomPostType.php');
 include ('src/Tenis/Metaboxes.php');
 include ('src/Tenis/Save.php');
+
+include ('src/Utils/RatingTenis.php');
+include ('src/Utils/TypeTenis.php');
+include ('src/Utils/SchemaNutrition.php');
+
+include ('src/WordPress/CustomPostType/Foods.php');
+include ('src/WordPress/Fields.php');
+include ('src/WordPress/Fields/Foods.php');
 
 
 

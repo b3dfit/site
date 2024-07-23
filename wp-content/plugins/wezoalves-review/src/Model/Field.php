@@ -7,21 +7,24 @@ final class Field
     public string $id;
     public string $name;
     public string $type;
+    public string|null $group = "";
     public string|null $value = null;
-    public string|null $placeholder = null;
+    public string|null $placeholder = "";
 
     public function __construct(
         string $id,
         string $type,
         string $name,
-        string $placeholder = null,
-        string $value = null)
+        string $placeholder = "",
+        string $value = null,
+        string $group = "")
     {
         $this->id = $id;
         $this->type = $type;
         $this->name = $name;
         $this->placeholder = $placeholder;
         $this->value = $value;
+        $this->group = $group;
     }
 
     /**
@@ -140,6 +143,30 @@ final class Field
     public function setPlaceholder(string $placeholder) : self
     {
         $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of group
+     *
+     * @return string
+     */
+    public function getGroup(): string
+    {
+        return $this->group;
+    }
+
+    /**
+     * Set the value of group
+     *
+     * @param string $group
+     *
+     * @return self
+     */
+    public function setGroup(string $group): self
+    {
+        $this->group = $group;
 
         return $this;
     }
