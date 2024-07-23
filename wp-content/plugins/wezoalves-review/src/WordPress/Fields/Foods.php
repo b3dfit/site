@@ -13,7 +13,7 @@ final class Foods extends Fields
         $fields = [
             new Field("{$key}_id", "number", "Nº Alimento Tabela <a target='_blank' href='https://www.nepa.unicamp.br/wp-content/uploads/sites/27/2023/10/Taco-4a-Edicao.xlsx'>TACO</a>","", null, "INFO"),
             new Field("{$key}_calcio", "number", "Cálcio", "(mg)", null, "MICRONUTRIENTES_MINERAIS"),
-            new Field("{$key}_carboidrato", "number", "Carbo-idrato", "(g)", null, "MACRONUTRIENTES"),
+            new Field("{$key}_carboidrato", "number", "Carboidrato", "(g)", null, "MACRONUTRIENTES"),
             new Field("{$key}_cinzas", "number", "Cinzas", "(g)", null, "MICRONUTRIENTES_MINERAIS"),
             new Field("{$key}_cobre", "number", "Cobre", "(mg)", null, "MICRONUTRIENTES_MINERAIS"),
             new Field("{$key}_colesterol", "number", "Colesterol", "(mg)", null, "COMPONENTES_ADICIONAIS"),
