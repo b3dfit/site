@@ -4629,6 +4629,10 @@ div.wp-block-media-text {
     display: block;
   }
 
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
   .lg\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }

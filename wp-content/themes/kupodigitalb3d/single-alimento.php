@@ -20,7 +20,7 @@ foreach ($food->getComposition() as $composition) {
 
 
         <!-- Title -->
-        <div class="w-3/5 mx-auto text-center mb-10 lg:mb-14">
+        <div class="lg:w-3/5 w-full mx-auto text-center mb-10 lg:mb-14">
             <h1 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white" itemprop="name">
                 Alimento <?php echo strtr(get_the_title(), ['.' => ' ']); ?>
             </h1>
@@ -28,7 +28,7 @@ foreach ($food->getComposition() as $composition) {
         </div>
         <!-- End Title -->
 
-        <div class="w-3/5 mx-auto">
+        <div class="lg:w-3/5 w-full mx-auto">
 
             <!-- Accordion -->
             <div class="hs-accordion-group">
@@ -96,7 +96,7 @@ foreach ($food->getComposition() as $composition) {
             <!-- End Accordion -->
         </div>
 
-        <div class="w-3/5 mx-auto">
+        <div class="lg:w-3/5 w-full mx-auto text-left mb-10 lg:mb-14">
             <h3>Abreviações</h3>
             <ol class="text-xs">
                 <li><strong>g</strong>: grama</li>
