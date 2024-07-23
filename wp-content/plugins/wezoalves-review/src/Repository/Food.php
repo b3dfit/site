@@ -22,7 +22,7 @@ final class Food
                 $field->getType(),
                 $field->getName(),
                 $field->getPlaceholder(),
-                $value, 
+                $value,
                 $field->getGroup()
             );
         endforeach;
@@ -47,9 +47,9 @@ final class Food
         );
 
         $custom_types_query = new \WP_Query($args);
-
+        $foods = [];
         if ($custom_types_query->have_posts()) {
-            $foods = [];
+
 
             while ($custom_types_query->have_posts()) {
                 $custom_types_query->the_post();
@@ -60,13 +60,13 @@ final class Food
                 foreach ((\Review\WordPress\Fields\Foods::fields()) as $field) :
                     $value = get_post_meta($post->ID, $field->getId(), true);
                     $composition[] = new \Review\Model\Field(
-                        $field->getId(), 
-                        $field->getType(), 
-                        $field->getName(), 
-                        $field->getPlaceholder(), 
-                        $value, 
+                        $field->getId(),
+                        $field->getType(),
+                        $field->getName(),
+                        $field->getPlaceholder(),
+                        $value,
                         $field->getGroup()
-                );
+                    );
                 endforeach;
 
                 $data = (new FoodModel(""))
