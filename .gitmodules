@@ -1,3 +1,6 @@
 [submodule "wp-content/plugins/wezo-feed"]
 	path = wp-content/plugins/wezo-feed
 	url = https://github.com/wezoalves/wp-feed
+[submodule "wp-content/plugins/wezoalves-contentfit"]
+	path = wp-content/plugins/wezoalves-contentfit
+	url = git@github.com:wezoalves/wp-contentfit.git
