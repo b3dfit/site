@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 figure.wp-block-gallery.has-nested-images .wp-block-image {
     flex-grow: inherit;
 }
@@ -168,12 +172,32 @@ div.wp-block-media-text {
 }
 
 .content .table-content {
-    @apply list-decimal m-0 mb-5 p-0;
+    @apply list-none m-0 mb-5 p-0;
 }
 
 .content .table-content .index-anchor {
     @apply mt-32;
 }
+
+ol.table-content::before {
+    content: "Clicando nos links abaixo, você navega dentro do artigo sem sair da página!";
+    @apply text-xs text-zinc-700 dark:text-zinc-100 mb-2 inline-block ml-2;
+}
+
+.table-content li {
+    @apply mb-3;
+}
+
+.table-content li a::before {
+    content: "»";
+    @apply inline-block absolute text-2xl transition-all left-0 rotate-0 hover:-top-2 hover:rotate-90 px-3 py-1 hover:text-3xl;
+    top: -0.39rem;
+}
+
+.table-content li a {
+    @apply bg-black dark:bg-lime-300 text-lime-400 dark:text-black hover:text-lime-500 dark:hover:text-lime-800 pr-2 pl-8 py-1 rounded-lg text-lg border-none relative;
+}
+
 
 .svg-store svg,
 .svg-store path {
