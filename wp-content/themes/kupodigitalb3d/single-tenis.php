@@ -63,7 +63,8 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
                                 <?php if ($tenis->getOfferBest()->getDiscount()) : ?>
                                     <p class="text-lime-500 text-xl font-semibold">
                                         Economize
-                                        <span itemprop="discount"><?php echo ($tenis->getOfferBest()->getDiscount()); ?></span>%
+                                        <span
+                                            itemprop="discount"><?php echo ($tenis->getOfferBest()->getDiscount()); ?></span>%
                                     </p>
                                 <?php endif; ?>
                                 <!-- END TAG MENOR PREÇO -->
@@ -83,7 +84,8 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
 
                         <!-- BUTTON OFFER -->
                         <div class="flex py-4 space-x-4">
-                            <button type="button" onclick="window.open('<?php echo ($tenis->getOfferBest()->getUrlOffer()); ?>')"
+                            <button type="button"
+                                onclick="window.open('<?php echo ($tenis->getOfferBest()->getUrlOffer()); ?>')"
                                 class="h-14 px-6 py-2 m-auto font-semibold rounded-xl bg-zinc-950 text-lime-400 dark:bg-lime-400 dark:text-black">
                                 Ver Ofertas para esse Produto
                             </button>
@@ -157,12 +159,12 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
 
         </div>
 
-       
+
 
     </article>
 
     <?php get_template_part('parts/last-tenis'); ?>
-    
+
     <!-- Sticky Share -->
     <?php get_template_part('parts/share'); ?>
     <!-- End Sticky Share -->
@@ -170,13 +172,13 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
 </main>
 <script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
 <script>
-  (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
-    basicSubscriptions.init({
-      type: "NewsArticle",
-      isPartOfType: ["Product"],
-      isPartOfProductId: "CAows8DYCw:openaccess",
-      clientOptions: { theme: "light", lang: "pt-BR" },
+    (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
+        basicSubscriptions.init({
+            type: "NewsArticle",
+            isPartOfType: ["Product"],
+            isPartOfProductId: "CAows8DYCw:openaccess",
+            clientOptions: { theme: "light", lang: "pt-BR" },
+        });
     });
-  });
 </script>
 <?php get_footer(); ?>

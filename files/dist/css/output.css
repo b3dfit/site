@@ -903,6 +903,10 @@ select {
   z-index: 10;
 }
 
+.z-20 {
+  z-index: 20;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -2851,77 +2855,6 @@ ol.table-content:is(.dark *)::before {
   color: rgb(63 98 18 / var(--tw-text-opacity));
 }
 
-.content a.go-to-top {
-  position: relative;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: table;
-  border-radius: 9999px;
-  border-bottom-width: 0px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-right: 0.5rem;
-  padding-left: 2rem;
-  text-align: center;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(113 113 122 / var(--tw-text-opacity));
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.content a.go-to-top:visited {
-  color: rgb(113 113 122 );
-}
-
-.content a.go-to-top:hover {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-.content a.go-to-top:active {
-  --tw-text-opacity: 1;
-  color: rgb(113 113 122 / var(--tw-text-opacity));
-}
-
-.content a.go-to-top:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(163 163 163 / var(--tw-text-opacity));
-}
-
-.content a.go-to-top:hover:is(.dark *) {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.content a.go-to-top {
-  /* border-2 border-zinc-950/30 rounded-md */
-}
-
-a.go-to-top::before {
-  content: "»";
-  position: absolute;
-  left: -0.25rem;
-  display: inline-block;
-  --tw-rotate: -90deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  top: -0.39rem;
-}
-
 .svg-store svg,
 .svg-store path {
   height: -moz-fit-content;
@@ -3952,6 +3885,10 @@ a.go-to-top::before {
 
 .dark\:fill-neutral-200:is(.dark *) {
   fill: #e5e5e5;
+}
+
+.dark\:fill-neutral-400:is(.dark *) {
+  fill: #a3a3a3;
 }
 
 .dark\:fill-none:is(.dark *) {

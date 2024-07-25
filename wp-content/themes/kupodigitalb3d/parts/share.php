@@ -1,4 +1,4 @@
-<div class="sticky bottom-6 inset-x-0 text-center">
+<div class="sticky bottom-6 inset-x-0 text-center z-20">
     <div class="inline-block bg-white shadow-md rounded-full py-3 px-4 dark:bg-neutral-800">
         <div class="flex items-center gap-x-1.5">
             <!-- Button -->
@@ -11,7 +11,7 @@
                         <path
                             d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                     </svg>
-                    875
+                    <?php echo (get_the_ID() + date('W')); ?>
                     <span
                         class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-zinc-950 text-xs font-medium text-white rounded shadow-sm dark:bg-black"
                         role="tooltip">
@@ -20,6 +20,30 @@
                 </button>
             </div>
             <!-- Button -->
+
+
+            <!-- go to top -->
+            <div class="block h-3 border-e border-gray-300 mx-3 dark:border-neutral-600"></div>
+
+            <!-- Button -->
+            <div class="hs-tooltip inline-block">
+                <a href="#inicio"
+                    class="hs-tooltip-toggle flex items-center gap-x-2 text-sm  hover:text-gray-800 dark:text-neutral-400 dark:hover:text-white">
+
+                    <svg class="flex-shrink-0 size-4 dark:fill-neutral-400" width="24" height="24" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289L4.29289 11.2929C3.90237 11.6834 3.90237 12.3166 4.29289 12.7071C4.68342 13.0976 5.31658 13.0976 5.70711 12.7071L12 6.41421L18.2929 12.7071C18.6834 13.0976 19.3166 13.0976 19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L12.7071 4.29289ZM12.7071 11.2929C12.5196 11.1054 12.2652 11 12 11C11.7348 11 11.4804 11.1054 11.2929 11.2929L4.29289 18.2929C3.90237 18.6834 3.90237 19.3166 4.29289 19.7071C4.68342 20.0976 5.31658 20.0976 5.70711 19.7071L12 13.4142L18.2929 19.7071C18.6834 20.0976 19.3166 20.0976 19.7071 19.7071C20.0976 19.3166 20.0976 18.6834 19.7071 18.2929L12.7071 11.2929Z" />
+                    </svg>
+                    Voltar ao início
+                    <span
+                        class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-zinc-950 text-xs font-medium text-white rounded shadow-sm dark:bg-black"
+                        role="tooltip">
+                        Voltar ao início
+                    </span>
+                </a>
+            </div>
+            <!-- end go to top -->
             <?php /*
 <div class="block h-3 border-e border-gray-300 mx-3 dark:border-neutral-600"></div>
 

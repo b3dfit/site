@@ -74,12 +74,12 @@ function ContentIndex($content)
   if (is_singular()) {
     global $post;
 
-    $linkGoTop = <<<HTML
-    <a href="#table-content-anchor" class="go-to-top">Voltar ao Início</a>
-    HTML;
-    $anchorTop = <<<HTML
-    <span id='table-content-anchor'></span>
-    HTML;
+    $linkGoTop = '';/* <<<HTML
+<a href="#table-content-anchor" class="go-to-top">Voltar ao Início</a>
+HTML;*/
+    $anchorTop = '';/*<<<HTML
+<span id='table-content-anchor'></span>
+HTML;*/
 
     $firstElementContent = 'p'; // attach menu before first element
 
@@ -122,8 +122,6 @@ function ContentIndex($content)
       $content = preg_replace('/<(' . $firstElementContent . ')[^>]*>/i', $index . '$0', $content, 1);
     }
   }
-
-  $content = "{$anchorTop}{$content}{$linkGoTop}";
 
   return $content;
 }

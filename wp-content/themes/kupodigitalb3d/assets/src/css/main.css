@@ -198,16 +198,6 @@ ol.table-content::before {
     @apply bg-black dark:bg-lime-300 text-lime-400 dark:text-black hover:text-lime-500 dark:hover:text-lime-800 pr-2 pl-8 py-1 rounded-lg text-lg border-none relative border-b-0 border-r-0 border-l-0;
 }
 
-.content a.go-to-top {
-    @apply dark:bg-neutral-800 bg-white table text-zinc-500 visited:text-zinc-500 active:text-zinc-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-white pr-2 pl-8 py-1 text-sm relative my-6 mx-auto text-center shadow-md rounded-full border-b-0; /* border-2 border-zinc-950/30 rounded-md */
-}
-
-a.go-to-top::before {
-    content: "»";
-    @apply inline-block absolute -top-2 -rotate-90 px-3 py-1 text-2xl -left-1;
-    top: -0.39rem;
-}
-
 .svg-store svg,
 .svg-store path {
     @apply fill-lime-500 dark:fill-black w-full h-fit min-h-72;
