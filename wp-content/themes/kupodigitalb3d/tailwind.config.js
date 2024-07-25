@@ -2,13 +2,13 @@
 module.exports = {
   content: [
     './node_modules/preline/dist/*.js',
-    './*.{php,html}',
+    './*.{php,html}',                     // nivel theme
+    './../../plugins/*/*.{php,html}',     // nivel plugins
     './parts/*.{php,html}',
     './../../../app/run/*.{php,html,js}',
   ],
   darkMode: 'class',
   theme: {
-
 
     fontFamily: {
       'sans': [

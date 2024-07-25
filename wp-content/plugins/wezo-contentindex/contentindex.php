@@ -59,14 +59,14 @@ function save_custom_meta_box($post_id)
 add_action('save_post', 'save_custom_meta_box');
 
 
-function findFirstHeader($content)
+/*function findFirstHeader($content)
 {
   $pattern = '/<(h[1-6])[^>]*>/i';
   if (preg_match($pattern, $content, $match)) {
     return $match[1];
   }
   return null;
-}
+}*/
 
 function ContentIndex($content)
 {
@@ -74,7 +74,15 @@ function ContentIndex($content)
   if (is_singular()) {
     global $post;
 
-    $firstHeader = findFirstHeader($content);
+    $linkGoTop = <<<HTML
+    <a href="#table-content-anchor" class="go-to-top">Voltar ao Início</a>
+    HTML;
+    $anchorTop = <<<HTML
+    <span id='table-content-anchor'></span>
+    HTML;
+
+    $firstElementContent = 'p'; // attach menu before first element
+
 
     $stringIndex = __('index', 'wezoalves');
     $stringHeaderIndex = __('What you will find in this article', 'wezoalves');
@@ -90,7 +98,7 @@ function ContentIndex($content)
     preg_match_all($regex, $content, $matches, PREG_SET_ORDER);
 
     if (count($matches)) {
-      $index = "<h6 class='text-base'>{$stringHeaderIndex}</h6><ol class='table-content'>";
+      $index = "<p class='text-base font-semibold ml-2'>{$stringHeaderIndex}</p><ol class='table-content'>";
       $replacements = [];
       foreach ($matches as $match) {
         $level = $match[1];
@@ -100,16 +108,22 @@ function ContentIndex($content)
         $slug = "{$stringIndex}-{$slug}";
         $url = get_permalink($post->ID);
         $index .= "<li class='index-header-{$level}'><a class='text-sm' href='{$url}#{$slug}'>{$text}</a></li>";
-        $new_header = "<a style='display:inline-block;' class='index-anchor' id='{$slug}'></a><{$level}>{$text}</{$level}>"; // headers h<1...6>
+        $new_header = "
+        <a style='display:inline-block;' class='index-anchor' id='{$slug}'></a>
+        {$linkGoTop}
+        <{$level}>{$text}</{$level}>
+        "; // headers h<1...6>
         $replacements[$match[0]] = $new_header;
       }
       $index .= '</ol>';
       foreach ($replacements as $original => $new) {
         $content = str_replace($original, $new, $content);
       }
-      $content = preg_replace('/<(' . $firstHeader . ')[^>]*>/i', $index . '$0', $content, 1);
+      $content = preg_replace('/<(' . $firstElementContent . ')[^>]*>/i', $index . '$0', $content, 1);
     }
   }
+
+  $content = "{$anchorTop}{$content}{$linkGoTop}";
 
   return $content;
 }
