@@ -4,3 +4,6 @@
 [submodule "wp-content/plugins/wezoalves-contentfit"]
 	path = wp-content/plugins/wezoalves-contentfit
 	url = git@github.com:wezoalves/wp-contentfit.git
+[submodule "wp-content/plugins/wezoalves-tablecontents"]
+	path = wp-content/plugins/wezoalves-tablecontents
+	url = git@github.com:wezoalves/wp-tablecontents.git
