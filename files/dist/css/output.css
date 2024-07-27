@@ -1035,10 +1035,6 @@ select {
   margin-inline-end: 1rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .mr-1 {
   margin-right: 0.25rem;
 }
@@ -1212,12 +1208,16 @@ select {
   height: 11rem;
 }
 
-.h-64 {
-  height: 16rem;
-}
-
 .h-8 {
   height: 2rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .h-auto {
@@ -1886,6 +1886,11 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-10 {
@@ -4389,6 +4394,10 @@ ol.table-content:is(.dark *)::before {
 
   .md\:h-80 {
     height: 20rem;
+  }
+
+  .md\:h-96 {
+    height: 24rem;
   }
 
   .md\:w-48 {

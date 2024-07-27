@@ -2,7 +2,9 @@
 
 function theme_enqueue_styles()
 {
-    wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '1.0.1.' . rand(0, 999), 'all');
+    wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '3.4.4.' . date('W.d'), 'all');
+    //wp_enqueue_style('preline-tailwindcss', 'https://preline.co/assets/css/main.min.css', array(), '3.4.1.' . rand(0, 999), 'all');
+    
 
     wp_enqueue_script('preline', get_template_directory_uri() . '/assets/js/preline.js', [], null, true);
     wp_enqueue_script('theme', get_template_directory_uri() . '/assets/js/theme.js', [], null, true);
