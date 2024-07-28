@@ -498,6 +498,18 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 
 <?php wp_footer(); ?>
 
+<script id="navegg" type="text/javascript">
+  (function(n,v,g){o="Navegg";if(!n[o]){
+    a=v.createElement('script');a.src=g;b=document.getElementsByTagName('script')[0];
+    b.parentNode.insertBefore(a,b);n[o]=n[o]||function(parms){
+    n[o].q=n[o].q||[];n[o].q.push([this, parms])};}})
+  (window, document, 'https://tag.navdmp.com/universal.min.js');
+  window.naveggReady = window.naveggReady||[];
+  window.nvg93236 = new Navegg({
+    acc: 93236
+  });
+</script>
+
 <script>
   window.fbAsyncInit = function () {
     FB.init({
