@@ -60,6 +60,8 @@ define('NONCE_SALT', $dotenv['NONCE_SALT']);
 
 $table_prefix = $dotenv['DB_TABLE_PREFIX'];
 
+define('DISALLOW_FILE_EDIT', true);
+
 if (! defined('ABSPATH')) {
     define('ABSPATH', __DIR__ . '/');
 }
