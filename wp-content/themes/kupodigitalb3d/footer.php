@@ -299,9 +299,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 51
 
       <div class="flex justify-between items-center">
         <div class="mt-3 sm:hidden">
-          <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand">Marca</a>
-          <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?> b³d -
-            todos os direitos reservados.</p>
+          <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand">B³D</a>
+          <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?>todos os direitos reservados.</p>
         </div>
 
         <!-- Social Brands -->
