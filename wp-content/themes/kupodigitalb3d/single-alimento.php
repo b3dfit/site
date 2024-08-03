@@ -43,7 +43,7 @@ foreach ($food->getComposition() as $composition) {
                 ];
                 $indexGroup = 1;
                 foreach ($grouped_compositions as $group => $compositions) :
-                    $isActive = $group == 'COMPONENTES_ADICIONAIS' ? '' : '';
+                    $isActive = $group == 'COMPONENTES_ADICIONAIS' ? 'active' : '';
                     $isHidden = $group == 'COMPONENTES_ADICIONAIS' ? '' : 'hidden';;
 
                     if (isset($group_titles[$group])) {
