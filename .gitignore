@@ -11,3 +11,4 @@ app/run/*.json
 app/run/logs/*
 wp-content/debug.log
 start.sh
+wp-content/plugins/local_*
