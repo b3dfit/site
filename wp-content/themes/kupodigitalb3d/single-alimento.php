@@ -50,7 +50,7 @@ foreach ($food->getComposition() as $composition) {
                         $indexText = $numbersInEnglish[$indexGroup];
                         $indexName = $group_titles[$group];
                         $html = <<<HTML
-                            <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10" id="hs-basic-with-title-and-arrow-stretched-heading-{$indexText} {$isActive}">
+                            <div class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6 dark:hs-accordion-active:bg-white/10 {$isActive}" id="hs-basic-with-title-and-arrow-stretched-heading-{$indexText}">
                                 <button
                                     class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-2xl font-semibold text-start text-zinc-950 rounded-lg transition hover:text-zinc-700 focus:outline-none focus:text-zinc-700 dark:text-white dark:hover:text-white dark:focus:text-white"
                                     aria-expanded="true"
