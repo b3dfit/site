@@ -102,7 +102,7 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
                 <div class="w-full mx-auto text-center mt-24">
                     <h2 class="text-xl font-bold md:text-xl md:leading-tight dark:text-white">Descrição do Tênis
                         <?php echo ($tenis->getTitle()); ?></h2>
-                    <p class="mt-1 text-gray-600 dark:text-neutral-400"><?php echo ($tenis->getDescription()); ?></p>
+                    <p class="mt-1 text-gray-600 dark:text-neutral-400"><?php echo (nl2br($tenis->getDescription())); ?></p>
                 </div>
             </div>
             <!-- End Description -->
@@ -179,15 +179,4 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
     <!-- End Sticky Share -->
 
 </main>
-<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
-<script>
-    (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
-        basicSubscriptions.init({
-            type: "NewsArticle",
-            isPartOfType: ["Product"],
-            isPartOfProductId: "CAows8DYCw:openaccess",
-            clientOptions: { theme: "light", lang: "pt-BR" },
-        });
-    });
-</script>
 <?php get_footer(); ?>
