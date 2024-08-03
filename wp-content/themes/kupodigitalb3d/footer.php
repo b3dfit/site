@@ -4,9 +4,9 @@
   <div class="grid items-baseline grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
 
     <div class="">
-      <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand">Marca</a>
+      <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand"><?php echo (get_bloginfo('name')); ?></a>
       <p class="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">© <?php echo (date('Y')); ?>
-        <?php echo (get_bloginfo('name')); ?> - <?php echo (get_bloginfo('description')); ?>.
+      <?php echo (get_bloginfo('description')); ?>
       </p>
     </div>
     <!-- End Col -->
