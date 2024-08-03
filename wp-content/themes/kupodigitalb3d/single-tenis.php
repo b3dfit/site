@@ -102,7 +102,7 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
                 <div class="w-full mx-auto text-center mt-24">
                     <h2 class="text-xl font-bold md:text-xl md:leading-tight dark:text-white">Descrição do Tênis
                         <?php echo ($tenis->getTitle()); ?></h2>
-                    <p class="mt-1 text-gray-600 dark:text-neutral-400"><?php echo (nl2br($tenis->getDescription())); ?></p>
+                    <p class="mt-1 text-gray-600 dark:text-neutral-400 text-left"><?php echo (nl2br($tenis->getDescription())); ?></p>
                 </div>
             </div>
             <!-- End Description -->
