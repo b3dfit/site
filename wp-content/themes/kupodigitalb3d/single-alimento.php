@@ -43,8 +43,9 @@ foreach ($food->getComposition() as $composition) {
                 ];
                 $indexGroup = 1;
                 foreach ($grouped_compositions as $group => $compositions) :
-                    $isActive = '';
-                    $isHidden = 'hidden';
+                    $isActive = $group == 'COMPONENTES_ADICIONAIS' ? '' : '';
+                    $isHidden = $group == 'COMPONENTES_ADICIONAIS' ? '' : 'hidden';;
+
                     if (isset($group_titles[$group])) {
                         $indexText = $numbersInEnglish[$indexGroup];
                         $indexName = $group_titles[$group];
