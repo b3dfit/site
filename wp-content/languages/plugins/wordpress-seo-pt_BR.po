@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-16 08:20:57+0000\n"
+"PO-Revision-Date: 2024-07-29 09:43:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,94 @@ msgstr ""
 "X-Generator: GlotPress/4.0.1\n"
 "Language: pt_BR\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
+
+#: admin/menu/class-base-menu.php:260 admin/menu/class-base-menu.php:264
+msgid "Upgrades"
+msgstr "Atualizações"
+
+#: blocks/dynamic-blocks/breadcrumbs/block.json
+msgctxt "block keyword"
+msgid "site structure"
+msgstr "estrutura do site"
+
+#: blocks/dynamic-blocks/breadcrumbs/block.json
+msgctxt "block keyword"
+msgid "internal linking"
+msgstr "linkagem interna"
+
+#: blocks/dynamic-blocks/breadcrumbs/block.json
+msgctxt "block keyword"
+msgid "breadcrumbs"
+msgstr "caminho de navegação"
+
+#: blocks/dynamic-blocks/breadcrumbs/block.json
+msgctxt "block description"
+msgid "Adds the Yoast SEO breadcrumbs to your template or content."
+msgstr "Adiciona a localização atual do Yoast SEO ao seu modelo ou conteúdo."
+
+#: blocks/dynamic-blocks/breadcrumbs/block.json
+msgctxt "block title"
+msgid "Yoast Breadcrumbs"
+msgstr "Yoast Breadcrumbs"
+
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block keyword"
+msgid "How to"
+msgstr "Como"
+
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block keyword"
+msgid "How-to"
+msgstr "Como"
+
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block title"
+msgid "Yoast How-to"
+msgstr "Como fazer Yoast"
+
+#: blocks/structured-data-blocks/faq/block.json
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block keyword"
+msgid "Structured Data"
+msgstr "Dados Estruturados"
+
+#: blocks/dynamic-blocks/breadcrumbs/block.json
+#: blocks/structured-data-blocks/faq/block.json
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block keyword"
+msgid "SEO"
+msgstr "SEO"
+
+#: blocks/structured-data-blocks/faq/block.json
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block keyword"
+msgid "Schema"
+msgstr "Esquema"
+
+#: blocks/structured-data-blocks/faq/block.json
+msgctxt "block keyword"
+msgid "Frequently Asked Questions"
+msgstr "Perguntas Frequentes"
+
+#: blocks/structured-data-blocks/faq/block.json
+msgctxt "block keyword"
+msgid "FAQ"
+msgstr "FAQ"
+
+#: blocks/structured-data-blocks/faq/block.json
+msgctxt "block description"
+msgid "List your Frequently Asked Questions in an SEO-friendly way."
+msgstr "Liste suas perguntas frequentes de uma forma amigável ao SEO."
+
+#: blocks/structured-data-blocks/faq/block.json
+msgctxt "block title"
+msgid "Yoast FAQ"
+msgstr "Perguntas frequentes sobre Yoast"
+
+#: admin/class-admin.php:322
+#: src/user-meta/framework/additional-contactmethods/x.php:28
+msgid "X username (without @)"
+msgstr "Nome de usuário X (sem @)"
 
 #: src/presenters/admin/sidebar-presenter.php:96 js/dist/elementor.js:9
 #: js/dist/introductions.js:9 js/dist/new-settings.js:34 js/dist/post-edit.js:9
@@ -377,6 +465,11 @@ msgstr "Atualizar sua versão do PHP é algo que seu provedor de hospedagem pode
 #: src/integrations/admin/unsupported-php-version-notice.php:85
 msgid "Can’t upgrade yourself? Ask your host!"
 msgstr "Não pode atualizar a si mesmo? Pergunte ao seu anfitrião!"
+
+#. translators: 1: Yoast SEO, 2: Yoast SEO Premium
+#: src/integrations/admin/unsupported-php-version-notice.php:77
+msgid "By November 1st, 2024, we’ll update the minimum PHP requirement for %1$s, %2$s and all our add-ons to PHP 7.4. This, to ensure we can keep delivering state of the art features."
+msgstr "Até 1º de março de 2023, atualizaremos o requisito mínimo de PHP para %1$s, %2$s e todos os nossos complementos para PHP 7.2. Isso, para garantir que possamos continuar oferecendo recursos de última geração."
 
 #: src/integrations/admin/unsupported-php-version-notice.php:73
 msgid "Upgrade your PHP version"
@@ -2144,6 +2237,11 @@ msgid_plural "%d days"
 msgstr[0] "%d dia"
 msgstr[1] "%d dias"
 
+#: blocks/structured-data-blocks/how-to/block.json
+msgctxt "block description"
+msgid "Create a How-to guide in an SEO-friendly way. You can only use one How-to block per post."
+msgstr "Crie um guia de como fazer amigável para SEO. Você pode usar apenas um bloco de como fazer por post."
+
 #. translators: %1$s expands to Yoast.
 #: src/integrations/blocks/block-categories.php:37
 msgid "%1$s Structured Data Blocks"
@@ -3762,6 +3860,12 @@ msgstr "Você instalou %1$s e %2$s, e ambos podem criar sitemaps em XML. Ter doi
 #: admin/class-plugin-conflict.php:71
 msgid "Configure %1$s's Open Graph settings"
 msgstr "Defina as configurações Open Graph do %1$s"
+
+#. translators: %1$s expands to Yoast SEO, %2$s: 'Facebook' plugin name of
+#. possibly conflicting plugin with regard to creating OpenGraph output.
+#: admin/class-plugin-conflict.php:67
+msgid "Both %1$s and %2$s create Open Graph output, which might make Facebook, X, LinkedIn and other social networks use the wrong texts and images when your pages are being shared."
+msgstr "Você instalou %1$s e %2$s, e ambos criam dados Open Graph que podem fazer com que o Facebook, X, LinkedIn e outras redes sociais usem textos e imagens erradas quando suas páginas forem compartilhadas."
 
 #: admin/formatter/class-metabox-formatter.php:93
 #: admin/formatter/class-metabox-formatter.php:123
