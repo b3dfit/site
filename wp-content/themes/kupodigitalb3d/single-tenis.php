@@ -38,9 +38,9 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
                         <h1 class="mb-2 leading-tight tracking-tight font-bold text-2xl md:text-3xl" itemprop="name">
                             <?php the_title(); ?>
                         </h1>
-                        <p class=" text-sm">Marca: <a href="<?php echo ($tenis->getBrand()['link']); ?>"
+                        <p class=" text-sm">Marca: <a href="<?php echo ($tenis->getBrand()->getLink()); ?>"
                                 class="hover:underline" itemprop="brand">
-                                <?php echo ($tenis->getBrand()['title']); ?>
+                                <?php echo ($tenis->getBrand()->getTitle()); ?>
                             </a>
                         </p>
                         <p class=" text-xs mt-2">Tipo: <?php echo ($tenis->getType()->getName()); ?>
