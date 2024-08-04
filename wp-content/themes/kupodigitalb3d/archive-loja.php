@@ -1,5 +1,30 @@
 <?php get_header(); ?>
+<?php
+$query = [
+    'post_type' => 'loja',
+    'posts_per_page' => 50,
+    'orderby' => 'title',
+    'order' => 'ASC',
+    'meta_query' => array(
+        array(
+            'key' => 'store_logosvg',
+            'compare' => 'EXISTS'
+        ),
+        array(
+            'key' => 'store_logosvg',
+            'value' => '',
+            'compare' => '!='
+        ),
+        array(
+            'key' => 'store_type',
+            'value' => ['BRAND', 'MULTIBRAND'],
+            'compare' => 'IN'
+        )
+    )
+];
 
+$stores = (new \Review\Repository\Store)->getAll($query);
+?>
 
 
 <main id="content">
@@ -23,60 +48,27 @@
         </div>
         <!-- End Title -->
 
-
-        <!-- Card Blog -->
+        <!-- Card Store -->
         <div class="max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <!-- Grid -->
             <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
-
-
-
-
-
                 <?php
-                $args = array(
-                    'post_type' => 'loja',
-                    'posts_per_page' => 50,
-                    'orderby' => 'title',
-                    'order' => 'ASC',
-                    'meta_query' => array(
-                        array(
-                            'key' => 'store_logosvg',
-                            'compare' => 'EXISTS'
-                        ),
-                        array(
-                            'key' => 'store_logosvg',
-                            'value' => '',
-                            'compare' => '!='
-                        )
-                    )
-                );
-
-                $loja_query = new WP_Query($args);
-                if ($loja_query->have_posts()) :
-                    while ($loja_query->have_posts()) :
-                        $loja_query->the_post();
-                        $link = get_permalink($post->ID);
-                        $svg = getValueCPTReview($post->ID, 'logosvg', 'store');
-                        $name = get_the_title($post->ID);
-                        $image = getValueCPTReview($post->ID, 'logo', 'store');
-                        $svg = getValueCPTReview($post->ID, 'logosvg', 'store');
-                        $description = get_the_excerpt($post->ID);
-                        $html = <<<HTML
+                foreach ($stores as $store) :
+                    $html = <<<HTML
                     <!-- Card -->
-                    <a class="group rounded-xl overflow-hidden shadow-md px-1" href="{$link}">
+                    <a class="group rounded-xl overflow-hidden shadow-md px-1" href="{$store->getLink()}">
                         <div class="flex flex-col">
                             <div class="flex-shrink-0 relative rounded-xl w-full h-44">
                                 <div class="flex group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl fill-black bg-white dark:bg-lime-400 items-center svg-page-stores">
-                                    {$svg}
+                                    {$store->getLogoSvg()}
                                 </div>
                             </div>
                             <div class="grow mt-4 px-4 mb-2 text-zinc-950 dark:text-white">
                                 <h3 class="text-xl font-semibold text-zinc-950">
-                                    {$name}
+                                    {$store->getTitle()}
                                 </h3>
                                 <p class="mt-3">
-                                    {$description}
+                                    {$store->getContent()}
                                 </p>
                                 <p
                                     class="mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium">
@@ -92,34 +84,15 @@
                     </a>
                     <!-- End Card -->
                     HTML;
-                        echo $html;
-                    endwhile;
-                    wp_reset_postdata();
-                endif;
+                    echo $html;
+                endforeach;
                 ?>
 
             </div>
             <!-- End Grid -->
         </div>
-        <!-- End Card Blog -->
-
-
-
-
-
-
+        <!-- End Card Store -->
 
     </div>
 </main>
-<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
-<script>
-  (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
-    basicSubscriptions.init({
-      type: "NewsArticle",
-      isPartOfType: ["Product"],
-      isPartOfProductId: "CAows8DYCw:openaccess",
-      clientOptions: { theme: "light", lang: "pt-BR" },
-    });
-  });
-</script>
 <?php get_footer(); ?>
