@@ -24,7 +24,7 @@ ksort($grouped_compositions);
             <h1 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white" itemprop="name">
                 Alimento <?php echo strtr(get_the_title(), ['.' => ' ']); ?>
             </h1>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">Contém os seguintes nutrientes.</p>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">em 100g desse alimento contém os seguintes nutrientes.</p>
         </div>
         <!-- End Title -->
 
