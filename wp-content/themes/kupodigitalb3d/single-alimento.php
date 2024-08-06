@@ -11,6 +11,59 @@ foreach ($compositionArray as $composition) {
 }
 ksort($grouped_compositions);
 
+
+$title = strtr(get_the_title(), ['.' => ' ']);
+
+
+function simplifyTitle($title)
+{
+    return strtr($title, [
+        'sem' => '',
+        'com' => '',
+        'pronto' => '',
+        'para' => '',
+        'mistura'=>'',
+        'enriquecida'=>'',
+        'fresca'=>'',
+        'drenado'=>'',
+        'barra'=>'',
+        'cozimento'=>'',
+        // ''=>'',
+        // ''=>'',
+    ]);
+}
+function getRandomImageURLFromPixabay($title)
+{
+    $title = simplifyTitle($title);
+
+    // URL da API do Pixabay
+    $apiUrl = "https://pixabay.com/api/?category=food&image_type=photo&lang=pt&key=35249326-7bd30e46e604979e7ceb78001&q={$title}&image_type=photo";
+
+    // Obtendo os dados da API
+    $response = file_get_contents($apiUrl);
+
+    // Decodificando os dados JSON
+    $data = json_decode($response, true);
+
+    // Verificando se 'hits' existe e é um array
+    if (! isset($data['hits']) || ! is_array($data['hits'])) {
+        return null;
+    }
+
+    // Selecionando um item aleatório do array 'hits'
+    $randomItem = $data['hits'][0];//[array_rand($data['hits'])];
+
+    // Verificando se 'largeImageURL' existe no item selecionado
+    if (! isset($randomItem['largeImageURL'])) {
+        return null;
+    }
+
+    // Criando a URL concatenada
+    $largeImageURL = $randomItem['largeImageURL'];
+    $concatenatedURL = "https://static.b3d.com.br/?key=YjNkLmNvbS5icg==&w=1280&h=770&u={$largeImageURL}";
+
+    return $concatenatedURL;
+}
 ?>
 
 <main id="content">
@@ -19,12 +72,31 @@ ksort($grouped_compositions);
         itemtype="http://schema.org/NutritionInformation">
 
 
+        <div class="container mx-auto p-4" itemscope itemtype="https://schema.org/Food">
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2 p-2">
+                    <div class="p-4">
+                        <img class="rounded-md shadow-md" src="<?php echo getRandomImageURLFromPixabay($title); ?>" alt="<?php echo ($title); ?>"  itemprop="image">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 p-2">
+                    <div class=" p-4">
+                        <h1 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white" itemprop="name">
+                            Tabela nutricional do Alimento <?php echo $title; ?>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <!-- Title -->
         <div class="lg:w-3/5 w-full mx-auto text-center mb-10 lg:mb-14">
-            <h1 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white" itemprop="name">
-                Alimento <?php echo strtr(get_the_title(), ['.' => ' ']); ?>
-            </h1>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">em 100g de <?php echo strtr(get_the_title(), ['.' => ' ']); ?> contém os seguintes nutrientes.</p>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">Em 100g de <?php echo $title; ?> contém os seguintes
+                nutrientes.</p>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">Quantas calorias tem em 100g de <?php echo $title; ?>?
+            </p>
         </div>
         <!-- End Title -->
 
@@ -44,7 +116,8 @@ ksort($grouped_compositions);
                 $indexGroup = 1;
                 foreach ($grouped_compositions as $group => $compositions) :
                     $isActive = $group == 'COMPONENTES_ADICIONAIS' ? 'active' : '';
-                    $isHidden = $group == 'COMPONENTES_ADICIONAIS' ? '' : 'hidden';;
+                    $isHidden = $group == 'COMPONENTES_ADICIONAIS' ? '' : 'hidden';
+                    ;
 
                     if (isset($group_titles[$group])) {
                         $indexText = $numbersInEnglish[$indexGroup];
