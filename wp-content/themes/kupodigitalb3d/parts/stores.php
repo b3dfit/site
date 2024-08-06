@@ -1,6 +1,6 @@
 <div class="w-full relative overflow-hidden pt-4 dark:bg-zinc-950">
-    <svg class="absolute -bottom-20 start-1/2 w-full transform -translate-x-1/2" height="488"
-        viewBox="0 0 2745 488" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute -bottom-20 start-1/2 w-full transform -translate-x-1/2" height="488" viewBox="0 0 2745 488"
+        fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M0.5 330.864C232.505 403.801 853.749 527.683 1482.69 439.719C2111.63 351.756 2585.54 434.588 2743.87 487"
             class="stroke-neutral-700/50" stroke="currentColor" />
@@ -81,9 +81,8 @@
                     while ($loja_query->have_posts()) :
                         $loja_query->the_post();
                         $link = get_permalink($post->ID);
-                        $svg = getValueCPTReview($post->ID, 'logosvg', 'store');
+                        $svg = get_post_meta($post->ID, 'store_logosvg', true);
                         echo "<a class='inline ' href='{$link}'>{$svg}</a>";
-
                     endwhile;
                     wp_reset_postdata();
                 endif;
