@@ -12,7 +12,7 @@ $details = [
     ],
     [
         "name" => "Descrição",
-        "information" => $coupon->getDescription(),
+        "information" => wp_filter_nohtml_kses($coupon->getDescription()),
         "itemprop" => "description",
         "attr" => ""
     ],
