@@ -10,7 +10,7 @@ $coupons = (new \Review\Repository\Coupon)->getNoExpired();
         <div class="flex flex-col">
 
             <!-- Header -->
-            <div class="w-full px-12 py-4 text-center mb-10">
+            <div class="w-full md:px-12 py-4 text-center mb-10">
 
                 <h1 class="mx-auto text-3xl font-bold">
                     Aproveite Ofertas Exclusivas com Nossos Cupons de Desconto!

@@ -5023,6 +5023,11 @@ ol.table-content:is(.dark *)::before {
     padding-right: 1rem;
   }
 
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .md\:pb-0 {
     padding-bottom: 0px;
   }
