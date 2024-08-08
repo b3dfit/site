@@ -16,9 +16,9 @@ $query = [
             'compare' => '!='
         ),
         array(
-            'key' => 'store_type',
-            'value' => ['BRAND', 'MULTIBRAND'],
-            'compare' => 'IN'
+            'key' => 'store_showinfront',
+            'value' => 1,
+            'compare' => '=='
         )
     )
 ];
