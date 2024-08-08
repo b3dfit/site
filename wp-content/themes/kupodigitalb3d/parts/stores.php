@@ -71,6 +71,11 @@
                             'key' => 'store_logosvg',
                             'value' => '',
                             'compare' => '!='
+                        ),
+                        array(
+                            'key' => 'store_showinfront',
+                            'value' => 1,
+                            'compare' => '=='
                         )
                     )
                 );
