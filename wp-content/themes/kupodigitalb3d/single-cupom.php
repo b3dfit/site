@@ -95,10 +95,10 @@ $details = [
                                     </svg>
 
                                     <div class="grow">
-                                        <h3 class="pt-0 mt-0 md:text-sm font-light text-gray-600 dark:text-neutral-200">
+                                        <h3 class="pt-0 mt-0 text-sm md:text-sm font-light text-gray-600 dark:text-neutral-200">
                                             {$item->name}
                                         </h3>
-                                        <p class="mt-1 md:text-sm text-gray-500 dark:text-neutral-500" itemprop="{$item->itemprop}" {$item->attr}>
+                                        <p class="mt-1 md:text-sm text-sm text-gray-500 dark:text-neutral-500" itemprop="{$item->itemprop}" {$item->attr}>
                                             {$item->information}
                                         </p>
                                     </div>
