@@ -34,6 +34,12 @@ $details = [
         "itemprop" => "",
         "attr" => "",
     ],
+    [
+        "name" => "Sobre a Loja",
+        "information" => nl2br($coupon->getStore()->getDescription()),
+        "itemprop" => "",
+        "attr" => "",
+    ]
 
 ];
 ?>
@@ -59,51 +65,7 @@ $details = [
 
 
                 <!-- Card -->
-                <div class="mt-2 p-0 rounded-lg border border-gray-200 bg-white text-black shadow-sm  disabled:opacity-50 disabled:pointer-events-none">
-
-
-                    <div class="relative flex items-center overflow-hidden">
-                        <div
-                            class="md:w-32 grow p-4 relative flex items-center justify-center bg-lime-400  rounded-s-lg">
-                            <div class="h-28 w-28 flex items-center justify-center">
-                                <?php echo ($coupon->getStore()->getLogoSvg()); ?>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 grow p-4">
-                            <div class="min-h-24 flex flex-col justify-normal">
-
-                                <p class="text-neutral-700"><?php echo ($coupon->getTitle()); ?></p>
-
-                                <p class="select-none mt-5 text-sm text-zinc-950 dark:text-neutral-500 mb-3">
-                                    <span
-                                        class="hs-tooltip hs-tooltip-toggle px-8 py-2  text-base rounded-lg border border-gray-200 bg-white text-black shadow-sm  disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 text-left">
-
-                                        Cupom <?php echo ($coupon->getCodeSecret()); ?>
-
-                                        <span
-                                            class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible   opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700"
-                                            role="tooltip">
-                                            Clique no botão Usar Cupom
-                                        </span>
-
-                                    </span>
-
-                                </p>
-                                <meta itemprop="priceCurrency" content="BRL" />
-                                <meta itemprop="price" content="0" />
-                                <link itemprop="url" href="<?php echo ($coupon->getUrl()); ?>" />
-                            </div>
-                        </div>
-                        <div class="md:w-48 text-right right-0 p-4">
-                            <button type="button"
-                                class="w-full group text-center py-2 px-3 mr-10 bg-lime-400 font-medium text-sm text-black rounded-md focus:outline-none"
-                                onclick="window.open(atob('<?php echo (base64_encode($coupon->getUrl())); ?>'))">
-                                Usar Cupom
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+                <?php get_template_part('parts/component-coupon'); ?>
                 <!-- End Card -->
 
 
