@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 
 <?php
-use Review\Utils\TypeTenis;
-use Review\Utils\RatingTenis;
-use Review\Repository\Store;
 use Review\Repository\Tenis;
 
 $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
