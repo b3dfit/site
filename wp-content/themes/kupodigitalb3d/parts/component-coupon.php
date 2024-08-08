@@ -75,7 +75,7 @@ $html = <<<HTML
             </div>
         </div>
         <!-- End Card -->
-         
+
         <span class="mx-16 my-8 block w-full"></span>
         
         <!-- Modal -->
@@ -132,6 +132,7 @@ $html = <<<HTML
         <script>
             // open modal
             function openModal(button) {
+                console.log(button);
                 const modalId = button.getAttribute('data-hs-overlay');
                 const couponCode = button.getAttribute('data-coupon-code');
                 const couponUrl = button.getAttribute('data-coupon-url');
@@ -139,7 +140,7 @@ $html = <<<HTML
                 const buttonActiveModal = document.querySelector('#buttonActiveModal');
                 document.getElementById('coupon-modal-label').innerText = atob(couponCode);
                 document.getElementById('store-modal-label').innerText = storeName;
-                buttonActiveModal.setAttribute('onclick', `window.open(atob(couponUrl))`);
+                buttonActiveModal.setAttribute('onclick', `window.open(atob("\${couponUrl}\"))`);
             }
             // end open modal
 
