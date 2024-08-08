@@ -1478,6 +1478,10 @@ select {
   width: 3rem;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
 .min-w-96 {
   min-width: 24rem;
 }

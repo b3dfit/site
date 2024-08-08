@@ -36,9 +36,17 @@ $coupons = (new \Review\Repository\Coupon)->getNoExpired();
                     <div class="relative flex flex-col md:flex-row md:items-center overflow-hidden md:max-h-40">
                                 
                             
-                                <div class="md:w-44 md:h-48 md:rounded-r-md md:rounded-l-md  bg-lime-400 rounded-md rounded-b-none rounded-bl-none w-full h-20 mb-8">
+                                <div 
+                                class="
+                                md:w-44 md:h-48 md:rounded-r-md md:rounded-l-md  
+                                flex justify-center rounded-md rounded-b-none rounded-bl-none w-full h-20 mb-8 bg-lime-400
+                                ">
 
-                                    <div class="md:h-40 md:w-40 md:p-4 md:mt-8 md:ml-1 md:flex object-center h-32 w-20 ml-24 ">
+                                    <div 
+                                    class="
+                                    md:h-40 md:w-40 md:p-4 md:mt-8 md:ml-1 md:flex 
+                                    object-center flex flex-row justify-center h-20 w-20
+                                    ">
                                         {$svgLogo}
                                     </div>
 
