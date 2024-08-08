@@ -36,9 +36,9 @@ $coupons = (new \Review\Repository\Coupon)->getNoExpired();
                     <div class="relative flex flex-col md:flex-row md:items-center overflow-hidden md:max-h-40">
                                 
                             
-                                <div class="md:w-40 md:h-40 w-full bg-lime-400 md:rounded-r-md md:rounded-l-md  rounded-md rounded-b-none rounded-bl-none h-20 mb-4">
+                                <div class="md:w-44 md:h-48 md:rounded-r-md md:rounded-l-md  bg-lime-400 rounded-md rounded-b-none rounded-bl-none w-full h-20 mb-8">
 
-                                    <div class="md:h-28 md:w-28 md:p-4 md:mt-6 md:ml-6 md:flex object-center h-32 w-20 ml-24 ">
+                                    <div class="md:h-40 md:w-40 md:p-4 md:mt-8 md:ml-1 md:flex object-center h-32 w-20 ml-24 ">
                                         {$svgLogo}
                                     </div>
 
@@ -112,7 +112,7 @@ $coupons = (new \Review\Repository\Coupon)->getNoExpired();
         class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto" role="dialog"
         tabindex="-1" aria-labelledby="modal-coupon-label">
         <div
-            class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+            class="hs-overlay-open:mt-80 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 md:mt-24 opacity-0 ease-out transition-all m-3 sm:mx-auto md:w-1/2"><!-- sm:max-w-lg sm:w-full  --> 
             <div class="relative flex flex-col bg-white shadow-lg rounded-xl dark:bg-neutral-900">
                 <div class="absolute top-2 end-2">
                     <button type="button" id="close-modal"
