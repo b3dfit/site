@@ -150,7 +150,7 @@ $coupons = (new \Review\Repository\Coupon)->getByStore($store->getId());
                 <h2 class="text-3xl font-bold md:leading-tight dark:text-white" itemprop="name">
                     Cupons da <?php echo ($store->getTitle()); ?> para você!
                 </h2>
-                <p itemprop="description">
+                <p itemprop="description" class="dark:text-white mb-5">
                     Os cupons da loja <?php echo ($store->getTitle()); ?> são atualizados
                     frequêntemente!
                 </p>

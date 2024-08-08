@@ -11,7 +11,7 @@ $svgLogo = $coupon->getStore()->getLogoSvg() ? $coupon->getStore()->getLogoSvg()
 
 $html = <<<HTML
         <!-- Card -->
-        <div class="mt-2 p-0 rounded-lg border border-gray-200 bg-white text-black shadow-sm  disabled:opacity-50 disabled:pointer-events-none">
+        <div class="mt-2 p-0 rounded-lg border border-gray-200 dark:border-lime-400 bg-white dark:bg-zinc-950 text-black shadow-sm  disabled:opacity-50 disabled:pointer-events-none">
            
             <div class="relative flex flex-col md:flex-row md:items-center overflow-hidden md:max-h-40">
                 <div class="
