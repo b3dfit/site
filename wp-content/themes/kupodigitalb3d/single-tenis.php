@@ -4,6 +4,7 @@
 use Review\Repository\Tenis;
 
 $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
+$coupons = (new \Review\Repository\Coupon)->getByStore($tenis->getBrand()->getId());
 ?>
 <main id="content">
 
@@ -98,8 +99,11 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
             <div class="max-w-3xl mx-auto text-left">
                 <div class="w-full mx-auto text-center mt-24">
                     <h2 class="text-xl font-bold md:text-xl md:leading-tight dark:text-white">Descrição do Tênis
-                        <?php echo ($tenis->getTitle()); ?></h2>
-                    <p class="mt-1 text-gray-600 dark:text-neutral-400 text-left"><?php echo (nl2br($tenis->getDescription())); ?></p>
+                        <?php echo ($tenis->getTitle()); ?>
+                    </h2>
+                    <p class="mt-1 text-gray-600 dark:text-neutral-400 text-left">
+                        <?php echo (nl2br($tenis->getDescription())); ?>
+                    </p>
                 </div>
             </div>
             <!-- End Description -->
@@ -162,6 +166,27 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
                 </div>
             </div>
 
+            <!-- Coupons -->
+            <div class=" w-full ">
+                <div class="mt-5 p-10">
+                    <h2 class="text-3xl font-bold md:leading-tight dark:text-white" itemprop="name">
+                        Cupons da <?php echo ($tenis->getBrand()->getTitle()); ?> para você!
+                    </h2>
+                    <p itemprop="description">
+                        Os cupons da loja <?php echo ($tenis->getBrand()->getTitle()); ?> são atualizados
+                        frequêntemente!
+                    </p>
+                    <?php
+                    foreach ($coupons as $coupon) :
+
+                        // component-coupon
+                        get_template_part('parts/component-coupon');
+                        // end component-coupon
+                    endforeach;
+                    ?>
+                </div>
+            </div>
+            <!-- End Coupons -->
 
         </div>
 
@@ -170,6 +195,8 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
     </article>
 
     <?php get_template_part('parts/last-tenis'); ?>
+
+
 
     <!-- Sticky Share -->
     <?php get_template_part('parts/share'); ?>
