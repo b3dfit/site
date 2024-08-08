@@ -53,7 +53,11 @@ $coupons = (new \Review\Repository\Coupon)->getNoExpired();
                                 </div>
 
 
-                                <div class="min-h-24 justify-center md:w-3/5 w-full md:p-8 md:px-4 px-4">
+                                <div 
+                                class="
+                                min-h-24 justify-center w-full px-4 pt-4
+                                md:w-3/5 md:p-8 md:px-4 
+                                ">
                                     
                                         <p class="w-full text-neutral-700 mb-3 dark:text-neutral-300 truncate overflow-hidden hs-tooltip hs-tooltip-toggle">
                                             <a href="{$coupon->getLink()}" target="_blank">
