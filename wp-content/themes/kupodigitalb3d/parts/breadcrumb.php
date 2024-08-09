@@ -23,7 +23,7 @@ $breadcrumbs = get_custom_breadcrumb();
                     <span class="flex text-sm font-semibold text-gray-800  dark:text-neutral-200  overflow-hidden truncate"
                         aria-current="page">
                         <?php $label = mb_convert_case(esc_html($breadcrumb['label']), MB_CASE_TITLE_SIMPLE); ?>
-                        <?php echo substr($breadcrumb['label'], 0 , 20); ?>...
+                        <?php echo mb_substr($breadcrumb['label'], 0 , 20); ?>...
                         <meta itemprop="name" content="<?php echo $label; ?>">
                     </span>
                     <meta itemprop="position" content="<?php echo $index + 1; ?>" />
