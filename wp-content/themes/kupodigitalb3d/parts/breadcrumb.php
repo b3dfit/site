@@ -2,11 +2,11 @@
 $breadcrumbs = get_custom_breadcrumb();
 ?>
 
-<nav class="relative max-w-[66rem] w-full mt-10 rounded-[10px] py-3 pl-5 pr-2 md:flex md:items-center md:justify-between md:py-0 mx-2 lg:mx-auto"
+<nav class=" max-w-5xl mx-auto mt-10 rounded-[10px] px-3 py-3 md:flex md:items-center md:justify-between md:py-0 lg:mx-auto"
     aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
     <ol class="flex items-center whitespace-nowrap">
         <?php foreach ($breadcrumbs as $index => $breadcrumb) : ?>
-            <li class="inline-flex items-center" itemprop="itemListElement" itemscope
+            <li class="inline-flex justify-start items-center" itemprop="itemListElement" itemscope
                 itemtype="https://schema.org/ListItem">
                 <?php if ($index !== count($breadcrumbs) - 1) : ?>
                     <a class="flex items-center text-sm text-gray-500 hover:text-zinc-600 focus:outline-none focus:text-zinc-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500 text-wrap"
@@ -20,10 +20,11 @@ $breadcrumbs = get_custom_breadcrumb();
                         <path d="m9 18 6-6-6-6"></path>
                     </svg>
                 <?php else : ?>
-                    <span
-                        class="text-wrap inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
-                        aria-current="page" itemprop="name">
-                        <?php echo esc_html($breadcrumb['label']); ?>
+                    <span class="flex text-sm font-semibold text-gray-800  dark:text-neutral-200  overflow-hidden truncate"
+                        aria-current="page">
+                        <?php $label = mb_convert_case(esc_html($breadcrumb['label']), MB_CASE_TITLE_SIMPLE); ?>
+                        <?php echo substr($breadcrumb['label'], 0 , 20); ?>...
+                        <meta itemprop="name" content="<?php echo $label; ?>">
                     </span>
                     <meta itemprop="position" content="<?php echo $index + 1; ?>" />
                 <?php endif; ?>
