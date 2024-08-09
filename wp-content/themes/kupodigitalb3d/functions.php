@@ -35,9 +35,9 @@ function estimated_reading_time()
     $seconds = floor($words % 200 / (200 / 60));
 
     if (1 <= $minutes) {
-        $estimated_time = ($minutes == 1 ? '1 minuto' : $minutes . ' ' . 'minutos') . ' ' . ($seconds == 1 ? '1 segundo' : $seconds . ' ' . 'segundos');
+        $estimated_time = ($minutes == 1 ? ' 1 minuto' : $minutes . ' ' . 'minutos') . ' ' . ($seconds == 1 ? '1 segundo' : $seconds . ' ' . 'segundos');
     } else {
-        $estimated_time = $seconds . 'segundo';
+        $estimated_time = $seconds . ' segundos';
     }
 
     return $estimated_time;
