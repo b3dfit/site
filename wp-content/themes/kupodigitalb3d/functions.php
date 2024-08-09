@@ -72,6 +72,7 @@ function getUrlByName($name)
         "sobre" => getPageUrlBySlug('sobre-nos'),
         "suporte" => getPageUrlBySlug('suporte-e-ajuda'),
         "loja" => getCustomTypeSlug('loja'),
+        "cupom" => getCustomTypeSlug('cupom'),
         "contato" => '#',
         'dashboard' => '#dashboard',
         "login" => getPageUrlBySlug('login'),

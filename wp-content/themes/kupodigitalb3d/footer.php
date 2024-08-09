@@ -41,6 +41,17 @@
       }
       echo '</div>';
       ?>
+      <div class="mt-3 grid space-y-3 text-sm">
+        <p><a
+            class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+            href="<?php echo (getUrlByName('cupom')); ?>">Cupons de Desconto</a></p>
+        <p><a
+            class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+            href="<?php echo (getUrlByName('tenis')); ?>">Tênis de Corrida</a></p>
+        <p><a
+            class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+            href="<?php echo (getUrlByName('loja')); ?>">Lojas Parceiras</a></p>
+      </div>
     </div>
     <!-- End Col -->
 
