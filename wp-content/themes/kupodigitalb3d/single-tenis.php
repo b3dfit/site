@@ -4,7 +4,6 @@
 use Review\Repository\Tenis;
 
 $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
-$coupons = (new \Review\Repository\Coupon)->getByStore($tenis->getBrand()->getId());
 ?>
 <main id="content">
 
@@ -167,25 +166,11 @@ $coupons = (new \Review\Repository\Coupon)->getByStore($tenis->getBrand()->getId
             </div>
 
             <!-- Coupons -->
-            <div class=" w-full ">
-                <div class="mt-5 p-10">
-                    <h2 class="text-3xl font-bold md:leading-tight dark:text-white" itemprop="name">
-                        Cupons da <?php echo ($tenis->getBrand()->getTitle()); ?> para você!
-                    </h2>
-                    <p itemprop="description">
-                        Os cupons da loja <?php echo ($tenis->getBrand()->getTitle()); ?> são atualizados
-                        frequêntemente!
-                    </p>
-                    <?php
-                    foreach ($coupons as $coupon) :
-
-                        // component-coupon
-                        get_template_part('parts/component-coupon');
-                        // end component-coupon
-                    endforeach;
-                    ?>
-                </div>
-            </div>
+            <?php
+                $storeName = $tenis->getBrand()->getTitle();
+                $coupons = (new \Review\Repository\Coupon)->getByStore($tenis->getBrand()->getId());
+                load_template(locate_template('parts/template/coupons-store.php'), false);
+            ?>
             <!-- End Coupons -->
 
         </div>

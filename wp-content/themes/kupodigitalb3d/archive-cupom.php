@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php
-$coupons = (new \Review\Repository\Coupon)->getNoExpired();
+$coupons = (new \Review\Repository\Coupon)->getNoExpired(100, 0, null, 'coupon_endDate');
 ?>
 
 <main id="content">
@@ -27,7 +27,7 @@ $coupons = (new \Review\Repository\Coupon)->getNoExpired();
             <?php
             foreach ($coupons as $coupon) :
                 // component-coupon
-                get_template_part('parts/component-coupon');
+                get_template_part('parts/components/component-coupon');
                 // end component-coupon
             endforeach;
             ?>

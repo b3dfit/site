@@ -127,7 +127,7 @@ $coupons = (new \Review\Repository\Coupon)->getByStore($store->getId());
 
 
 
-       
+
 
 
 
@@ -144,26 +144,12 @@ $coupons = (new \Review\Repository\Coupon)->getByStore($store->getId());
         </div>
         <!-- End Description -->
 
-         <!-- Coupons -->
-         <div class=" w-full ">
-            <div class="mt-5 p-10">
-                <h2 class="text-3xl font-bold md:leading-tight dark:text-white" itemprop="name">
-                    Cupons da <?php echo ($store->getTitle()); ?> para você!
-                </h2>
-                <p itemprop="description" class="dark:text-white mb-5">
-                    Os cupons da loja <?php echo ($store->getTitle()); ?> são atualizados
-                    frequêntemente!
-                </p>
-                <?php
-                foreach ($coupons as $coupon) :
-
-                    // component-coupon
-                    get_template_part('parts/component-coupon');
-                    // end component-coupon
-                endforeach;
-                ?>
-            </div>
-        </div>
+        <!-- Coupons -->
+        <?php
+        $storeName = $store->getTitle();
+        $coupons = (new \Review\Repository\Coupon)->getByStore($store->getId());
+        load_template(locate_template('parts/template/coupons-store.php'), false);
+        ?>
         <!-- End Coupons -->
 
     </article>

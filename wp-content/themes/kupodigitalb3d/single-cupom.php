@@ -3,7 +3,7 @@
 <?php
 global $post;
 $coupon = (new \Review\Repository\Coupon)->getById($post->ID);
-$coupons = (new \Review\Repository\Coupon)->getByStore($coupon->getStore()->getId());
+
 $details = [
     [
         "name" => "Validade",
@@ -68,7 +68,10 @@ $details = [
 
 
                 <!-- Card -->
-                <?php get_template_part('parts/component-coupon'); ?>
+                <?php
+                $storeName = $coupon->getStore()->getTitle();
+                get_template_part('parts/components/component-coupon');
+                ?>
                 <!-- End Card -->
 
 
@@ -112,31 +115,13 @@ $details = [
                 </div>
             </div>
 
-            <div>
-                <div class="mt-5 p-10">
-                    <h2 class="text-3xl font-bold md:leading-tight dark:text-white" itemprop="name">
-                        Mais cupons da <a href="<?php echo ($coupon->getStore()->getLink()); ?>"
-                            target="_blank"><?php echo ($coupon->getStore()->getTitle()); ?></a> para você!
-                    </h2>
-                    <p itemprop="description">
-                        Os cupons da loja <a href="<?php echo ($coupon->getStore()->getLink()); ?>"
-                            target="_blank"><?php echo ($coupon->getStore()->getTitle()); ?></a> são atualizados
-                        frequêntemente!
-                    </p>
-                    <?php
-                    $currentCoupon = $coupon->getId();
-                    foreach ($coupons as $coupon) :
-                        if ($coupon->getId() == $currentCoupon) {
-                            continue;
-                        }
-                        // component-coupon
-                        get_template_part('parts/component-coupon');
-                        // end component-coupon
-                    endforeach;
-                    ?>
-                </div>
-
-            </div>
+            <!-- Coupons -->
+            <?php
+            $storeName = $coupon->getStore()->getTitle();
+            $coupons = (new \Review\Repository\Coupon)->getByStore($coupon->getStore()->getId(), $coupon->getId());
+            load_template(locate_template('parts/template/coupons-store.php'), false);
+            ?>
+            <!-- End Coupons -->
 
     </article>
 

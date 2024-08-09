@@ -1302,6 +1302,10 @@ select {
   height: 100vh;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .min-h-24 {
   min-height: 6rem;
 }
@@ -1999,6 +2003,10 @@ select {
   stroke: rgb(64 64 64 / 0.5);
 }
 
+.stroke-black {
+  stroke: #000;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -2035,6 +2043,14 @@ select {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-24 {
+  padding: 6rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-1 {
@@ -2218,6 +2234,10 @@ select {
 
 .pt-\[50\%\] {
   padding-top: 50%;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .text-left {
