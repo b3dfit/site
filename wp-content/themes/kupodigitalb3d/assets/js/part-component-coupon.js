@@ -21,12 +21,16 @@ function closeModal() {
 }
 // end close modal
 
-// close modal
+// go to offer and close modal
 const buttonActiveModal = document.querySelector('.buttonActiveModal');
 buttonActiveModal.addEventListener("click", goOfferCoupon);
 function goOfferCoupon() {
-    //copiar codigo cupom para a area de transferencia 
+
+    // copiar cupom para a area de transferencia 
+
+    // redirecionar usuario para a pagina da oferta
+
     const modalId = document.querySelector('#modal-coupon');
     HSOverlay.close(modalId);
 }
-// end close modal
+// end go to offer and close modal
