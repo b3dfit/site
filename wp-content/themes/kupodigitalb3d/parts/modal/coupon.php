@@ -1,7 +1,7 @@
 <div id="modal-coupon" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto"
     role="dialog" tabindex="-1" aria-labelledby="modal-coupon-label">
     <div
-        class="hs-overlay-open:mt-80 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 md:mt-24 opacity-0 ease-out transition-all m-3 sm:mx-auto md:w-1/2">
+        class="hs-overlay-open:mt-36 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 md:mt-24 opacity-0 ease-out transition-all m-3 sm:mx-auto md:w-1/2">
         <!-- sm:max-w-lg sm:w-full  -->
         <div class="relative flex flex-col bg-white shadow-lg rounded-xl dark:bg-zinc-950 border  dark:border-lime-400">
             <div class="absolute top-2 end-2">

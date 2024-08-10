@@ -244,17 +244,17 @@
 
 
 <!-- Modal Cookie -->
-<?php get_template_part('parts/modal-cookie'); ?>
+<?php get_template_part('parts/modal/cookie'); ?>
 <!-- End Modal Cookie -->
 
 
 <!-- Modal Success -->
-<?php get_template_part('parts/modal-success'); ?>
+<?php get_template_part('parts/modal/success'); ?>
 <!-- End Modal Success -->
 
 
 <!-- Modal Coupon -->
-<?php get_template_part('parts/modal-coupon'); ?>
+<?php get_template_part('parts/modal/coupon'); ?>
 <!-- End Modal Coupon -->
 
 <!-- Scripts Stats -->

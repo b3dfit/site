@@ -3,7 +3,8 @@
 <?php
 global $post;
 $coupon = (new \Review\Repository\Coupon)->getById($post->ID);
-
+$urlOffer = base64_encode($coupon->getUrl());
+$cupomOffer = base64_encode($coupon->getCode());
 $details = [
     [
         "name" => "Validade",
@@ -31,9 +32,17 @@ $details = [
     ],
     [
         "name" => "Código do Cupom",
-        "information" => $coupon->getCode(),
+        "information" => <<<HTML
+        <button type="button"
+            class=" group text-center p-2 px-5 bg-lime-400 font-medium text-sm text-black rounded-md focus:outline-none"
+            aria-haspopup="dialog" aria-expanded="false" data-hs-overlay="#modal-coupon"
+            data-coupon-code="{$cupomOffer}"
+            data-coupon-url="{$urlOffer}"
+            data-store-name="{$coupon->getStore()->getTitle()}"
+            onclick="openModal(this)">Desbloquear Cupom {$coupon->getCodeSecret()}</button>
+        HTML,
         "itemprop" => "",
-        "attr" => "",
+        "attr" => '',
     ],
     [
         "name" => "Sobre a Loja",
