@@ -14,23 +14,19 @@ $breadcrumbs = get_custom_breadcrumb();
                         <span itemprop="name"><?php echo esc_html($breadcrumb['label']); ?></span>
                     </a>
                     <meta itemprop="position" content="<?php echo $index + 1; ?>" />
-                    <?php if ($index == 0) : ?>
-                        <svg class="flex-shrink-0 mx-2 overflow-visible size-4 text-gray-400 dark:text-neutral-600"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m9 18 6-6-6-6"></path>
-                        </svg>
-                    <?php endif; ?>
+                    <svg class="flex-shrink-0 mx-2 overflow-visible size-4 text-gray-400 dark:text-neutral-600"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"></path>
+                    </svg>
                 <?php else : ?>
-                    <?php if ($index != 2) : ?>
-                        <span class="flex text-sm font-semibold text-gray-800  dark:text-neutral-200  overflow-hidden truncate"
-                            aria-current="page">
-                            <?php $label = mb_convert_case(esc_html($breadcrumb['label']), MB_CASE_TITLE_SIMPLE); ?>
-                            <?php echo ($label); ?>
-                            <meta itemprop="name" content="<?php echo $label; ?>">
-                        </span>
-                        <meta itemprop="position" content="<?php echo $index + 1; ?>" />
-                    <?php endif; ?>
+                    <span class="flex text-sm font-semibold text-gray-800  dark:text-neutral-200  overflow-hidden truncate"
+                        aria-current="page">
+                        <?php $label = mb_convert_case(esc_html($breadcrumb['label']), MB_CASE_TITLE_SIMPLE); ?>
+                        <?php echo ($label); ?>
+                        <meta itemprop="name" content="<?php echo $label; ?>">
+                    </span>
+                    <meta itemprop="position" content="<?php echo $index + 1; ?>" />
                 <?php endif; ?>
             </li>
         <?php endforeach; ?>
