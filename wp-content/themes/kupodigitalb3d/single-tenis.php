@@ -15,13 +15,22 @@ $tenis = (new Tenis('PAGETENIS0' . get_the_ID()))->getById(get_the_ID());
                     <div class="md:flex-1 px-4">
                         <div class="h-80 md:h-80 rounded-lg bg-white mb-4">
 
-                            <!-- IMAGE -->
                             <div class="h-96 md:h-96 rounded-lg bg-white p-5 mb-4 flex items-center justify-center">
-                                <?php if ($tenis->getImage()) : ?>
-                                    <img class="rounded-none w-auto h-full object-center"
-                                        src="<?php echo $tenis->getImage(); ?>" alt="<?php echo $tenis->getTitle(); ?>"
-                                        itemprop="image" />
-                                <?php endif; ?>
+                                <?php if ($tenis->getImage()) : 
+                                    $image = $tenis->getImage();
+                                    $image_small = getCdnImage($image, 372, 344);
+                                    $image_medium = getCdnImage($image, 472, 444);
+                                    $image = <<<HTML
+                                    <picture class="w-full object-cover rounded-t-xl">
+                                        <source srcset="{$image_medium}" media="(min-width: 1024px)">
+                                        <source srcset="{$image_small}" media="(min-width: 320px)">
+                                        <img 
+                                            src="{$image_medium}"
+                                            alt="Image Description">
+                                    </picture>
+                                    HTML;
+                                    echo $image;
+                                endif; ?>
                             </div>
                             <!-- END IMAGE -->
 

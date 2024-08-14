@@ -33,6 +33,9 @@ $latest_posts = new WP_Query($args);
             while ($latest_posts->have_posts()) :
                 $latest_posts->the_post();
                 $image = has_post_thumbnail() ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium_large', false)[0] : '';
+                $image_small = getCdnImage($image, 220, 220);
+                $image_medium = getCdnImage($image, 397, 397);
+                $image_large = getCdnImage($image, 397, 397);
                 $categories = get_the_category($post->ID) ? get_the_category($post->ID)[0]->name : null;
                 $title = get_the_title($post->ID);
                 $url = get_permalink($post->ID);
@@ -40,9 +43,13 @@ $latest_posts = new WP_Query($args);
                 <!-- Card -->
                 <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800" href="{$url}">
                     <div class="aspect-w-16 aspect-h-9">
-                        <img class="w-full object-cover rounded-t-xl"
-                            src="{$image}"
-                            alt="Image Description">
+                        <picture>
+                            <source srcset="{$image_medium}" media="(min-width: 1024px)">
+                            <source srcset="{$image_small}" media="(min-width: 320px)">
+                            <img class="w-full object-cover rounded-t-xl"
+                                src="{$image_medium}"
+                                alt="Image Description">
+                        </picture>
                     </div>
                     <div class="p-4 md:p-5">
                         <p class="mt-2 text-xs uppercase text-gray-600 dark:text-neutral-400">
@@ -65,25 +72,25 @@ $latest_posts = new WP_Query($args);
     </div>
     <!-- End Grid -->
     <?php /* ?>
-   
+
 <!-- Card -->
 <div class="text-center">
-   <div class="inline-block bg-white border shadow-sm rounded-full dark:bg-neutral-900 dark:border-neutral-800">
-       <div class="py-3 px-4 flex items-center gap-x-2">
-           <p class="text-gray-600 dark:text-neutral-400">
-               Quer ler mais?
-           </p>
-           <a class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
-               href="<?php echo (getUrlByName('artigos')); ?>">
-               vem aqui
-               <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                   stroke-linejoin="round">
-                   <path d="m9 18 6-6-6-6" />
-               </svg>
-           </a>
-       </div>
-   </div>
+<div class="inline-block bg-white border shadow-sm rounded-full dark:bg-neutral-900 dark:border-neutral-800">
+<div class="py-3 px-4 flex items-center gap-x-2">
+<p class="text-gray-600 dark:text-neutral-400">
+Quer ler mais?
+</p>
+<a class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
+href="<?php echo (getUrlByName('artigos')); ?>">
+vem aqui
+<svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="m9 18 6-6-6-6" />
+</svg>
+</a>
+</div>
+</div>
 </div>
 <!-- End Card -->
 <?php */ ?>

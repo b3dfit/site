@@ -4,7 +4,7 @@ function theme_enqueue_styles()
 {
     wp_enqueue_style('tailwindcss', '/files/dist/css/output.css', array(), '3.4.4.' . date('W.d'), 'all');
     //wp_enqueue_style('preline-tailwindcss', 'https://preline.co/assets/css/main.min.css', array(), '3.4.1.' . rand(0, 999), 'all');
-    
+
 
     wp_enqueue_script('preline', get_template_directory_uri() . '/assets/js/preline.js', [], null, true);
     wp_enqueue_script('theme', get_template_directory_uri() . '/assets/js/theme.js', [], null, true);
@@ -275,6 +275,19 @@ function custom_register_user_callback($request)
     return new WP_REST_Response(array('id' => $user_id), 200);
 }
 
+function getCdnImage($urlImage, $width, $height)
+{
+    // Substitui o protocolo, domínio e porta na URL da imagem
+    $urlImage = preg_replace('/^http:\/\/localhost:\d+/', 'https://www.b3d.com.br', $urlImage);
+
+    $url = 'https://static.b3d.com.br/?key=YjNkLmNvbS5icg==&w={width_image}&h={height_image}&u={url_image}';
+    $url = strtr($url, [
+        "{width_image}" => $width,
+        "{height_image}" => $height,
+        "{url_image}" => $urlImage,
+    ]);
+    return $url;
+}
 
 /* remove emoji */
 remove_action('wp_head', 'print_emoji_detection_script', 7);
