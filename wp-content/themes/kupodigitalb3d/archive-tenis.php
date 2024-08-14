@@ -44,9 +44,25 @@ get_header();
                         <!-- Card -->
                         <a class="group" href="<?php the_permalink(); ?>">
                             <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
-                                <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
-                                    src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
-                                    alt="<?php echo get_the_title(); ?>">
+                                
+                            
+                       
+
+                                    <?php if (get_the_post_thumbnail_url(get_the_ID(), 'full')) : 
+                                    $image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                                    $image_small = getCdnImage($image, 372, 344);
+                                    $image_medium = getCdnImage($image, 472, 444);
+                                    $image = <<<HTML
+                                    <picture class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl">
+                                        <source srcset="{$image_medium}" media="(min-width: 1024px)">
+                                        <source srcset="{$image_small}" media="(min-width: 320px)">
+                                        <img 
+                                            src="{$image_medium}"
+                                            alt="Image Description">
+                                    </picture>
+                                    HTML;
+                                    echo $image;
+                                endif; ?>
                             </div>
                             <div class="mt-7">
                                 <h3
