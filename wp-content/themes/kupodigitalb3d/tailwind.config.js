@@ -3,6 +3,8 @@ module.exports = {
   content: [
     './node_modules/preline/dist/*.js',
     './*.{php,html}',                     // nivel theme
+    './*/*.{php,html}',                   // nivel theme / parts
+    './*/*/*.{php,html}',                 // nivel theme / parts / components
     './../../plugins/*/*.{php,html}',     // nivel plugins
     './parts/*.{php,html}',
     './../../../app/run/*.{php,html,js}',
