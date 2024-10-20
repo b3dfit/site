@@ -1,19 +1,20 @@
 <?php get_header(); ?>
+
 <?php
 
 function convertToDate($date)
 {
-        $datetime = \DateTime::createFromFormat('d/m/Y H:i:s', $date);
-        return $datetime ? $datetime->format('Ymd H:i:s') : '';
+    $datetime = \DateTime::createFromFormat('d/m/Y H:i:s', $date);
+    return $datetime ? $datetime->format('Ymd H:i:s') : '';
 }
 
 $current_date = current_time('d/m/Y H:i:s');
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1-1;
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $posts_per_page = get_option('posts_per_page');
 $current_date_ymd = convertToDate($current_date);
 $orderTerm = 'coupon_endDate';
 
-$query = [
+$query_args = [
     'posts_per_page' => $posts_per_page,
     'paged' => $paged,
     's' => null,
@@ -31,85 +32,12 @@ $query = [
     ),
 ];
 
-$query = new \WP_Query($query);
+$query = new \WP_Query($query_args);
 
 $total_pages = $query->max_num_pages;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $coupons = (new \Review\Repository\Coupon)->getNoExpired($posts_per_page, $paged, null, 'coupon_endDate');
 ?>
-
-<?php
-// Função que gera o HTML da paginação
-function generatePaginationHtml($total_pages, $paged) {
-    // Se não houver mais de uma página, não mostra a paginação
-    if ($total_pages <= 1) return '';
-
-    $pagination_html = '<nav class="flex justify-center items-center space-x-1 mt-4">';
-
-    // Link para a página anterior
-    if ($paged > 1) {
-        $prev_page = $paged - 1;
-        $pagination_html .= <<<HTML
-            <a href="?paged={$prev_page}" class="px-3 py-1 bg-lime-200 text-zinc-900 rounded hover:bg-lime-300">
-                &laquo; Anterior
-            </a>
-        HTML;
-    }
-
-    // Links para cada página
-    for ($i = 1; $i <= $total_pages; $i++) {
-        if ($i == $paged) {
-            // Página atual
-            $pagination_html .= <<<HTML
-                <span class="px-3 py-1 bg-lime-400 text-zinc-900 rounded">
-                    {$i}
-                </span>
-            HTML;
-        } else {
-            // Outras páginas
-            $pagination_html .= <<<HTML
-                <a href="?paged={$i}" class="px-3 py-1 bg-lime-200 text-zinc-900 rounded hover:bg-lime-300">
-                    {$i}
-                </a>
-            HTML;
-        }
-    }
-
-    // Link para a próxima página
-    if ($paged < $total_pages) {
-        $next_page = $paged + 1;
-        $pagination_html .= <<<HTML
-            <a href="?paged={$next_page}" class="px-3 py-1 bg-lime-200 text-zinc-900 rounded hover:bg-lime-300">
-                Próxima &raquo;
-            </a>
-        HTML;
-    }
-
-    $pagination_html .= '</nav>';
-
-    return $pagination_html;
-}
-?>
-
 
 <main id="content">
     <!-- Table Section -->
@@ -133,26 +61,38 @@ function generatePaginationHtml($total_pages, $paged) {
             <!-- End Header -->
 
             <?php
-            foreach ($coupons as $coupon) :
-                // component-coupon
-                get_template_part('parts/components/component-coupon');
-                // end component-coupon
-            endforeach;
+            if ($coupons) :
+                foreach ($coupons as $coupon) :
+                    // component-coupon
+                    get_template_part('parts/components/component-coupon');
+                    // end component-coupon
+                endforeach;
+            else :
+                echo '<p>Nenhum cupom disponível no momento.</p>';
+            endif;
             ?>
-
 
         </div>
         <!-- End Card -->
 
-        <?php 
-        echo generatePaginationHtml($total_pages, $paged);
-        ?>
+        <!-- Paginação -->
+        <div class="pagination flex justify-center space-x-2 mt-6">
+            <?php
+            echo paginate_links([
+                'total' => $total_pages,
+                'current' => $paged,
+                'format' => 'page/%#%',
+                'prev_text' => '<span class="px-3 py-2 bg-lime-400 text-white rounded">&laquo; Anterior</span>',
+                'next_text' => '<span class="px-3 py-2 bg-lime-400 text-white rounded">Próxima &raquo;</span>',
+                'before_page_number' => '<span class="px-3 py-2 bg-lime-400 text-white rounded">',
+                'after_page_number' => '</span>',
+            ]);
+            ?>
+        </div>
+        <!-- Fim da Paginação -->
 
     </div>
     <!-- End Table Section -->
-
-
-    
 </main>
 
 <?php get_footer(); ?>
