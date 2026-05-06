@@ -32,7 +32,7 @@ B3D é uma plataforma web completa construída em WordPress, voltada para o univ
 ### 1. Clonagem do Repositório
 O projeto utiliza submódulos Git para plugins e dependências:
 ```bash
-git clone --recurse-submodules https://github.com/b3dfit/b3d.git
+git clone --recurse-submodules [URL_DO_REPOSITORIO]
 ```
 Ou, se já clonado:
 ```bash
@@ -56,6 +56,38 @@ npm install
 
 ### 4. Variáveis de Ambiente
 Crie um arquivo `.env` na raiz do projeto seguindo o padrão do WordPress e as necessidades de banco de dados (ver `DOCUMENTATION.md` para detalhes).
+
+## 🔧 Manutenção de Submódulos
+
+O projeto gerencia diversos plugins via submódulos Git.
+
+### Adicionando um Submódulo
+```bash
+git submodule add [URL_DO_REPOSITORIO_DO_PLUGIN] wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git submodule update --init --recursive
+git add .gitmodules wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git commit -m "Added [NOME_DA_PASTA_DO_PLUGIN] as submodule"
+```
+
+### Atualizando um Submódulo
+```bash
+cd wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git pull origin main
+cd ../../../
+git add wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git commit -m "Updated [NOME_DA_PASTA_DO_PLUGIN] submodule"
+```
+
+### Removendo um Submódulo
+```bash
+git config -f .gitmodules --remove-section submodule.wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git config -f .git/config --remove-section submodule.wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+rm -rf .git/modules/wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+rm -rf wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git add .gitmodules
+git rm -r wp-content/plugins/[NOME_DA_PASTA_DO_PLUGIN]
+git commit -m "Removed [NOME_DA_PASTA_DO_PLUGIN] submodule"
+```
 
 ## 💻 Desenvolvimento
 
